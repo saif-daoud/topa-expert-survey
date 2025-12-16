@@ -1,0 +1,5 @@
+{
+  "action_space": "A set of therapist behaviors organized at two levels.\n**Macro actions** are high-level dialogue strategies or phases performed by the Therapist toward the Patient; for each macro action, there is a list of **micro actions** that are directly actionable at the utterance level and realize the underlying macro action.",
+  "Conversation_states": "The set of features that should be tracked to inform which action the doctor should take next. Please focus on relevance and completness.",
+  "knowledge_graph": "A long-term memory store used across sessions. It keeps the patient information that should be remembered and retrieved later."
+}

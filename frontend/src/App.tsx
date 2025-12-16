@@ -1,14 +1,19 @@
 import { useEffect, useMemo, useState } from "react";
 import JsonView from "@uiw/react-json-view";
+import "./App.css";
 
 type Manifest = {
   components: string[];
   methods: { id: string; name: string; file: string }[];
 };
 
-const API_BASE = import.meta.env.VITE_API_BASE as string; // e.g. https://xxx.workers.dev/api
+type Descriptions = Record<string, string>;
 
-function nowUtc() { return new Date().toISOString(); }
+const API_BASE = import.meta.env.VITE_API_BASE as string;
+
+function nowUtc() {
+  return new Date().toISOString();
+}
 
 async function postJSON(url: string, payload: any) {
   const r = await fetch(url, {
@@ -18,75 +23,334 @@ async function postJSON(url: string, payload: any) {
   });
   const txt = await r.text();
   let j: any = null;
-  try { j = JSON.parse(txt); } catch {}
+  try {
+    j = JSON.parse(txt);
+  } catch {}
   if (!r.ok) throw new Error(j?.error || txt || `HTTP ${r.status}`);
   return j;
 }
 
+// ---------- small deterministic RNG for stable pairs ----------
+function hash32(s: string) {
+  let h = 2166136261;
+  for (let i = 0; i < s.length; i++) {
+    h ^= s.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return h >>> 0;
+}
+function mulberry32(seed: number) {
+  return function () {
+    let t = (seed += 0x6d2b79f5);
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+function stableShuffle<T>(arr: T[], seedStr: string) {
+  const a = [...arr];
+  const rnd = mulberry32(hash32(seedStr));
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(rnd() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
 // champion vs unseen challengers (simple tournament)
 function nextPair(pid: string, component: string, methodIds: string[], history: any[]) {
-  if (methodIds.length < 2) return null;
+  if (!pid || methodIds.length < 2) return null;
 
-  const rows = history.filter(r => r.participant_id === pid && r.component === component);
+  const rows = history
+    .filter((r) => r.participant_id === pid && r.component === component)
+    .sort((a, b) => (a.trial_id ?? 0) - (b.trial_id ?? 0));
 
-  if (rows.length === 0) return [methodIds[0], methodIds[1]];
+  if (rows.length === 0) {
+    const shuffled = stableShuffle(methodIds, `${pid}::${component}`);
+    return [shuffled[0], shuffled[1]];
+  }
 
   const last = rows[rows.length - 1];
   const champion = last.preferred === "left" ? last.left_method_id : last.right_method_id;
 
   const appeared = new Set<string>();
-  for (const r of rows) { appeared.add(r.left_method_id); appeared.add(r.right_method_id); }
+  for (const r of rows) {
+    appeared.add(r.left_method_id);
+    appeared.add(r.right_method_id);
+  }
 
-  const unseen = methodIds.filter(m => !appeared.has(m) && m !== champion);
+  const unseen = methodIds.filter((m) => !appeared.has(m) && m !== champion);
   if (unseen.length === 0) return null;
 
-  return [champion, unseen[rows.length % unseen.length]];
+  const rnd = mulberry32(hash32(`${pid}::${component}::${appeared.size}`));
+  const challenger = unseen[Math.floor(rnd() * unseen.length)];
+  return [champion, challenger];
+}
+
+function prettify(s: string) {
+  return (s || "")
+    .replace(/_/g, " ")
+    .replace(/([a-z])([A-Z])/g, "$1 $2")
+    .replace(/\s+/g, " ")
+    .trim()
+    .replace(/^./, (c) => c.toUpperCase());
+}
+
+function isRecord(x: any): x is Record<string, any> {
+  return x && typeof x === "object" && !Array.isArray(x);
+}
+
+function clipText(x: any, max = 500) {
+  if (typeof x !== "string") return x;
+  return x.length > max ? x.slice(0, max - 1) + "…" : x;
+}
+
+// ---------- viewers ----------
+function ActionSpaceView({ data }: { data: any }) {
+  const macros = Array.isArray(data) ? data : [];
+  const MAX = 80;
+  const shown = macros.slice(0, MAX);
+
+  return (
+    <div className="stack">
+      {macros.length > MAX && (
+        <div className="note">
+          Showing first <b>{MAX}</b> macro actions out of <b>{macros.length}</b>. (Rendering huge lists can slow the page.)
+        </div>
+      )}
+
+      {shown.map((m: any, idx: number) => {
+        const name = m?.name ?? `Macro action ${idx + 1}`;
+        const goal = m?.goal;
+        const desc = m?.description;
+        const micros = Array.isArray(m?.micro_actions) ? m.micro_actions : [];
+
+        return (
+          <details className="accordion" key={idx}>
+            <summary className="accordionSummary">
+              <div className="accTitle">{clipText(name, 160)}</div>
+              {goal ? <div className="accMeta">{clipText(goal, 200)}</div> : <div className="accMeta">Click to expand micro actions</div>}
+            </summary>
+
+            <div className="accordionBody">
+              {(goal || desc) && (
+                <div className="stack">
+                  {goal && (
+                    <div>
+                      <div className="label">Goal</div>
+                      <div className="text">{clipText(goal, 600)}</div>
+                    </div>
+                  )}
+                  {desc && (
+                    <div>
+                      <div className="label">Description</div>
+                      <div className="text">{clipText(desc, 800)}</div>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              <div className="divider" />
+
+              <div className="label">Micro actions</div>
+              {micros.length === 0 ? (
+                <div className="note">No micro actions provided.</div>
+              ) : (
+                <ul className="microList">
+                  {micros.slice(0, 120).map((mi: any, j: number) => (
+                    <li key={j} className="microItem">
+                      <div className="microName">{clipText(mi?.name ?? `Micro action ${j + 1}`, 160)}</div>
+                      {mi?.description && <div className="microDesc">{clipText(mi.description, 900)}</div>}
+                    </li>
+                  ))}
+                  {micros.length > 120 && <li className="note">Showing first 120 micro actions.</li>}
+                </ul>
+              )}
+            </div>
+          </details>
+        );
+      })}
+    </div>
+  );
+}
+
+function TableView({ data }: { data: any }) {
+  const rows = Array.isArray(data) ? data : [];
+  if (rows.length === 0) return <div className="note">No rows.</div>;
+
+  const MAX_ROWS = 220;
+  const shown = rows.slice(0, MAX_ROWS);
+
+  // union keys (bounded)
+  const cols: string[] = [];
+  for (const r of shown.slice(0, 80)) {
+    if (isRecord(r)) {
+      for (const k of Object.keys(r)) if (!cols.includes(k)) cols.push(k);
+    }
+  }
+  const finalCols = cols.length ? cols : ["value"];
+
+  return (
+    <div className="tableWrap">
+      {rows.length > MAX_ROWS && (
+        <div className="note">
+          Showing first <b>{MAX_ROWS}</b> rows out of <b>{rows.length}</b>.
+        </div>
+      )}
+
+      <table className="table">
+        <thead>
+          <tr>
+            {finalCols.map((c) => (
+              <th key={c}>{prettify(c)}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {shown.map((r: any, i: number) => (
+            <tr key={i}>
+              {finalCols.map((c) => {
+                const v = isRecord(r) ? r[c] : c === "value" ? r : undefined;
+                const cell =
+                  typeof v === "string" || typeof v === "number" || typeof v === "boolean" || v == null
+                    ? String(clipText(v ?? "", 500))
+                    : JSON.stringify(v);
+                return <td key={c}>{cell}</td>;
+              })}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+function KeyValueView({ data }: { data: any }) {
+  if (!isRecord(data)) return <div className="note">Unexpected format.</div>;
+  const entries = Object.entries(data);
+
+  return (
+    <div className="kv">
+      {entries.map(([k, v]) => (
+        <div key={k} className="kvRow">
+          <div className="kvKey">{prettify(k)}</div>
+          <div className="kvVal">
+            {typeof v === "string" || typeof v === "number" || typeof v === "boolean" || v == null ? (
+              <span>{String(clipText(v ?? "", 1200))}</span>
+            ) : Array.isArray(v) ? (
+              <TableView data={v} />
+            ) : (
+              <pre className="pre">{JSON.stringify(v, null, 2)}</pre>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function ComponentViewer({ component, value }: { component: string; value: any }) {
+  if (component === "action_space") return <ActionSpaceView data={value} />;
+  if (Array.isArray(value)) return <TableView data={value} />;
+  if (isRecord(value)) return <KeyValueView data={value} />;
+  return <pre className="pre">{JSON.stringify(value, null, 2)}</pre>;
+}
+
+function OptionCard({
+  methodId,
+  methodName,
+  component,
+  value,
+}: {
+  methodId: string;
+  methodName: string;
+  component: string;
+  value: any;
+}) {
+  const [showRaw, setShowRaw] = useState(false);
+
+  return (
+    <div className="card optionCard">
+      <div className="optionHeader">
+        <div>
+          <div className="optionTitle">Option {methodId}</div>
+          <div className="optionSub">{methodName}</div>
+        </div>
+        <button className="btn btnGhost" onClick={() => setShowRaw((s) => !s)}>
+          {showRaw ? "Hide raw JSON" : "Show raw JSON"}
+        </button>
+      </div>
+
+      <div className="optionBody">
+        {showRaw ? (
+          <div className="rawBox">
+            <JsonView value={value ?? {}} collapsed={2} />
+          </div>
+        ) : (
+          <ComponentViewer component={component} value={value} />
+        )}
+      </div>
+    </div>
+  );
 }
 
 export default function App() {
   const [manifest, setManifest] = useState<Manifest | null>(null);
+  const [descriptions, setDescriptions] = useState<Descriptions>({});
   const [dataByMethod, setDataByMethod] = useState<Record<string, any>>({});
-
-  const [participantId, setParticipantId] = useState(() =>
-    localStorage.getItem("pid") || `P${Math.floor(Math.random()*1e6).toString().padStart(6,"0")}`
-  );
 
   const [code, setCode] = useState("");
   const [token, setToken] = useState(() => localStorage.getItem("token") || "");
-  const [status, setStatus] = useState("");
+  const [participantId, setParticipantId] = useState(() => localStorage.getItem("pid") || "");
 
-  const [activeComponent, setActiveComponent] = useState("action_space");
+  const [status, setStatus] = useState<string>("");
+  const [activeComponent, setActiveComponent] = useState<string>("");
+
   const [history, setHistory] = useState<any[]>(() => {
     const raw = localStorage.getItem("votes");
     return raw ? JSON.parse(raw) : [];
   });
 
-  useEffect(() => localStorage.setItem("pid", participantId), [participantId]);
+  const [submitting, setSubmitting] = useState(false);
+
   useEffect(() => localStorage.setItem("votes", JSON.stringify(history)), [history]);
 
   useEffect(() => {
     (async () => {
       const m: Manifest = await (await fetch("./data/manifest.json")).json();
       setManifest(m);
-      setActiveComponent(m.components[0] || "action_space");
+
+      const desc: Descriptions = await (await fetch("./data/component_descriptions.json")).json().catch(() => ({}));
+      setDescriptions(desc);
 
       const loaded: Record<string, any> = {};
       for (const method of m.methods) {
         loaded[method.id] = await (await fetch("./data/" + method.file)).json();
       }
       setDataByMethod(loaded);
-    })();
+
+      setActiveComponent(m.components[0] || "");
+    })().catch((e) => setStatus(`❌ Failed to load data: ${e.message}`));
   }, []);
 
+  const methodNameById = useMemo(() => {
+    const m: Record<string, string> = {};
+    for (const x of manifest?.methods ?? []) m[x.id] = x.name;
+    return m;
+  }, [manifest]);
+
   const methodIds = useMemo(() => {
-    if (!manifest) return [];
+    if (!manifest || !activeComponent) return [];
     return manifest.methods
-      .map(x => x.id)
-      .filter(id => dataByMethod[id] && (activeComponent in dataByMethod[id]));
+      .map((x) => x.id)
+      .filter((id) => dataByMethod[id] && activeComponent in dataByMethod[id]);
   }, [manifest, dataByMethod, activeComponent]);
 
   const pair = useMemo(() => nextPair(participantId, activeComponent, methodIds, history), [
-    participantId, activeComponent, methodIds, history
+    participantId,
+    activeComponent,
+    methodIds,
+    history,
   ]);
 
   const leftId = pair?.[0] || "";
@@ -94,25 +358,40 @@ export default function App() {
   const leftObj = leftId ? dataByMethod[leftId]?.[activeComponent] : null;
   const rightObj = rightId ? dataByMethod[rightId]?.[activeComponent] : null;
 
-  const trialId = useMemo(() => {
-    const rows = history.filter(r => r.participant_id === participantId);
-    return rows.reduce((mx, r) => Math.max(mx, r.trial_id), 0) + 1;
-  }, [history, participantId]);
+  const progress = useMemo(() => {
+    const rows = history.filter((r) => r.participant_id === participantId && r.component === activeComponent);
+    const seen = rows.length;
+    const total = Math.max(methodIds.length - 1, 0);
+    return { seen, total };
+  }, [history, participantId, activeComponent, methodIds.length]);
 
   async function startSurvey() {
     try {
-      setStatus("Checking code…");
+      setSubmitting(true);
+      setStatus("Checking access code…");
       const res = await postJSON(`${API_BASE}/start`, { code });
+
       localStorage.setItem("token", res.token);
+      localStorage.setItem("pid", res.participant_id);
+
       setToken(res.token);
-      setStatus("✅ Access granted.");
+      setParticipantId(res.participant_id);
+
+      setStatus("✅ Access granted. Your session is saved in this browser.");
     } catch (e: any) {
       setStatus(`❌ ${e.message}`);
+    } finally {
+      setSubmitting(false);
     }
   }
 
   async function vote(preferred: "left" | "right") {
-    if (!pair) return;
+    if (!pair || !token || !participantId) return;
+
+    const trialId =
+      history
+        .filter((r) => r.participant_id === participantId)
+        .reduce((mx, r) => Math.max(mx, r.trial_id ?? 0), 0) + 1;
 
     const voteObj = {
       participant_id: participantId,
@@ -126,98 +405,166 @@ export default function App() {
       page_url: window.location.href,
     };
 
-    // always save locally first
-    setHistory(prev => [...prev, voteObj]);
+    setHistory((prev) => [...prev, voteObj]);
 
     try {
+      setSubmitting(true);
       setStatus("Submitting…");
       await postJSON(`${API_BASE}/vote`, { token, vote: voteObj });
       setStatus("✅ Submitted.");
     } catch (e: any) {
       setStatus(`⚠️ Submit failed (saved locally): ${e.message}`);
+    } finally {
+      setSubmitting(false);
     }
   }
 
-  if (!manifest) return <div style={{ padding: 16 }}>Loading…</div>;
+  function logout() {
+    localStorage.removeItem("token");
+    localStorage.removeItem("pid");
+    setToken("");
+    setParticipantId("");
+    setStatus("Logged out.");
+  }
+
+  if (!manifest) {
+    return (
+      <div className="app">
+        <div className="container">
+          <div className="card">
+            <div className="title">Loading…</div>
+            <div className="note">Fetching manifest and method outputs.</div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   // gate
-  if (!token) {
+  if (!token || !participantId) {
     return (
-      <div style={{ padding: 16, fontFamily: "system-ui, sans-serif" }}>
-        <h2>TOPA Expert Survey</h2>
-        <p>Enter your access code to start.</p>
-        <input value={code} onChange={e => setCode(e.target.value)} style={{ padding: 8, width: 260 }} />
-        <button onClick={startSurvey} style={{ marginLeft: 10, padding: "8px 12px" }}>Start</button>
-        <div style={{ marginTop: 12, opacity: 0.85 }}>{status}</div>
+      <div className="app">
+        <div className="container narrow">
+          <div className="card">
+            <div className="title">TOPA Expert Survey</div>
+            <div className="intro">
+              <p>
+                <b>Welcome, and thank you for contributing your expertise.</b>
+              </p>
+              <p>
+                You will review CBT-related outputs (Action Space, Conversation State, Knowledge Graph) extracted from clinical
+                resources by different methods, and select the better option.
+              </p>
+              <p className="note">When ready, enter the access code to begin.</p>
+            </div>
+
+            <div className="formRow">
+              <input
+                className="input"
+                value={code}
+                onChange={(e) => setCode(e.target.value)}
+                placeholder="Access code"
+                autoComplete="one-time-code"
+              />
+              <button className="btn btnPrimary" onClick={startSurvey} disabled={!code || submitting}>
+                {submitting ? "Starting…" : "Start"}
+              </button>
+            </div>
+
+            {status && <div className="status">{status}</div>}
+          </div>
+        </div>
       </div>
     );
   }
 
   const complete = pair === null;
+  const compDesc = descriptions?.[activeComponent] || "";
 
   return (
-    <div style={{ padding: 16, fontFamily: "system-ui, sans-serif" }}>
-      <h2>TOPA Expert Survey</h2>
+    <div className="app">
+      <div className="container">
+        <div className="topbar">
+          <div>
+            <div className="title">TOPA Expert Survey</div>
+            <div className="subtitle">Choose the option that best reflects clinically meaningful CBT practice.</div>
+          </div>
 
-      <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-        <label>
-          Participant ID{" "}
-          <input value={participantId} onChange={e => setParticipantId(e.target.value)} style={{ padding: 6, width: 180 }} />
-        </label>
-        <button
-          onClick={() => { localStorage.removeItem("token"); setToken(""); }}
-          style={{ padding: "6px 10px" }}
-        >
-          Log out
-        </button>
-      </div>
+          <div className="topbarRight">
+            <button className="btn btnGhost" onClick={logout}>
+              Log out
+            </button>
+          </div>
+        </div>
 
-      <div style={{ marginTop: 10, opacity: 0.85 }}>{status}</div>
+        {status && <div className="status">{status}</div>}
 
-      {/* tabs */}
-      <div style={{ marginTop: 14, display: "flex", gap: 8, flexWrap: "wrap" }}>
-        {manifest.components.map(c => (
-          <button
-            key={c}
-            onClick={() => setActiveComponent(c)}
-            style={{
-              padding: "8px 10px",
-              borderRadius: 10,
-              border: "1px solid #444",
-              background: c === activeComponent ? "#222" : "transparent",
-              color: "inherit",
-              cursor: "pointer"
-            }}
-          >
-            {c}
-          </button>
-        ))}
-      </div>
+        <div className="toolbar">
+          <div className="toolbarBlock">
+            <div className="label">Component</div>
+            <select className="select" value={activeComponent} onChange={(e) => setActiveComponent(e.target.value)}>
+              {manifest.components.map((c) => (
+                <option key={c} value={c}>
+                  {prettify(c)}
+                </option>
+              ))}
+            </select>
+          </div>
 
-      <div style={{ marginTop: 16 }}>
+          <div className="toolbarBlock">
+            <div className="label">Progress</div>
+            <div className="pill">
+              {progress.seen}/{progress.total} comparisons
+            </div>
+          </div>
+
+          <div className="toolbarBlock grow">
+            <div className="label">Description</div>
+            <div className="descBox">{compDesc || <span className="note">No description found for this component.</span>}</div>
+          </div>
+        </div>
+
         {complete ? (
-          <div style={{ padding: 12, border: "1px solid #444", borderRadius: 12 }}>
-            ✅ Completed comparisons for <b>{activeComponent}</b>.
+          <div className="card">
+            <div className="titleSm">✅ Completed</div>
+            <div className="text">
+              You’ve completed comparisons for <b>{prettify(activeComponent)}</b>. You can switch to another component using the dropdown.
+            </div>
           </div>
         ) : (
           <>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-              <div style={{ border: "1px solid #444", borderRadius: 12, padding: 10 }}>
-                <div style={{ fontWeight: 700, marginBottom: 8 }}>Option {leftId}</div>
-                <JsonView value={leftObj ?? {}} collapsed={1} />
-              </div>
-              <div style={{ border: "1px solid #444", borderRadius: 12, padding: 10 }}>
-                <div style={{ fontWeight: 700, marginBottom: 8 }}>Option {rightId}</div>
-                <JsonView value={rightObj ?? {}} collapsed={1} />
-              </div>
+            <div className="grid2">
+              <OptionCard
+                methodId={leftId}
+                methodName={methodNameById[leftId] || "Method"}
+                component={activeComponent}
+                value={leftObj}
+              />
+              <OptionCard
+                methodId={rightId}
+                methodName={methodNameById[rightId] || "Method"}
+                component={activeComponent}
+                value={rightObj}
+              />
             </div>
 
-            <div style={{ marginTop: 12, display: "flex", gap: 10 }}>
-              <button onClick={() => vote("left")} style={{ padding: "10px 12px" }}>Prefer LEFT</button>
-              <button onClick={() => vote("right")} style={{ padding: "10px 12px" }}>Prefer RIGHT</button>
+            <div className="voteBar">
+              <button className="btn btnPrimary" onClick={() => vote("left")} disabled={submitting}>
+                Prefer LEFT
+              </button>
+              <button className="btn btnPrimary" onClick={() => vote("right")} disabled={submitting}>
+                Prefer RIGHT
+              </button>
+              <div className="note">
+                Tip: In <b>Action Space</b>, click a macro action to expand its micro actions.
+              </div>
             </div>
           </>
         )}
+
+        <div className="footerNote">
+          Your session is anonymous. A unique participant id is generated server-side and is not shown in the interface.
+        </div>
       </div>
     </div>
   );

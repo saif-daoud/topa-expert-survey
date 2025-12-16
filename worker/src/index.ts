@@ -1,16 +1,18 @@
 export type Env = {
-  DB: D1Database; // <-- D1 binding name in wrangler.toml
+  DB: D1Database;
   TOKEN_SECRET: string;
   ALLOWED_ORIGINS: string; // comma-separated origins like https://USER.github.io
 };
 
+const JSON_HEADERS = { "Content-Type": "application/json" };
+
 function cors(origin: string) {
   return {
+    ...JSON_HEADERS,
     "Access-Control-Allow-Origin": origin,
     "Access-Control-Allow-Methods": "POST,OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type",
     "Access-Control-Max-Age": "86400",
-    "Content-Type": "application/json",
   };
 }
 
@@ -28,10 +30,6 @@ function base64UrlEncode(bytes: Uint8Array) {
   return btoa(s).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/g, "");
 }
 
-function base64UrlEncodeString(str: string) {
-  return base64UrlEncode(new TextEncoder().encode(str));
-}
-
 async function sha256Hex(s: string) {
   const bytes = new TextEncoder().encode(s);
   const digest = await crypto.subtle.digest("SHA-256", bytes);
@@ -40,7 +38,6 @@ async function sha256Hex(s: string) {
     .join("");
 }
 
-// ---- simple HMAC token (for survey session) ----
 async function hmacSign(secret: string, data: string) {
   const key = await crypto.subtle.importKey(
     "raw",
@@ -84,7 +81,7 @@ async function verifyToken(env: Env, token: string) {
 // ---- D1 helpers ----
 type AccessCodeRow = {
   code_hash: string;
-  active: number; // 0/1
+  active: number;
   uses_remaining: number | null;
   expires_at: string | null;
 };
@@ -94,18 +91,28 @@ async function dbGetAccessCode(env: Env, codeHash: string): Promise<AccessCodeRo
     .prepare("SELECT code_hash, active, uses_remaining, expires_at FROM access_codes WHERE code_hash = ?")
     .bind(codeHash)
     .first<AccessCodeRow>();
-
   return row ?? null;
 }
 
 async function dbDecrementUsesRemaining(env: Env, codeHash: string): Promise<void> {
-  // Only decrement if uses_remaining is not NULL and > 0
   await env.DB
     .prepare(
       "UPDATE access_codes SET uses_remaining = uses_remaining - 1 WHERE code_hash = ? AND uses_remaining IS NOT NULL AND uses_remaining > 0"
     )
     .bind(codeHash)
     .run();
+}
+
+async function allocateParticipantId(env: Env): Promise<string> {
+  const createdAt = new Date().toISOString();
+  const res = await env.DB
+    .prepare("INSERT INTO participants (created_at) VALUES (?)")
+    .bind(createdAt)
+    .run();
+
+  const n = Number(res?.meta?.last_row_id || 0);
+  if (!Number.isFinite(n) || n <= 0) throw new Error("Failed to allocate participant id");
+  return `P${String(n).padStart(5, "0")}`;
 }
 
 type VoteRow = {
@@ -115,7 +122,7 @@ type VoteRow = {
   trial_id: number;
   left_method_id: string;
   right_method_id: string;
-  preferred: string; // we will store normalized "left" | "right"
+  preferred: string;
   timestamp_utc: string;
   user_agent?: string;
   page_url?: string;
@@ -124,15 +131,12 @@ type VoteRow = {
 
 function normalizePreferred(p: string): "left" | "right" {
   const v = (p || "").toLowerCase().trim();
-  // accept older naming too
   if (v === "left" || v === "top") return "left";
   if (v === "right" || v === "bottom") return "right";
-  // fallback: keep it strict to avoid DB CHECK failures
   throw new Error("preferred must be one of: left/right (or top/bottom)");
 }
 
 async function dbUpsertVote(env: Env, row: VoteRow): Promise<void> {
-  // Upsert using SQLite ON CONFLICT
   await env.DB
     .prepare(`
       INSERT INTO votes (
@@ -171,26 +175,16 @@ async function dbUpsertVote(env: Env, row: VoteRow): Promise<void> {
 export default {
   async fetch(req: Request, env: Env): Promise<Response> {
     const origin = req.headers.get("Origin") || "";
+    const allowed = originAllowed(env, origin);
 
     if (req.method === "OPTIONS") {
-      return new Response(null, {
-        status: 204,
-        headers: originAllowed(env, origin) ? cors(origin) : {},
-      });
+      return new Response(null, { status: 204, headers: allowed ? cors(origin) : {} });
     }
-
-    if (!originAllowed(env, origin)) {
-      return new Response(JSON.stringify({ error: "Origin not allowed" }), {
-        status: 403,
-        headers: cors(origin),
-      });
+    if (!allowed) {
+      return new Response(JSON.stringify({ error: "Origin not allowed" }), { status: 403, headers: JSON_HEADERS });
     }
-
     if (req.method !== "POST") {
-      return new Response(JSON.stringify({ error: "Method not allowed" }), {
-        status: 405,
-        headers: cors(origin),
-      });
+      return new Response(JSON.stringify({ error: "Method not allowed" }), { status: 405, headers: cors(origin) });
     }
 
     const url = new URL(req.url);
@@ -200,49 +194,33 @@ export default {
     if (path.endsWith("/api/start")) {
       const body = await req.json().catch(() => ({}));
       const code = String(body.code || "").trim();
-      if (!code) {
-        return new Response(JSON.stringify({ error: "Missing code" }), { status: 400, headers: cors(origin) });
-      }
+      if (!code) return new Response(JSON.stringify({ error: "Missing code" }), { status: 400, headers: cors(origin) });
 
       const codeHash = await sha256Hex(code);
-
       const doc = await dbGetAccessCode(env, codeHash);
-      if (!doc) {
-        return new Response(JSON.stringify({ error: "Invalid code" }), { status: 403, headers: cors(origin) });
-      }
-
-      const active = doc.active === 1;
-      if (!active) {
-        return new Response(JSON.stringify({ error: "Code inactive" }), { status: 403, headers: cors(origin) });
-      }
+      if (!doc) return new Response(JSON.stringify({ error: "Invalid code" }), { status: 403, headers: cors(origin) });
+      if (doc.active !== 1) return new Response(JSON.stringify({ error: "Code inactive" }), { status: 403, headers: cors(origin) });
 
       if (doc.uses_remaining !== null && doc.uses_remaining <= 0) {
-        return new Response(JSON.stringify({ error: "Code has no remaining uses" }), {
-          status: 403,
-          headers: cors(origin),
-        });
+        return new Response(JSON.stringify({ error: "Code has no remaining uses" }), { status: 403, headers: cors(origin) });
       }
 
       if (doc.expires_at) {
         const expMs = Date.parse(doc.expires_at);
-        if (!Number.isFinite(expMs)) {
-          return new Response(JSON.stringify({ error: "Bad expires_at format in DB" }), {
-            status: 500,
-            headers: cors(origin),
-          });
-        }
-        if (Date.now() > expMs) {
-          return new Response(JSON.stringify({ error: "Code expired" }), { status: 403, headers: cors(origin) });
-        }
+        if (!Number.isFinite(expMs)) return new Response(JSON.stringify({ error: "Bad expires_at format in DB" }), { status: 500, headers: cors(origin) });
+        if (Date.now() > expMs) return new Response(JSON.stringify({ error: "Code expired" }), { status: 403, headers: cors(origin) });
       }
 
-      // decrement uses_remaining if present
-      if (doc.uses_remaining !== null) {
-        await dbDecrementUsesRemaining(env, codeHash);
-      }
+      if (doc.uses_remaining !== null) await dbDecrementUsesRemaining(env, codeHash);
 
-      const token = await makeToken(env, { codeHash, exp: Date.now() + 12 * 60 * 60 * 1000 });
-      return new Response(JSON.stringify({ ok: true, token }), { status: 200, headers: cors(origin) });
+      const participant_id = await allocateParticipantId(env);
+      const token = await makeToken(env, {
+        codeHash,
+        participant_id,
+        exp: Date.now() + 12 * 60 * 60 * 1000,
+      });
+
+      return new Response(JSON.stringify({ ok: true, token, participant_id }), { status: 200, headers: cors(origin) });
     }
 
     // POST /api/vote
@@ -251,12 +229,11 @@ export default {
       const token = String(body.token || "");
       const vote = body.vote;
 
-      if (!token || !vote) {
-        return new Response(JSON.stringify({ error: "Missing token or vote" }), { status: 400, headers: cors(origin) });
-      }
+      if (!token || !vote) return new Response(JSON.stringify({ error: "Missing token or vote" }), { status: 400, headers: cors(origin) });
 
+      let payload: any;
       try {
-        await verifyToken(env, token);
+        payload = await verifyToken(env, token);
       } catch (e: any) {
         return new Response(JSON.stringify({ error: e.message || "Invalid token" }), { status: 403, headers: cors(origin) });
       }
@@ -266,6 +243,11 @@ export default {
         if (vote[k] === undefined || vote[k] === null || vote[k] === "") {
           return new Response(JSON.stringify({ error: `Missing field: ${k}` }), { status: 400, headers: cors(origin) });
         }
+      }
+
+      // Bind vote participant_id to token participant_id (prevents spoofing)
+      if (String(vote.participant_id) !== String(payload.participant_id)) {
+        return new Response(JSON.stringify({ error: "participant_id does not match session token" }), { status: 403, headers: cors(origin) });
       }
 
       let preferred: "left" | "right";
@@ -279,7 +261,7 @@ export default {
       const component = String(vote.component);
       const trial = Number(vote.trial_id);
 
-      const docId = `${participant}__${component}__${trial}`; // safe primary key
+      const docId = `${participant}__${component}__${trial}`;
 
       const row: VoteRow = {
         id: docId,
