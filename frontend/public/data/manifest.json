@@ -1,0 +1,13 @@
+{
+  "components": ["action_space", "conversation_state", "knowledge_graph"],
+  "methods": [
+    { "id": "A", "name": "Method A", "file": "methods/Chatgpt.json" },
+    { "id": "B", "name": "Method B", "file": "methods/DeepSeek.json" },
+    { "id": "C", "name": "Method C", "file": "methods/Chap-Seq.json" },
+    { "id": "D", "name": "Method D", "file": "methods/LC_Full.json" },
+    { "id": "E", "name": "Method E", "file": "methods/Chunk-RAG.json" },
+    { "id": "F", "name": "Method F", "file": "methods/Policies.json" },
+    { "id": "G", "name": "Method G", "file": "methods/TOPA-Per-Book.json" },
+    { "id": "H", "name": "Method H", "file": "methods/TOPA-Full.json" }
+  ]
+}

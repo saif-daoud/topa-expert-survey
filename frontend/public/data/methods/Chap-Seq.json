@@ -1,0 +1,627 @@
+{
+  "action_space": [
+    {
+      "name": "Conduct CBT Session",
+      "goal": "Deliver structured, collaborative psychotherapy to identify, evaluate, and modify core beliefs and behaviors, prepare patient for self-therapy, manage transitions, systematically assign/review homework (including worksheets, case write-ups, standardized scales, recordings), and continually monitor/remediate problems. Integrate individualized assessment, session-specific agenda, therapist training and supervision, feedback solicitation, and adaptive strategy selection for stuck points.",
+      "description": "Execute a CBT session including rapport-building, diagnosis/specification with formal write-up, training in basic and advanced CBT techniques (monitoring moods, automatic thoughts, worksheets, conceptualization diagrams, credit lists, coping cards, self-comparison, activity scheduling, decision-making, and role play), session recording and review, patient consent procedures, session rating via standardized scales (Cognitive Therapy Rating Scale), homework planning and problem solving. Use self-experience and peer supervision to correct and anticipate obstacles typical for patients. Monitor and repair alliance through transparency and rationale explanation. Normalize obstacles and setbacks, incorporate self-care and professional development.",
+      "source": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "micro_actions": [
+        {
+          "name": "Practice and Review CBT Techniques",
+          "description": "Therapist personally practices identification of automatic thoughts, mood monitoring, use of worksheets, and basic intervention techniques; compares self-experience with patient difficulties and uses this understanding to inform presentation and troubleshooting.",
+          "source": [
+            20
+          ]
+        },
+        {
+          "name": "Formulate and Revise Treatment Plan",
+          "description": "Evaluate diagnosis, presenting problems, goals, and patient characteristics; create and continually update individualized treatment plan with specific session objectives and strategies, incorporating case write-ups, review of standardized scales, and supervisor feedback.",
+          "source": [
+            18,
+            19,
+            20
+          ]
+        },
+        {
+          "name": "Prioritize and Set Session Agenda",
+          "description": "Collaboratively select and order agenda items, focusing on most distressing, recurrent, and solvable problems; adapt as needed based on session progress, feedback, therapist self-experience, and anticipated obstacles.",
+          "source": [
+            16,
+            17,
+            18,
+            19,
+            20
+          ]
+        },
+        {
+          "name": "Specify and Analyze Problems",
+          "description": "Define key problem situations in terms of triggers, automatic thoughts, emotions, behaviors, and cognitive distortions; apply Cognitive Conceptualization Diagram, case write-ups, and formal assessment instruments, with therapist self-practice experience.",
+          "source": [
+            18,
+            19,
+            20
+          ]
+        },
+        {
+          "name": "Monitor and Adjust Session Focus",
+          "description": "Continuously reflect on therapy goals, progress, therapist competence (via rating scales), agenda priority, time management, and detection of therapeutic problems/stuck points, before, during, and after session using feedback, tape review, and supervision.",
+          "source": [
+            18,
+            19,
+            20
+          ]
+        },
+        {
+          "name": "Solicit and Evaluate Patient Feedback",
+          "description": "Actively seek explicit and implicit feedback, direct inquiry about confusion, disagreement, or obstacles (motivation, time, hope), and use feedback, session recordings, and standardized scales to uncover problems, therapy obstacles, and skill gaps.",
+          "source": [
+            19,
+            20
+          ]
+        },
+        {
+          "name": "Obtain Consent and Record Sessions",
+          "description": "Explain rationale for session recording, obtain written consent, record sessions for peer/supervisor review and self-rating using Cognitive Therapy Scale to evaluate and improve therapist competence and treatment effectiveness.",
+          "source": [
+            20
+          ]
+        },
+        {
+          "name": "Select and Implement Techniques",
+          "description": "Choose and initiate targeted strategies (e.g., problem solving, Socratic questioning, guided discovery, cognitive continuum, behavioral experiments, activity scheduling, credit lists, role play, coping cards, decision-making worksheets), based on analyzed problem, patient/therapist experience, session phase, and anticipated/actual obstacles; refer to standardized scales and supervision for improvement.",
+          "source": [
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20
+          ]
+        },
+        {
+          "name": "Assign and Review Homework",
+          "description": "Design and review collaborative homework tasks aligned with treatment plan and session progress; include worksheets, bibliotherapy, problem-solving assignments, activity charts, consent for recordings, and review of case write-ups. Monitor completion for obstacles and as cue to underlying therapeutic problems.",
+          "source": [
+            16,
+            17,
+            18,
+            19,
+            20
+          ]
+        },
+        {
+          "name": "Employ and Adapt Remediation Strategies",
+          "description": "Implement targeted actions to address therapeutic problems—revising diagnosis/conceptualization/plan/technique, enhancing alliance, skill teaching/socialization, restructuring session, seeking supervision and training, using session rating scales, and accessing CBT resources.",
+          "source": [
+            19,
+            20
+          ]
+        },
+        {
+          "name": "Utilize CBT Resources and Supervision",
+          "description": "Access training programs, supervisor/peer consultation, standardized rating scales and manuals, professional organizations, and bibliotherapy for ongoing education and skill development. Guide patient toward self-help resources.",
+          "source": [
+            20
+          ]
+        },
+        {
+          "name": "Phase-Appropriate Intervention",
+          "description": "Match therapeutic activities to session phase and therapist competence—early focus on alliance and socialization; middle on skill consolidation and troubleshooting; final on autonomy, self-therapy, relapse prevention, with supervision and rating scale use throughout.",
+          "source": [
+            17,
+            18,
+            19,
+            20
+          ]
+        },
+        {
+          "name": "Reinforce and Repair Therapeutic Alliance",
+          "description": "Regularly assess alliance quality and automatically elicit/resolve cognitions interfering with alliance; repair trust, provide rationale, and view difficulties as opportunities for growth, using feedback from patients and supervision/peer review.",
+          "source": [
+            0,
+            1,
+            3,
+            4,
+            7,
+            13,
+            14,
+            16,
+            17,
+            18,
+            19,
+            20
+          ]
+        }
+      ]
+    }
+  ],
+  "Conversation_states": [
+    {
+      "Variable Name": "Therapeutic Alliance Strength",
+      "Description": "Quality of trust, empathy, and collaboration between patient and therapist, highly predictive of positive outcomes; affects patient receptiveness to belief evaluation/modification, readiness for homework and termination. Weak alliance, non-consent, or negative feedback may indicate problems requiring supervision or further skill training.",
+      "Values": "Low, Moderate, High",
+      "Choices": [
+        "Low",
+        "Moderate",
+        "High"
+      ],
+      "source": [
+        0,
+        1,
+        3,
+        4,
+        6,
+        7,
+        13,
+        14,
+        16,
+        17,
+        18,
+        19,
+        20
+      ]
+    },
+    {
+      "Variable Name": "Therapist Competence",
+      "Description": "Level of therapist's skill, knowledge, and preparedness to apply CBT techniques and procedures, monitored using Cognitive Therapy Rating Scale, self-practice, supervision, and ongoing training; low ratings call for further education and peer review.",
+      "Values": "Inadequate, Mediocre, Satisfactory, Good, Very Good, Excellent",
+      "Choices": [
+        "Inadequate",
+        "Mediocre",
+        "Satisfactory",
+        "Good",
+        "Very Good",
+        "Excellent"
+      ],
+      "source": [
+        20
+      ]
+    },
+    {
+      "Variable Name": "Treatment Plan Specificity",
+      "Description": "Level of detail and individualization in the treatment plan, from broad goals (remission, relapse prevention, skill acquisition) to session-specific steps and problem analyses; plans must be actively revised based on feedback, homework completion, and standardized scales.",
+      "Values": "Generic, Broad, Individualized, Detailed",
+      "Choices": [
+        "Generic",
+        "Broad",
+        "Individualized",
+        "Detailed"
+      ],
+      "source": [
+        18,
+        19,
+        20
+      ]
+    },
+    {
+      "Variable Name": "Session Phase",
+      "Description": "Current phase of therapy: beginning, middle, or final; determines focus and therapist/patient role in planning, skill acquisition, belief work, preparation for termination, and monitoring of competence through ratings/supervision.",
+      "Values": "Beginning, Middle, Final",
+      "Choices": [
+        "Beginning",
+        "Middle",
+        "Final"
+      ],
+      "source": [
+        17,
+        18,
+        20
+      ]
+    },
+    {
+      "Variable Name": "Session Agenda Priority",
+      "Description": "Degree to which session agenda aligns with most pressing, solvable, and distressing problems for patient; regulates time allocation, therapy focus, and adjustment based on therapist self-experience and monitoring.",
+      "Values": "Low, Moderate, High",
+      "Choices": [
+        "Low",
+        "Moderate",
+        "High"
+      ],
+      "source": [
+        16,
+        17,
+        18,
+        19,
+        20
+      ]
+    },
+    {
+      "Variable Name": "Problem Specification Status",
+      "Description": "Extent to which current problem(s) are defined and selected for session focus (well-specified, too broad, postponed, omitted); requires diagrams, case write-up, and session review.",
+      "Values": "Not specified, Broadly specified, Well specified, Postponed, Omitted",
+      "Choices": [
+        "Not specified",
+        "Broadly specified",
+        "Well specified",
+        "Postponed",
+        "Omitted"
+      ],
+      "source": [
+        18,
+        19,
+        20
+      ]
+    },
+    {
+      "Variable Name": "Problem Analysis Completeness",
+      "Description": "Quality and thoroughness of therapist’s breakdown of problem situations, automatic thoughts, emotions, behaviors, distortions, and strategies, using tools such as Cognitive Conceptualization Diagram and rating scales.",
+      "Values": "Incomplete, Partial, Detailed",
+      "Choices": [
+        "Incomplete",
+        "Partial",
+        "Detailed"
+      ],
+      "source": [
+        18,
+        19,
+        20
+      ]
+    },
+    {
+      "Variable Name": "Technique Selection Effectiveness",
+      "Description": "How well therapist's chosen interventions match patient needs, session progress, and problem specifications; low effectiveness signals need for remediation, peer review, or training.",
+      "Values": "Poor, Adequate, Optimal",
+      "Choices": [
+        "Poor",
+        "Adequate",
+        "Optimal"
+      ],
+      "source": [
+        18,
+        19,
+        20
+      ]
+    },
+    {
+      "Variable Name": "Session Monitoring Thoroughness",
+      "Description": "Extent of therapist's active reflection, feedback solicitation, and use of scales/supervision to evaluate session status, progress, alliance, and detection of problems.",
+      "Values": "Minimal, Moderate, High",
+      "Choices": [
+        "Minimal",
+        "Moderate",
+        "High"
+      ],
+      "source": [
+        18,
+        19,
+        20
+      ]
+    },
+    {
+      "Variable Name": "Homework Completion",
+      "Description": "Degree to which patient completes cognitive and behavioral homework assignments—including CBW updating, evidence collection, relapse prevention planning, self-therapy, credit list, behavioral experiments, daily self-monitoring, activity chart, relaxation, bibliotherapy, note review, and worksheet completion. Therapist proficiency and experience highlight obstacles (e.g., time, motivation, energy, hope). Incomplete homework may signal therapeutic problems.",
+      "Values": "Not started, Partial, Completed",
+      "Choices": [
+        "Not started",
+        "Partial",
+        "Completed"
+      ],
+      "source": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ]
+    },
+    {
+      "Variable Name": "Therapeutic Problem Presence",
+      "Description": "Indicates existence of a problem or stuck point in therapy (nonadherence, alliance rupture, poor competence, ineffective planning, session structure issues, therapist skill gap, external factors); call for remediation via supervision, training, and skill development.",
+      "Values": "Present, Absent",
+      "Choices": [
+        "Present",
+        "Absent"
+      ],
+      "source": [
+        19,
+        20
+      ]
+    },
+    {
+      "Variable Name": "Remediation Strategy Selection",
+      "Description": "Monitors which remediation actions selected/implemented (feedback solicitation, plan/technique revision, alliance repair, skill teaching/socialization, session restructuring, therapist self-reflection, supervision/training, use of scales/resources).",
+      "Values": "None, Partial, Targeted, Comprehensive",
+      "Choices": [
+        "None",
+        "Partial",
+        "Targeted",
+        "Comprehensive"
+      ],
+      "source": [
+        19,
+        20
+      ]
+    },
+    {
+      "Variable Name": "Patient Feedback Clarity",
+      "Description": "Degree to which patient explicitly provides feedback (verbal, nonverbal, direct, indirect, through session tapes or scales) influencing detection and specification of therapeutic problems, and therapist competence appraisal.",
+      "Values": "Absent, Indirect, Direct",
+      "Choices": [
+        "Absent",
+        "Indirect",
+        "Direct"
+      ],
+      "source": [
+        19,
+        20
+      ]
+    }
+  ],
+  "knowledge_graph": [
+    {
+      "type": "Patient",
+      "description": "Individual receiving CBT treatment.",
+      "source": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ]
+    },
+    {
+      "type": "Therapist",
+      "description": "Professional who conceptualizes, guides, and facilitates CBT, ensuring alliance, collaboration, individualized assessment, treatment planning, and self-reflection. Therapists should first practice CBT skills themselves to anticipate patient obstacles and improve proficiency; must be open to training, supervision, and continual self-improvement.",
+      "source": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ]
+    },
+    {
+      "type": "Core Belief",
+      "description": "Fundamental, global, rigid belief about self, others, or world, often unarticulated and functioning as a schema lens, mediating interpretation of events; may be categorized as helplessness, unlovability, or worthlessness; develop from childhood experiences, family dynamics, and personal history. Change at the intellectual level precedes emotional change and requires specific identification and modification techniques such as Core Belief Worksheets and examining evidence for/against beliefs.",
+      "source": [
+        1,
+        2,
+        3,
+        10,
+        12,
+        13,
+        14,
+        17,
+        20
+      ]
+    },
+    {
+      "type": "Schema",
+      "description": "Cognitive structure containing specific core beliefs; functions as organizing lenses through which patients screen and interpret incoming data. Positive schemas can be deactivated, and negative schemas activated in distress, causing selective attention to confirming data and ignoring or reframing disconfirming evidence.",
+      "source": [
+        13,
+        14,
+        20
+      ]
+    },
+    {
+      "type": "Therapeutic Alliance",
+      "description": "Collaborative, trusting relationship between therapist and patient, essential for progress, influencing engagement, agenda setting, troubleshooting, and effective treatment planning. Problems in alliance require remediation and self-reflection; consent, transparency regarding CBT techniques, and collaborative agreement are emphasized.",
+      "source": [
+        0,
+        1,
+        3,
+        4,
+        6,
+        7,
+        13,
+        14,
+        16,
+        17,
+        18,
+        19,
+        20
+      ]
+    },
+    {
+      "type": "Treatment Plan",
+      "description": "Broad and specific strategy created by the therapist, based on diagnosis, symptoms, presenting problems, and patient goals—tailored to the individual and continually revised. Should include problem list, goals, interventions (cognitive and behavioral), and strategy for review and improvement, informed by cognitive case write-up and standardized rating scales.",
+      "source": [
+        18,
+        19,
+        20
+      ]
+    },
+    {
+      "type": "Session Agenda",
+      "description": "Collaboratively prioritized list of therapy topics within each session, designed to address the most distressing, solvable, and relevant problems for symptom relief and progress. Therapists should practice agenda setting and compare their experience with anticipated patient difficulties.",
+      "source": [
+        16,
+        17,
+        18,
+        19,
+        20
+      ]
+    },
+    {
+      "type": "Therapy Phase",
+      "description": "Distinct stages of CBT (beginning, middle, final), each characterized by specific therapeutic focuses: alliance building, skill teaching, belief modification, preparation for termination, and relapse prevention. Connection to therapist competence emphasized; ongoing training and feedback recommended.",
+      "source": [
+        17,
+        18,
+        20
+      ]
+    },
+    {
+      "type": "Problem Specification",
+      "description": "Determining and defining the specific problem(s) to address in therapy, with criteria for whether to pursue, postpone, or adapt discussion based on distress, recurrence, and patient engagement; use of standardized case write-ups, diagnostic checklists, and rating scales encouraged.",
+      "source": [
+        18,
+        19,
+        20
+      ]
+    },
+    {
+      "type": "Problem Analysis",
+      "description": "Critical breakdown of problems into situations, automatic thoughts, emotions, behaviors, physiological reactions, cognitive distortions, and targeted strategies. Includes use of tools like Cognitive Conceptualization Diagram and Thought Records.",
+      "source": [
+        18,
+        19,
+        20
+      ]
+    },
+    {
+      "type": "Diagnostic Conceptualization",
+      "description": "Therapist-generated cognitive formulation accounting for diagnosis, history, symptoms, goals, and patient characteristics, using formal write-ups and diagrams; foundational for constructing individualized treatment plans, reviewed and refined with feedback and standardized scales.",
+      "source": [
+        18,
+        19,
+        20
+      ]
+    },
+    {
+      "type": "Homework",
+      "description": "Collaboratively designed, individualized assignments spanning cognitive and behavioral domains—including bibliotherapy, monitoring and evaluating automatic thoughts, problem solving, behavioral activation, skills practice, experiments, activity chart, worksheets (e.g., Thought Record, Core Belief Worksheet, credit lists), treatment note review, and consent for audio/video recording. Completeness monitored for obstacles such as motivation, time, and energy.",
+      "source": [
+        16,
+        17,
+        18,
+        19,
+        20
+      ]
+    },
+    {
+      "type": "Problem Solving Technique",
+      "description": "Structured approach enabling patients to identify specific problems, brainstorm solutions, evaluate options, implement actions, and assess effectiveness; includes skills training in areas such as communication, assertiveness, organization, relaxation, and coping. Frequently assigned as homework and specifically employed when problems in therapy arise.",
+      "source": [
+        14,
+        16,
+        17,
+        18,
+        19,
+        20
+      ]
+    },
+    {
+      "type": "Decision-Making Technique",
+      "description": "Adaptive technique in which patients list advantages and disadvantages for each option, weigh importance, and objectively conclude which option is optimal; therapist should also practice and compare self-experience.",
+      "source": [
+        10,
+        14,
+        17,
+        18,
+        20
+      ]
+    },
+    {
+      "type": "Session Monitoring",
+      "description": "Ongoing therapist self-questioning, evaluation of session dynamics (alliance, understanding, pacing, engagement), seeking feedback and reviewing session tapes/scales to uncover, analyze, and remediate problems in therapy. Includes use of standardized rating scales (e.g., Cognitive Therapy Rating Scale) and supervision.",
+      "source": [
+        18,
+        19,
+        20
+      ]
+    },
+    {
+      "type": "Technique Selection",
+      "description": "Therapist’s choice of specific strategies to address a problem or agenda item (e.g., problem solving, Socratic questioning, guided discovery, cognitive continuum, imagery techniques, activity scheduling, role play, credit lists, coping cards, self-comparison, decision-making worksheet), based on patient response, personal experience, and feedback. Effectiveness monitored, with reference to standardized scales and supervision.",
+      "source": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ]
+    },
+    {
+      "type": "Feedback",
+      "description": "Input from the patient, either solicited or unsolicited, verbal or nonverbal, used to uncover problems in therapy and guide remediation and session adjustment; therapists should review audio/video recordings using scales and supervisor/peer consultation.",
+      "source": [
+        19,
+        20
+      ]
+    },
+    {
+      "type": "Therapeutic Problem",
+      "description": "Any difficulty or stuck point arising in therapy—including nonadherence, alliance rupture, session structure/pacing issues, poor problem solving, difficulties processing session content, therapist competence issues—requiring specification, conceptualization, and remediation via targeted strategies. Therapist should seek supervision, peer review, and additional training when needed.",
+      "source": [
+        19,
+        20
+      ]
+    },
+    {
+      "type": "Remediation Strategy",
+      "description": "Targeted actions taken to address therapeutic problems: revising diagnosis/conceptualization/plan; soliciting feedback; reviewing cognitive model; altering session structure or pacing; correcting therapist's cognitions and skill gaps; increasing skill/socialization focus; modifying interventions; using supervision and standardized scales (Cognitive Therapy Rating Scale); and accessing training resources.",
+      "source": [
+        19,
+        20
+      ]
+    },
+    {
+      "type": "CBT Resources",
+      "description": "Institutional, educational, and self-help materials for therapists and patients—including training programs, standardized rating scales and manuals (e.g., Beck Institute, Academy of Cognitive Therapy), professional organizations, bibliotherapy, and assessment instruments for depression, anxiety, and related symptoms.",
+      "source": [
+        20
+      ]
+    }
+  ]
+}

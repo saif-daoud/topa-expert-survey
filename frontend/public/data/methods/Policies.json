@@ -1,0 +1,2702 @@
+{
+  "action_space": [
+    {
+      "name": "Assessment, Case Conceptualization, and Goal Setting",
+      "description": "Gather comprehensive patient information, clarify presenting problems, symptoms, triggers, and history, collaboratively formulate an individualized case conceptualization, and establish measurable therapy goals.",
+      "goal": "Develop accurate, individualized CBT case conceptualization and clear goals to guide effective, targeted interventions.",
+      "source": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "micro_actions": [
+        {
+          "name": "Conduct Clinical Interview and Structured Assessment",
+          "description": "Ask targeted questions about symptoms, mood, functioning, history, strengths, comorbidities, safety/risk, and impairment using interviews and questionnaires.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            2,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Screen and Assess Severity and Safety",
+          "description": "Inquire about suicidal ideation, substance use, risk factors, and conduct standardized severity ratings.",
+          "confidence_score": 1.0,
+          "source": [
+            3,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Clarify and Prioritize Problems and Goals",
+          "description": "Collaborate to define specific presenting problems, set observable and achievable goals, and select treatment focus.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            1,
+            2,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Formulate Problem List and Case Conceptualization",
+          "description": "Summarize presenting issues, symptoms, triggers, safety behaviors, and contributing factors into a working cognitive model.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            2,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Clarify Diagnostic Features",
+          "description": "Discuss symptoms and diagnoses through gentle inquiry and review, clarifying distinctions and functional impairment.",
+          "confidence_score": 0.9,
+          "source": [
+            1,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Rate and Track Symptoms, Mood, Beliefs",
+          "description": "Use rating scales, symptom forms, or worksheets to monitor severity, frequency, conviction, and progress.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Map CBT/Five-Part Model",
+          "description": "Identify and discuss links between environment, mood, thoughts, physical sensations, and behaviors.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            4,
+            6
+          ]
+        },
+        {
+          "name": "Collaborative Agenda and Goal Revision",
+          "description": "Invite patient input on agenda, regularly review and update therapy goals as priorities change.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            2,
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Therapeutic Alliance, Engagement, and Motivation Enhancement",
+      "description": "Build a collaborative, empathic, safe therapeutic relationship, address doubts and motivational barriers, and foster active patient participation in CBT.",
+      "goal": "Foster trust, collaboration, engagement, and motivation, maximizing patient openness and persistence.",
+      "source": [
+        0,
+        1,
+        2,
+        5,
+        6
+      ],
+      "micro_actions": [
+        {
+          "name": "Express Empathy and Warmth",
+          "description": "Use affirming, supportive language, greet patient warmly, validate emotions, demonstrate cultural sensitivity.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            2,
+            5
+          ]
+        },
+        {
+          "name": "Validate and Normalize Patient Experience",
+          "description": "Acknowledge and validate emotional states, communicate that experiences are common within the CBT framework.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            1,
+            2,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Collaborative Stance and Shared Problem-Solving",
+          "description": "Invite patient to be active participant, emphasize teamwork, and shared agenda-setting.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            1,
+            2,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Elicit Patient Feedback",
+          "description": "Ask for reactions, misunderstandings, comfort, or suggestions about session and therapy process.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            2
+          ]
+        },
+        {
+          "name": "Address Resistance, Ambivalence, and Doubts Nonjudgmentally",
+          "description": "Discuss patient fears, reservations, or motivational barriers; negotiate compromises and troubleshoot obstacles.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            1,
+            2,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Motivation Activation and Perseverance Support",
+          "description": "Use motivational interviewing, flashcards, role models, normalize struggle, celebrate effort, and reinforce persistence.",
+          "confidence_score": 0.95,
+          "source": [
+            1,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Negotiate and Reinforce Autonomy and Choice",
+          "description": "Emphasize patient's control over pace and choices; frame suggestions as experiments.",
+          "confidence_score": 1.0,
+          "source": [
+            1,
+            2,
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Psychoeducation and CBT Socialization",
+      "description": "Provide education about CBT principles, model, rationale, session structure, and address misconceptions to increase understanding and buy-in.",
+      "goal": "Enhance patient understanding and acceptance of CBT, normalize difficulties, promote informed, active participation.",
+      "source": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "micro_actions": [
+        {
+          "name": "Explain CBT/Cognitive Model",
+          "description": "Describe key CBT concepts, connections between thoughts, feelings, and behaviors using concrete examples from patient’s life.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Introduce Session Structure",
+          "description": "Outline typical CBT session flow: agenda, mood check, homework, feedback, rationale for structure.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            2,
+            3,
+            6
+          ]
+        },
+        {
+          "name": "Normalize Challenges and Misconceptions",
+          "description": "Reassure patient about difficulty in learning CBT skills and correct myths about the therapy and psychological symptoms.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Educate about Emotional Disturbance",
+          "description": "Distinguish healthy vs. unhealthy emotions and provide psychoeducation about emotion and mental health.",
+          "confidence_score": 1.0,
+          "source": [
+            1,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Introduce Therapy Materials and Tools",
+          "description": "Present forms, homework, worksheets, diaries, and their rationale for use in CBT.",
+          "confidence_score": 1.0,
+          "source": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Collaboratively Decide Terminology",
+          "description": "Invite patient input on language used (e.g., 'homework') to increase buy-in.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            2
+          ]
+        },
+        {
+          "name": "Address CBT Misconceptions and Stigma",
+          "description": "Explore and correct inaccurate beliefs about CBT, set realistic expectations for recovery.",
+          "confidence_score": 0.95,
+          "source": [
+            1,
+            2,
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Mood, Thought, and Emotion Identification",
+      "description": "Help patients observe, label, and rate moods, identify automatic and hot thoughts, and distinguish thoughts, emotions, and behaviors.",
+      "goal": "Develop accurate self-awareness and identification of emotional and cognitive patterns.",
+      "source": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "micro_actions": [
+        {
+          "name": "Label and Rate Moods/Emotions",
+          "description": "Guide patient in naming moods/emotions using descriptors and rating intensity on scales.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            3,
+            4,
+            6
+          ]
+        },
+        {
+          "name": "Distinguish Thoughts, Feelings, Behaviors",
+          "description": "Help patient differentiate their thoughts, emotions, and behaviors using written forms, ABCs, or targeted questions.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            1,
+            4
+          ]
+        },
+        {
+          "name": "Elicit Automatic Thoughts and Hot Thoughts",
+          "description": "Prompt patient to report what was going through their mind in distressing situations; use imagery, role-play, or situation-specific prompts.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Clarify and Spell Out Thoughts",
+          "description": "Assist patient to articulate brief or vague thoughts into clear cognitive statements.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            2
+          ]
+        },
+        {
+          "name": "Probe Sequential Automatic Thoughts",
+          "description": "Continuously question to uncover additional or deeper automatic thoughts and meta-cognitions.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            2
+          ]
+        },
+        {
+          "name": "Normalize Thought-Emotion Confusion",
+          "description": "Address confusion between thoughts and emotions, offer gentle correction.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            4
+          ]
+        },
+        {
+          "name": "Use Thought/Mood Records",
+          "description": "Teach and support patient in completing thought, mood, or symptom records to document patterns.",
+          "confidence_score": 1.0,
+          "source": [
+            1,
+            3,
+            4,
+            5,
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cognitive Distortion Identification and Evaluation",
+      "description": "Teach patients to recognize and challenge cognitive distortions, errors, or biases in their automatic thoughts using Socratic questioning and guided discovery.",
+      "goal": "Reduce cognitive distortions and promote more balanced, adaptive thinking.",
+      "source": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "micro_actions": [
+        {
+          "name": "Educate on Cognitive Distortions",
+          "description": "Describe common distortions (catastrophizing, black-or-white thinking, mind reading) with examples.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Socratic Questioning/Guided Discovery",
+          "description": "Use open-ended, gentle questions to explore evidence for and against automatic/hot thoughts, encouraging alternative perspectives.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            1,
+            2,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Label and Challenge Biases/Errors",
+          "description": "Coach patient to spot and label errors, then challenge them using disputation, cost-benefit analysis, or fact vs. interpretation training.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            1,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Imagery and Role-Play",
+          "description": "Use guided imagery or role-play to access thoughts or errors difficult to identify.",
+          "confidence_score": 0.98,
+          "source": [
+            0,
+            2,
+            4
+          ]
+        },
+        {
+          "name": "Probe for Central or Most Distressing Thoughts",
+          "description": "Identify and focus cognitive work on thoughts/images with greatest distress or impact.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            2
+          ]
+        },
+        {
+          "name": "Facts vs. Interpretations Training",
+          "description": "Help patient differentiate factual evidence from interpretations or assumptions in their thinking.",
+          "confidence_score": 1.0,
+          "source": [
+            4,
+            5,
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cognitive Restructuring and Development of Adaptive Alternatives",
+      "description": "Challenge and modify unhelpful cognitions, facilitate the development and reinforcement of balanced, realistic thoughts and beliefs, and encourage emotional as well as rational acceptance.",
+      "goal": "Adopt more adaptive, helpful beliefs and thought patterns to reduce distress and improve functioning.",
+      "source": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "micro_actions": [
+        {
+          "name": "Develop Alternative or Balanced Thoughts",
+          "description": "Collaboratively generate and reinforce realistic, helpful alternatives, sometimes through perspective-taking or role-play.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            1,
+            2,
+            4,
+            5
+          ]
+        },
+        {
+          "name": "Re-rate Mood and Thought Credibility",
+          "description": "Guide patient to rate mood and conviction in alternative thoughts after cognitive restructuring.",
+          "confidence_score": 1.0,
+          "source": [
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Disputation and Cost–Benefit Analysis Techniques",
+          "description": "Challenge negative beliefs using written forms, Socratic questioning, and pros/cons review.",
+          "confidence_score": 1.0,
+          "source": [
+            1,
+            5
+          ]
+        },
+        {
+          "name": "Build Conviction in New Beliefs",
+          "description": "Support evidence collection, repeated review, and behavioral testing of new beliefs.",
+          "confidence_score": 1.0,
+          "source": [
+            1,
+            5
+          ]
+        },
+        {
+          "name": "Positive Data Logging",
+          "description": "Encourage recording of positive evidence and feedback to reinforce adaptive beliefs and change.",
+          "confidence_score": 0.95,
+          "source": [
+            1,
+            5
+          ]
+        },
+        {
+          "name": "Promote Emotional Acceptance and Generalization",
+          "description": "Facilitate not only rational but affective acceptance of new beliefs and help apply learning across situations.",
+          "confidence_score": 1.0,
+          "source": [
+            5,
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Identification and Modification of Core Beliefs, Schemas, and Rules",
+      "description": "Identify, assess, and restructure intermediate/core beliefs, rules, and schemas underlying automatic thoughts through guided discovery, downward arrow, and belief modification techniques.",
+      "goal": "Transform enduring dysfunctional beliefs and schemas into more adaptive, resilient cognitive frameworks.",
+      "source": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6
+      ],
+      "micro_actions": [
+        {
+          "name": "Downward Arrow Technique",
+          "description": "Systematically probe for deeper meanings underlying automatic thoughts to uncover intermediate/core beliefs and schemas.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            2,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Schema/Core Belief Inventory and Sentence Completion",
+          "description": "Use structured questions and sentence completion to identify absolute beliefs and schemas.",
+          "confidence_score": 1.0,
+          "source": [
+            2,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Assess Belief Strength and Cognitive Continuum",
+          "description": "Rate conviction in beliefs using scales and work on viewing beliefs as non-binary.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            2,
+            4,
+            5
+          ]
+        },
+        {
+          "name": "Convert Rules to Assumptions",
+          "description": "Transform abstract rules into concrete 'if...then' assumptions for logical evaluation.",
+          "confidence_score": 0.98,
+          "source": [
+            0,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "List Advantages/Disadvantages of Beliefs",
+          "description": "Discuss pros and cons of maintaining current beliefs and schemas before modification.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            2,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Formulate and Practice Adaptive or New Beliefs",
+          "description": "Collaboratively develop, record, and reinforce new adaptive beliefs via homework and daily practice.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            2,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Experiential and Role Play Techniques",
+          "description": "Use role-play, emotional imagery, and advice-giving exercises to shift beliefs and test new schemas.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            4,
+            5,
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Behavioral Activation, Activity Scheduling, and Problem Solving",
+      "description": "Encourage and plan engagement in constructive, pleasurable, mastery, and meaningful activities, and teach systematic problem-solving and coping strategies for avoidance, withdrawal, or dysphoria.",
+      "goal": "Increase motivation, mood, self-efficacy, and adaptive coping through structured activity and problem-solving.",
+      "source": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6
+      ],
+      "micro_actions": [
+        {
+          "name": "Present/Curate Activity List and Brainstorm Activity Ideas",
+          "description": "Offer, generate, and collaboratively select enjoyable, mastery, or values-based activities.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            1,
+            2,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Collaborative Schedule Construction",
+          "description": "Plan and structure activity schedules; adjust for ability, mood, and variety; review adherence.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            1,
+            2,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Activity Monitoring and Rating",
+          "description": "Track activity, pleasure, mastery, mood before and after tasks using schedules, logs, or self-report.",
+          "confidence_score": 0.99,
+          "source": [
+            0,
+            1,
+            4,
+            5
+          ]
+        },
+        {
+          "name": "Graded Task Assignment (GTA)",
+          "description": "Break larger/excessively challenging tasks into smaller, achievable steps.",
+          "confidence_score": 1.0,
+          "source": [
+            2,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Encourage Action Despite Mood",
+          "description": "Promote principle that engaging in activity improves mood regardless of how the patient initially feels.",
+          "confidence_score": 1.0,
+          "source": [
+            1,
+            5
+          ]
+        },
+        {
+          "name": "Credit List and Positive Data Assignment",
+          "description": "Assign recording and reinforcement of positive actions and mastery events, highlight achievements.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            1,
+            5
+          ]
+        },
+        {
+          "name": "Adjust Activity/Mood Balance",
+          "description": "Balance rest, variety, and schedule demands to prevent overwhelm and enhance success.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            1,
+            4,
+            5
+          ]
+        },
+        {
+          "name": "Direct Problem-Solving Instruction",
+          "description": "Teach stepwise problem-solving: specify problem, brainstorm solutions, select, implement, and evaluate.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Skills Deficit Assessment and Training",
+          "description": "Assess for lacking skills and provide modeling, role-play, teaching, or external referral as needed.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            4,
+            5,
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Behavioral Experiments, Graded Exposure, and Coping Practice",
+      "description": "Plan, assign, and conduct behavioral experiments and graded exposure tasks to test beliefs, challenge safety behaviors, and build adaptive coping skills.",
+      "goal": "Disconfirm dysfunctional beliefs, reduce avoidance and anxiety, and promote experiential learning and adaptive coping.",
+      "source": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "micro_actions": [
+        {
+          "name": "Design and Plan Behavioral Experiments",
+          "description": "Collaboratively define experiments to test specific beliefs, predictions, and hypotheses; state planned steps.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Construct Exposure Hierarchy/Fear Ladder",
+          "description": "List, rate, and sequence feared or avoided situations for systematic graded exposure.",
+          "confidence_score": 1.0,
+          "source": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Initiate Graded Exposure/Practice",
+          "description": "Introduce least-difficult step first and coach/support patient in exposure tasks, in vivo or imaginal.",
+          "confidence_score": 1.0,
+          "source": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Address, Drop, or Reduce Safety Behaviors",
+          "description": "Identify safety behaviors (avoiding, checking, distraction), plan for their reduction or elimination, and observe impact.",
+          "confidence_score": 1.0,
+          "source": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Teach and Apply Coping Skills",
+          "description": "Model, rehearse, and reinforce coping strategies (breathing, relaxation, mindfulness) during experiments and exposures.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Monitor and Review Outcomes",
+          "description": "Track and discuss experiment/exposure outcomes, reinforce progress, and update beliefs or strategies as needed.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Modify Difficulty and Troubleshoot Barriers",
+          "description": "Adjust challenge level of experiments/exposures; collaboratively problem-solve and adapt as necessary.",
+          "confidence_score": 0.95,
+          "source": [
+            1,
+            2,
+            3,
+            5
+          ]
+        },
+        {
+          "name": "Assign Between-Session Exposure/Homework",
+          "description": "Set between-session exposure or coping skills tasks and review progress at next session.",
+          "confidence_score": 1.0,
+          "source": [
+            2,
+            3,
+            5,
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Emotional Identification, Processing, and Regulation",
+      "description": "Facilitate identification, labeling, and regulation of emotions; teach strategies for healthy emotional processing and tolerance.",
+      "goal": "Increase emotional fluency, insight, regulation, and tolerance; reduce avoidance and distress.",
+      "source": [
+        0,
+        1,
+        4,
+        5,
+        6
+      ],
+      "micro_actions": [
+        {
+          "name": "Teach Emotion Vocabulary",
+          "description": "Introduce emotion word lists, charts, or guided exercises to help patient label and identify emotions.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            4,
+            5
+          ]
+        },
+        {
+          "name": "Label and Distinguish Emotional States",
+          "description": "Facilitate accurate identification of emotions and separation of healthy/unhealthy variants.",
+          "confidence_score": 1.0,
+          "source": [
+            1,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Intensity Rating Techniques",
+          "description": "Guide patient to rate emotional intensity on numerical or qualitative scales for monitoring.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Promote Non-Judgmental Observation and Mindfulness",
+          "description": "Coach patient in observing/tolerating emotions, thoughts, or sensations without suppression or judgment.",
+          "confidence_score": 1.0,
+          "source": [
+            1,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Normalize and Validate Emotional Reactions/Struggle",
+          "description": "Emphasize normality of emotional suffering, encourage healthy toleration and self-compassion.",
+          "confidence_score": 1.0,
+          "source": [
+            1,
+            5,
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Social Skills, Assertiveness, and Communication Training",
+      "description": "Teach, model, and rehearse skills for social interaction, assertiveness, communication, and interpersonal effectiveness.",
+      "goal": "Enhance coping abilities, social competence, and emotional well-being in relationships and daily life.",
+      "source": [
+        1,
+        4,
+        5,
+        6
+      ],
+      "micro_actions": [
+        {
+          "name": "Social Skills Instruction and Role-Play",
+          "description": "Teach, model, and rehearse initiating, maintaining, and ending conversations, practicing assertiveness and boundaries with feedback.",
+          "confidence_score": 1.0,
+          "source": [
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Assertiveness Training",
+          "description": "Educate about assertive behaviors, model them, role-play difficult situations, and assign real-life practice.",
+          "confidence_score": 1.0,
+          "source": [
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Communication Skills Training",
+          "description": "Coach patient in using 'I' statements, specific requests, positive reinforcement, and constructive feedback.",
+          "confidence_score": 1.0,
+          "source": [
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Active Listening and Validation",
+          "description": "Demonstrate attentive listening, reflecting, validating, and showing empathy toward others.",
+          "confidence_score": 1.0,
+          "source": [
+            5,
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Values Clarification, Acceptance, and Mindfulness Interventions",
+      "description": "Facilitate acceptance of ongoing or unchangeable distress, guide clarification of personal values, and teach mindfulness-based strategies.",
+      "goal": "Promote meaningful engagement, tolerance of distress, and mindful living aligned with personal values.",
+      "source": [
+        1,
+        4,
+        5,
+        6
+      ],
+      "micro_actions": [
+        {
+          "name": "Guide Values Exploration and Clarification",
+          "description": "Facilitate reflections on sources of meaning, values, and priorities, and help patient articulate and list them.",
+          "confidence_score": 1.0,
+          "source": [
+            1,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Encourage Value-Based Activity Planning",
+          "description": "Support patient in structuring regular actions and habits that reflect identified values.",
+          "confidence_score": 1.0,
+          "source": [
+            1,
+            4,
+            6
+          ]
+        },
+        {
+          "name": "Introduce Acceptance Frameworks",
+          "description": "Teach nonjudgmental observation and acceptance of thoughts and emotions.",
+          "confidence_score": 1.0,
+          "source": [
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Practice Mindfulness Exercises",
+          "description": "Facilitate formal and informal mindfulness strategies in and out of sessions.",
+          "confidence_score": 1.0,
+          "source": [
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Normalize Value Disconnection and Prioritization",
+          "description": "Discuss impact of life events on changing values or priorities, and support re-alignment.",
+          "confidence_score": 0.9,
+          "source": [
+            1,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Targeted Symptom Management and Adaptation",
+      "description": "Apply tailored CBT tools and protocols for specific disorders or challenges (e.g., sleep, anger, OCD, health anxiety), adapt interventions for complex or severe presentations.",
+      "goal": "Facilitate symptom relief and functional improvement using targeted, individualized approaches.",
+      "source": [
+        1,
+        3,
+        6
+      ],
+      "micro_actions": [
+        {
+          "name": "Use Disorder-Specific Psychoeducation",
+          "description": "Provide information and education tailored to patient's diagnosis (e.g., sleep hygiene, panic mechanisms).",
+          "confidence_score": 1.0,
+          "source": [
+            1,
+            3,
+            6
+          ]
+        },
+        {
+          "name": "Teach Active Symptom Management",
+          "description": "Guide patients through disorder-specific exercises (e.g., ERP for OCD, urge management for addiction).",
+          "confidence_score": 1.0,
+          "source": [
+            1,
+            3,
+            6
+          ]
+        },
+        {
+          "name": "Monitor and Record Symptoms",
+          "description": "Assign regular documentation of symptom frequency, intensity, and patterns using diaries or logs.",
+          "confidence_score": 1.0,
+          "source": [
+            1,
+            3,
+            6
+          ]
+        },
+        {
+          "name": "Facilitate Acceptance and Distress Tolerance",
+          "description": "Promote skills for tolerating symptoms and cravings, reducing avoidance and reactivity.",
+          "confidence_score": 1.0,
+          "source": [
+            1,
+            3,
+            6
+          ]
+        },
+        {
+          "name": "Integrate Therapy with Medication Management",
+          "description": "Support medication adherence, educate about side effects, and collaborate with prescribers as needed.",
+          "confidence_score": 0.97,
+          "source": [
+            3,
+            6
+          ]
+        },
+        {
+          "name": "Refer to Additional Professional Support",
+          "description": "Recognize CBT/self-help limits and refer for assessment, medication, or specialist treatment as appropriate.",
+          "confidence_score": 1.0,
+          "source": [
+            1,
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Homework Assignment, Review, and Adherence",
+      "description": "Collaboratively plan, assign, and review between-session tasks to reinforce skill acquisition, address barriers, and generalize learning outside sessions.",
+      "goal": "Promote skill acquisition, generalization, and adherence; identify and address obstacles to assignment completion.",
+      "source": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "micro_actions": [
+        {
+          "name": "Collaborative Assignment Planning and Initiation",
+          "description": "Devise, tailor, and initiate homework tasks together, preview in-session as needed to increase adherence.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Provide Rationale and Recording",
+          "description": "Explain rationale, ensure understanding, and have patient record rationale and assignment details.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            2,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Anticipate and Address Obstacles",
+          "description": "Assess likelihood of completion, collaboratively problem-solve barriers, and adapt assignments.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Problem-Solve Homework Nonadherence",
+          "description": "Explore reasons for noncompletion and modify assignment for achievability.",
+          "confidence_score": 1.0,
+          "source": [
+            2,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Homework Review and Reinforcement",
+          "description": "Review completed assignments, reinforce skills learned, and adjust tasks as needed.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Use Therapy Notebook and Skill Trackers",
+          "description": "Encourage use of notes, worksheets, and skill trackers for ongoing self-management.",
+          "confidence_score": 0.95,
+          "source": [
+            2,
+            4,
+            5,
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Relapse Prevention, Maintenance, and Termination",
+      "description": "Prepare patient for therapy conclusion by reviewing skills, planning for setbacks, normalizing relapse, and developing strategies for ongoing self-management.",
+      "goal": "Sustain therapeutic gains, empower patient for lifelong adaptive self-management, and minimize relapse risk.",
+      "source": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "micro_actions": [
+        {
+          "name": "Normalize Setbacks and Relapse",
+          "description": "Discuss possibility and acceptance of setbacks as part of recovery; rehearse adaptive responses.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            1,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Review and Consolidate Skills",
+          "description": "Organize, review, and reinforce skills and strategies learned for future use.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Coping Card Creation and Relapse Action Plans",
+          "description": "Help patient write coping strategies, reminders, and detailed action plans for future crises or setbacks.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Support Network Planning",
+          "description": "Identify alternative supports and encourage planning for social connection during post-therapy challenges.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            2,
+            5
+          ]
+        },
+        {
+          "name": "Booster Session Scheduling and Self-Help",
+          "description": "Arrange periodic booster sessions or self-help strategies, plan homework or continued skill practice.",
+          "confidence_score": 1.0,
+          "source": [
+            0,
+            2,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Identify Relapse Triggers and Warning Signs",
+          "description": "Specify high-risk situations, monitor warning signs, and rehearse responses.",
+          "confidence_score": 1.0,
+          "source": [
+            1,
+            2,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "name": "Address Responsibility, Self-Compassion, and Emotional Closure",
+          "description": "Help patient balance responsibility and self-compassion, and support therapy termination process.",
+          "confidence_score": 0.95,
+          "source": [
+            1,
+            5,
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Therapist Self-Monitoring and Skill Development",
+      "description": "Therapist monitors their own cognitions, skills, and reactions to enhance CBT delivery and repair alliance ruptures as needed.",
+      "goal": "Maintain therapist effectiveness, self-awareness, and ongoing therapeutic skill refinement.",
+      "source": [
+        0
+      ],
+      "micro_actions": [
+        {
+          "name": "Self-Evaluate Automatic Thoughts",
+          "description": "Therapist monitors personal cognitions and emotions affecting therapy and adapts responses using CBT tools.",
+          "confidence_score": 1.0,
+          "source": [
+            0
+          ]
+        },
+        {
+          "name": "Review Session Recordings/Supervision",
+          "description": "Therapist records and reviews sessions, consults supervisor/colleague for feedback and skill improvement.",
+          "confidence_score": 1.0,
+          "source": [
+            0
+          ]
+        },
+        {
+          "name": "Use CBT Tools Personally",
+          "description": "Therapist practices CBT techniques on self to increase mastery and empathy for patient learning difficulties.",
+          "confidence_score": 0.98,
+          "source": [
+            0
+          ]
+        },
+        {
+          "name": "Seek Ongoing Training",
+          "description": "Therapist attends supervision, reads literature, and engages in training activities for expertise development.",
+          "confidence_score": 1.0,
+          "source": [
+            0
+          ]
+        },
+        {
+          "name": "Monitor and Address Alliance Ruptures",
+          "description": "Therapist reflects on alliance, models apology, and collaborates with patient to repair relationship and adjust therapeutic approach.",
+          "confidence_score": 1.0,
+          "source": [
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "Conversation_states": [
+    {
+      "Dimension Name": "Therapeutic Alliance",
+      "Description": "Strength of trust, collaboration, and rapport between therapist and patient; guides engagement, openness, and readiness to address challenging content.",
+      "categorical values": [],
+      "Numerical values": "0.0: poor/ruptured relationship, mistrust; 1.0: strong supportive alliance, full collaboration; intermediate: varying degrees of engagement and trust.",
+      "source": [
+        0,
+        2,
+        5,
+        6
+      ]
+    },
+    {
+      "Dimension Name": "Session Structure Adherence",
+      "Description": "Extent to which session follows planned CBT structure (agenda, mood check, homework review, defined goals); influences pace, focus, and quality of work.",
+      "categorical values": [],
+      "Numerical values": "0.0: no structure/disorganized/off agenda; 1.0: fully structured/focused CBT session; intermediate: partial adherence.",
+      "source": [
+        0,
+        2
+      ]
+    },
+    {
+      "Dimension Name": "Patient Engagement and Motivation",
+      "Description": "Patient's willingness, openness, and participation in CBT, including effort with tasks and exercises; informs intervention choice and depth.",
+      "categorical values": [],
+      "Numerical values": "0.0: disengaged, resistant, unwilling; 1.0: highly engaged, motivated, proactive; intermediate: partial participation.",
+      "source": [
+        0,
+        2,
+        5
+      ]
+    },
+    {
+      "Dimension Name": "Problem Clarity and Prioritization",
+      "Description": "Clarity, specificity, and relevance of patient’s problem definition and session prioritization; supports focused interventions.",
+      "categorical values": [],
+      "Numerical values": "0.0: rambling, vague, off-topic; 1.0: clear, specific, prioritized; intermediate: somewhat defined.",
+      "source": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "Dimension Name": "Goal Specificity and Progress",
+      "Description": "Clarity and measurability of therapy goals and degree of progress toward them; guides ongoing intervention selection and tracks motivation.",
+      "categorical values": [],
+      "Numerical values": "0.0: undefined, vague, no progress; 1.0: specific/actionable, goal achieved; intermediate: partial specificity or progress.",
+      "source": [
+        1,
+        2,
+        4,
+        6
+      ]
+    },
+    {
+      "Dimension Name": "CBT Concept and Skill Understanding",
+      "Description": "Patient’s understanding and use of CBT theoretical principles and techniques (thought records, experiments); influences psychoeducation and intervention depth.",
+      "categorical values": [],
+      "Numerical values": "0.0: confused/uninformed/no skill use; 1.0: fully understands, proficient, applies skills; intermediate: partial understanding/use.",
+      "source": [
+        0,
+        2,
+        4
+      ]
+    },
+    {
+      "Dimension Name": "Automatic Thought Awareness/Activation",
+      "Description": "Degree to which automatic thoughts are identified, discussed, and explored for validity and emotional charge ('hotness'); central for cognitive restructuring.",
+      "categorical values": [],
+      "Numerical values": "0.0: no identification/unaware; 1.0: central thoughts actively explored and emotionally charged; intermediate: occasional identification.",
+      "source": [
+        0,
+        2,
+        4,
+        6
+      ]
+    },
+    {
+      "Dimension Name": "Cognitive Distortion/Thinking Error Recognition",
+      "Description": "Patient’s ability to identify and label cognitive distortions (e.g., catastrophizing, all-or-nothing, overgeneralization); guides cognitive restructuring.",
+      "categorical values": [],
+      "Numerical values": "0.0: unable/unaware; 1.0: consistently recognizes distortions; intermediate: occasional recognition.",
+      "source": [
+        0,
+        2,
+        4,
+        5
+      ]
+    },
+    {
+      "Dimension Name": "Core/Schema Belief Activation and Strength",
+      "Description": "Insight and identification of deep-seated, maladaptive core beliefs or schemas; strength of conviction impacts mood and guides therapy depth.",
+      "categorical values": [],
+      "Numerical values": "0.0: dormant/unaware/no endorsement; 1.0: highly salient, fully endorsed; intermediate: partially activated/weakly endorsed.",
+      "source": [
+        0,
+        2,
+        4,
+        5,
+        6,
+        1
+      ]
+    },
+    {
+      "Dimension Name": "Belief Rigidity vs. Flexibility",
+      "Description": "Degree of inflexibility or openness in patient beliefs, including emotional and cognitive endorsement of alternative/adaptive beliefs.",
+      "categorical values": [],
+      "Numerical values": "0.0: flexible, open, accepts healthy/adaptive beliefs; 1.0: highly rigid, unable to change beliefs; intermediate: partial flexibility.",
+      "source": [
+        1,
+        4,
+        5
+      ]
+    },
+    {
+      "Dimension Name": "Alternative/Adaptive Response Acceptance",
+      "Description": "Patient’s ability to emotionally and cognitively accept, value, and apply adaptive or alternative thoughts/responses.",
+      "categorical values": [],
+      "Numerical values": "0.0: not accepted; 1.0: fully accepted and internalized; intermediate: partial or intellectual acceptance.",
+      "source": [
+        0,
+        4,
+        5
+      ]
+    },
+    {
+      "Dimension Name": "Evidence-Based Reappraisal",
+      "Description": "Extent to which patient objectively evaluates automatic thoughts using evidence for and against, including credibility of restructured perspectives.",
+      "categorical values": [],
+      "Numerical values": "0.0: not at all; 1.0: consistently/reliably evaluates and modifies thoughts with evidence; intermediate: occasional or superficial evaluation.",
+      "source": [
+        3,
+        4
+      ]
+    },
+    {
+      "Dimension Name": "Skill Acquisition/Mastery and Generalization",
+      "Description": "Patient’s acquisition, practice, and generalization of CBT coping/problem-solving skills (thought challenging, behavioral activation, relaxation, etc.) into daily life.",
+      "categorical values": [],
+      "Numerical values": "0.0: no skill use/acquisition/basic understanding only; 1.0: independent, fluent, automatic use across contexts; intermediate: partial mastery, inconsistent use.",
+      "source": [
+        0,
+        1,
+        2,
+        4,
+        6
+      ]
+    },
+    {
+      "Dimension Name": "Homework/Assignment Adherence and Quality",
+      "Description": "Consistency and quality of completing between-session CBT homework, experiments, or logs; impacts progress and future planning.",
+      "categorical values": [],
+      "Numerical values": "0.0: never completed/non-adherent; 1.0: always completed, high quality/comprehensive; intermediate: occasional or partial adherence.",
+      "source": [
+        0,
+        2,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "Dimension Name": "Behavioral Experimentation Engagement",
+      "Description": "Degree of design, execution, and learning from behavioral experiments and coping practices (including willingness and challenge appropriateness).",
+      "categorical values": [],
+      "Numerical values": "0.0: avoidant/refuses; 1.0: active/willing/ongoing/appropriate challenge; intermediate: inconsistent engagement.",
+      "source": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "Dimension Name": "Behavioral Activation/Activity Engagement",
+      "Description": "Frequency and quality of engaging in pleasurable, mastery, and value-based activities; relevant for mood improvement and symptom reduction.",
+      "categorical values": [],
+      "Numerical values": "0.0: inactive/withdrawn; 1.0: fully active, frequent engagement; intermediate: partial or inconsistent activity.",
+      "source": [
+        0,
+        2,
+        4,
+        6
+      ]
+    },
+    {
+      "Dimension Name": "Avoidance and Safety Behavior Usage",
+      "Description": "Degree and generalization of behavioral/cognitive avoidance, use of safety/reassurance behaviors or rituals; guides exposure planning and intervention.",
+      "categorical values": [],
+      "Numerical values": "0.0: no avoidance or safety behavior; 1.0: pervasive avoidance, constant reliance on safety measures; intermediate: situational/use fading.",
+      "source": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "Dimension Name": "Emotional Distress/Session Affect Intensity",
+      "Description": "Current intensity of negative emotions (sadness, anxiety, anger, shame, guilt) affecting patient functioning; guides pacing and intervention choice.",
+      "categorical values": [],
+      "Numerical values": "0.0: none/calm/neutral; 1.0: extreme distress/crisis; intermediate: mild to moderate symptoms.",
+      "source": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "Dimension Name": "Mood State/Severity",
+      "Description": "Overall mood rating, including intensity, frequency, and duration of mood episodes (depression, anxiety, elevated mood); used for risk assessment and tracking.",
+      "categorical values": [],
+      "Numerical values": "0.0: neutral/normal mood, low intensity; 1.0: extreme/abnormal, constant, or persistent mood; intermediate: variable.",
+      "source": [
+        0,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "Dimension Name": "Rumination/Worry Level",
+      "Description": "Frequency and intensity of repetitive negative thinking, worry, or intrusive thoughts; affects mood and increases impairment.",
+      "categorical values": [],
+      "Numerical values": "0.0: absent; 1.0: persistent, constant, impairing; intermediate: occasional or moderate.",
+      "source": [
+        1,
+        5,
+        6,
+        3
+      ]
+    },
+    {
+      "Dimension Name": "Insight and Awareness",
+      "Description": "Patient’s awareness and understanding of their thoughts, symptoms, beliefs, behaviors, and patterns; predicts engagement and intervention targets.",
+      "categorical values": [],
+      "Numerical values": "0.0: none/unaware/denial; 1.0: high/full/accurate insight; intermediate: partial self-understanding.",
+      "source": [
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "Dimension Name": "Acceptance Practice Level",
+      "Description": "Patient’s ability and frequency of observing, accepting, and co-existing with distressing moods/thoughts without judgment or avoidance; supports emotional tolerance and change.",
+      "categorical values": [],
+      "Numerical values": "0.0: unable/unpracticed; 1.0: consistently practiced, skilled acceptance; intermediate: occasional use.",
+      "source": [
+        4,
+        3,
+        6
+      ]
+    },
+    {
+      "Dimension Name": "Intolerance/Tolerance of Uncertainty",
+      "Description": "Degree of patient’s discomfort, avoidance, or acceptance with ambiguity and uncertain situations; relevant for anxiety, GAD, OCD, perfectionism.",
+      "categorical values": [],
+      "Numerical values": "0.0: cannot tolerate uncertainty/seeks reassurance; 1.0: fully tolerant of uncertainty; intermediate: partial acceptance, situational tolerance.",
+      "source": [
+        1,
+        5,
+        6
+      ]
+    },
+    {
+      "Dimension Name": "Motivation/Readiness for Change",
+      "Description": "Patient’s motivation and persistence to work toward goals, try new strategies, and engage in therapy; determines progress and intervention type.",
+      "categorical values": [],
+      "Numerical values": "0.0: no motivation, resistant, ambivalent; 1.0: very strong motivation, persistent, hopefulness; intermediate: variable readiness/ambivalence.",
+      "source": [
+        0,
+        1,
+        2,
+        4,
+        5
+      ]
+    },
+    {
+      "Dimension Name": "Emotional Clarity/Labeling",
+      "Description": "Patient’s ability to accurately identify and label distinct emotions; impacts emotional processing and tool use.",
+      "categorical values": [],
+      "Numerical values": "0.0: confused, unable to label emotions; 1.0: clear, precise, consistent labeling; intermediate: partial ability.",
+      "source": [
+        1,
+        4,
+        6
+      ]
+    },
+    {
+      "Dimension Name": "Self-Acceptance and Self-Esteem",
+      "Description": "Degree of unconditional self-acceptance, absence of global negative self-labels, and positive self-worth; affects engagement and risk of negative cycles.",
+      "categorical values": [],
+      "Numerical values": "0.0: low self-acceptance/esteem/self-condemning; 1.0: high, unconditional self-acceptance; intermediate: variable.",
+      "source": [
+        1,
+        5
+      ]
+    },
+    {
+      "Dimension Name": "Session Risk Status",
+      "Description": "Current safety concerns, including suicidal ideation, self-harm, mania, or medical complications; determines priority interventions and session structure.",
+      "categorical values": [],
+      "Numerical values": "0.0: no acute risk/safe; 1.0: high/crisis risk; intermediate: warning signs present.",
+      "source": [
+        2,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "Dimension Name": "Relapse Risk/Indicators",
+      "Description": "Likelihood or ongoing signs of reverting to maladaptive behaviors/thoughts; guides relapse prevention planning and booster session need.",
+      "categorical values": [],
+      "Numerical values": "0.0: low/no risk; 1.0: high risk/active relapse/warning signs; intermediate: at-risk/some setbacks.",
+      "source": [
+        0,
+        1,
+        2,
+        4,
+        6
+      ]
+    },
+    {
+      "Dimension Name": "Interpersonal/Social Functioning and Support",
+      "Description": "Quality and stability of interpersonal relationships, social support access, assertiveness, and connectedness; relevant for skills training and planning.",
+      "categorical values": [],
+      "Numerical values": "0.0: severe impairment/isolation/withdrawn; 1.0: highly functional, connected, assertive, strong support; intermediate: partial impairment.",
+      "source": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "Dimension Name": "Positive Data/Strengths Integration",
+      "Description": "Degree to which patient incorporates and recognizes positive evidence, strengths, and experiences into thoughts, mood, or session work.",
+      "categorical values": [],
+      "Numerical values": "0.0: ignores/discounts positives; 1.0: actively seeks, values, integrates positives; intermediate: occasional recognition.",
+      "source": [
+        0,
+        4
+      ]
+    },
+    {
+      "Dimension Name": "Rumination/Intrusive Thought/Attention Focus",
+      "Description": "Degree and type of repetitive thinking, rumination, and focus on internal sensations/thoughts versus external tasks/environment; guides attention/mindfulness interventions.",
+      "categorical values": [],
+      "Numerical values": "0.0: no rumination, externally focused; 1.0: constant rumination, internally/self-focused; intermediate: fluctuating attention.",
+      "source": [
+        1,
+        6,
+        3
+      ]
+    },
+    {
+      "Dimension Name": "Session Phase Position",
+      "Description": "Current session phase (beginning, middle, end/termination/booster); guides process focus such as alliance building, skill teaching, and relapse prevention.",
+      "categorical values": [
+        "beginning",
+        "middle",
+        "end",
+        "termination/booster"
+      ],
+      "Numerical values": "0.0: start of session; 1.0: end/termination; values in between map to intermediate phases.",
+      "source": [
+        0
+      ]
+    },
+    {
+      "Dimension Name": "Therapist Self-Efficacy/State",
+      "Description": "Therapist’s confidence, emotional state, boundaries, and degree of interference from own thoughts; influences session focus and intervention quality.",
+      "categorical values": [],
+      "Numerical values": "0.0: low self-efficacy, poor boundaries, high interference; 1.0: high self-efficacy, well-focused, energized; intermediate: variable competence.",
+      "source": [
+        0,
+        2
+      ]
+    },
+    {
+      "Dimension Name": "Case Conceptualization/Diagnosis Clarity",
+      "Description": "Accuracy, collaborative nature, and relevance of current case conceptualization or diagnosis; determines intervention targeting and patient understanding.",
+      "categorical values": [],
+      "Numerical values": "0.0: unclear, outdated, incorrect/no diagnosis; 1.0: crystal clear, collaborative, diagnosis confirmed; intermediate: partial fit.",
+      "source": [
+        0,
+        6
+      ]
+    },
+    {
+      "Dimension Name": "Patient Cultural/Developmental Tailoring",
+      "Description": "Degree to which CBT is adapted to patient’s culture, developmental stage, and individual context; impacts engagement and effectiveness.",
+      "categorical values": [],
+      "Numerical values": "0.0: no adaptation/insensitive; 1.0: fully responsive and tailored; intermediate: partial adaptation.",
+      "source": [
+        0,
+        2
+      ]
+    },
+    {
+      "Dimension Name": "Sleep Quality",
+      "Description": "Quality, regularity, and consistency of sleep including disturbances and maladaptive patterns; guides intervention and tracks progress.",
+      "categorical values": [],
+      "Numerical values": "0.0: severely disturbed; 1.0: restorative/healthy sleep; intermediate: mild disturbances.",
+      "source": [
+        1
+      ]
+    },
+    {
+      "Dimension Name": "Physical Symptom Severity",
+      "Description": "Severity and impact of physical symptoms related to psychiatric status (fatigue, appetite, somatic symptoms); informs intervention focus.",
+      "categorical values": [],
+      "Numerical values": "0.0: absent; 1.0: severe, persistent symptoms; intermediate: mild.",
+      "source": [
+        4
+      ]
+    },
+    {
+      "Dimension Name": "Addiction/Craving Intensity",
+      "Description": "Intensity and frequency of addictive cravings, urges, and triggers; guides relapse prevention and coping skill planning.",
+      "categorical values": [],
+      "Numerical values": "0.0: none/abstinent; 1.0: constant, overwhelming cravings; intermediate: occasional.",
+      "source": [
+        1
+      ]
+    },
+    {
+      "Dimension Name": "Body Image Concern",
+      "Description": "Degree of preoccupation and distress about physical appearance, checking, or avoidance behaviors; relevant for BDD/eating disorder protocols.",
+      "categorical values": [],
+      "Numerical values": "0.0: none/neutral/accepting; 1.0: distorted, severe preoccupation; intermediate: moderate concern.",
+      "source": [
+        1
+      ]
+    },
+    {
+      "Dimension Name": "Health Anxiety Level",
+      "Description": "Level of worry, checking, reassurance-seeking, and catastrophic interpretation of health or bodily sensations.",
+      "categorical values": [],
+      "Numerical values": "0.0: absent; 1.0: severe, persistent; intermediate: mild/moderate.",
+      "source": [
+        1
+      ]
+    },
+    {
+      "Dimension Name": "Comorbidity Burden",
+      "Description": "Presence and impact of additional psychiatric or substance use disorders alongside the main target; guides prioritization and intervention.",
+      "categorical values": [],
+      "Numerical values": "0.0: no comorbidities; 1.0: multiple, severe comorbidities; intermediate: minimal impact.",
+      "source": [
+        6
+      ]
+    }
+  ],
+  "knowledge_graph": [
+    {
+      "type": "patient",
+      "description": "Individual undergoing CBT, representing all relevant cognitive, emotional, behavioral, and contextual info.",
+      "source": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "type": "diagnosis",
+      "description": "Clinical diagnosis and presenting problems, DSM criteria, symptoms, impairments, comorbidity.",
+      "source": [
+        5,
+        6
+      ]
+    },
+    {
+      "type": "presenting_problem",
+      "description": "Precipitating events, specific symptoms, and impairments affecting functioning.",
+      "source": [
+        6
+      ]
+    },
+    {
+      "type": "symptoms",
+      "description": "Specific psychological or psychopathological symptoms (e.g., depression, anxiety, panic, compulsions, avoidance).",
+      "source": [
+        6
+      ]
+    },
+    {
+      "type": "impairments",
+      "description": "Disrupted areas of functioning (social, occupational, relational, self-care, problem-solving).",
+      "source": [
+        6
+      ]
+    },
+    {
+      "type": "comorbid_conditions",
+      "description": "Multiple disorders or conditions (e.g., substance abuse, relationships, medical issues).",
+      "source": [
+        6
+      ]
+    },
+    {
+      "type": "Event Memory",
+      "description": "Past, present, or anticipated events recalled by the patient.",
+      "source": [
+        1,
+        5
+      ]
+    },
+    {
+      "type": "memory",
+      "description": "Memory biases, schemas, emotional/rational learning, procedural vs. declarative processes.",
+      "source": [
+        5
+      ]
+    },
+    {
+      "type": "Cognitions",
+      "description": "Beliefs, assumptions, predictions, core beliefs, and cognitive biases held by the patient.",
+      "source": [
+        5
+      ]
+    },
+    {
+      "type": "Thoughts",
+      "description": "Automatic thoughts and meanings assigned to events.",
+      "source": [
+        1
+      ]
+    },
+    {
+      "type": "automatic thoughts",
+      "description": "Immediate, often negative or distorted thoughts arising in response to situations.",
+      "source": [
+        0,
+        2,
+        3,
+        4,
+        6
+      ]
+    },
+    {
+      "type": "hot thought",
+      "description": "Automatic thoughts most strongly linked to mood, typically rated for intensity.",
+      "source": [
+        4
+      ]
+    },
+    {
+      "type": "catastrophic thoughts",
+      "description": "Negative or exaggerated predictions, often triggering distress or panic.",
+      "source": [
+        3
+      ]
+    },
+    {
+      "type": "beliefs",
+      "description": "Underlying core beliefs, assumptions, rules influencing thoughts and behaviors.",
+      "source": [
+        1
+      ]
+    },
+    {
+      "type": "intermediate beliefs",
+      "description": "Assumptions, rules, attitudes influencing automatic thoughts.",
+      "source": [
+        0
+      ]
+    },
+    {
+      "type": "underlying assumption",
+      "description": "‘If...then…’ rules or beliefs beneath automatic thoughts, contributing to persistent patterns.",
+      "source": [
+        4,
+        6
+      ]
+    },
+    {
+      "type": "core beliefs",
+      "description": "Deep, enduring convictions about self, others, or world; drive thoughts, emotions, behaviors.",
+      "source": [
+        0,
+        2,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "type": "schema",
+      "description": "Dysfunctional core belief systems originating from developmental history.",
+      "source": [
+        2,
+        6
+      ]
+    },
+    {
+      "type": "schemas/core_beliefs",
+      "description": "Global, deep-seated beliefs influencing thoughts, emotions, and behaviors.",
+      "source": [
+        2
+      ]
+    },
+    {
+      "type": "cognitive distortions",
+      "description": "Mistaken or biased patterns in thinking (e.g., catastrophizing, all-or-nothing, personalization).",
+      "source": [
+        0,
+        1,
+        2,
+        4
+      ]
+    },
+    {
+      "type": "thinking errors",
+      "description": "Common cognitive distortions like black-and-white thinking, catastrophizing.",
+      "source": [
+        1
+      ]
+    },
+    {
+      "type": "cognitive errors",
+      "description": "Distorted thinking (e.g., overgeneralization, magnification, minimization) in thoughts or schemas.",
+      "source": [
+        2
+      ]
+    },
+    {
+      "type": "cognitive_restructuring",
+      "description": "Process of challenging negative/catastrophic thoughts with alternative evidence-based thinking.",
+      "source": [
+        3,
+        4
+      ]
+    },
+    {
+      "type": "assumption",
+      "description": "Underlying rules or maladaptive beliefs (shoulds, intolerance for anxiety or uncertainty).",
+      "source": [
+        6
+      ]
+    },
+    {
+      "type": "maladaptive_thoughts/schemas",
+      "description": "Unhelpful, distorted cognitive patterns or beliefs.",
+      "source": [
+        2
+      ]
+    },
+    {
+      "type": "emotions",
+      "description": "Patient’s emotional responses, intensity, and mood states during therapy (e.g., sadness, anxiety, anger).",
+      "source": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "type": "Mood",
+      "description": "Emotional states (depression, anxiety, anger, etc.), including frequency, strength, and duration.",
+      "source": [
+        4
+      ]
+    },
+    {
+      "type": "Physical Sensations",
+      "description": "Body sensations related to emotional or behavioral states.",
+      "source": [
+        1,
+        4
+      ]
+    },
+    {
+      "type": "physiological responses",
+      "description": "Physical reactions associated with mood or distress (e.g., anxiety, arousal, sleep).",
+      "source": [
+        0,
+        4,
+        5
+      ]
+    },
+    {
+      "type": "Physical Reaction",
+      "description": "Physiological responses such as tension, rapid heartbeat, fatigue.",
+      "source": [
+        4
+      ]
+    },
+    {
+      "type": "behaviors",
+      "description": "Observable actions, patterns (e.g., avoidance, activation, coping, rituals, withdrawal).",
+      "source": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "type": "activity_level",
+      "description": "Current engagement, pleasure, mastery, scheduling, withdrawal.",
+      "source": [
+        5
+      ]
+    },
+    {
+      "type": "avoidance behaviors",
+      "description": "Actions to evade distressing situations (e.g., escape, distraction, safety signals).",
+      "source": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "type": "avoidance_behavior",
+      "description": "Behavioral avoidance or safety strategies (situational avoidance, reassurance seeking).",
+      "source": [
+        6
+      ]
+    },
+    {
+      "type": "safety behaviors",
+      "description": "Actions or strategies to feel safer or temporarily relieve anxiety.",
+      "source": [
+        1,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "type": "safety_behavior",
+      "description": "Behavior to prevent harm, often maintains anxiety or phobia.",
+      "source": [
+        6
+      ]
+    },
+    {
+      "type": "activation/behavioral activation",
+      "description": "Scheduling and engagement in pleasurable/mastery activities.",
+      "source": [
+        0,
+        2,
+        5
+      ]
+    },
+    {
+      "type": "behavioral_activation",
+      "description": "Activity scheduling to counter low mood, avoidance, and anhedonia.",
+      "source": [
+        2
+      ]
+    },
+    {
+      "type": "coping strategies",
+      "description": "Adaptive/maladaptive ways patient manages stress, distress, or problems.",
+      "source": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6
+      ]
+    },
+    {
+      "type": "coping_strategy",
+      "description": "Adaptive skills (problem-solving, relaxation, mindfulness, emotion regulation, assertiveness).",
+      "source": [
+        6
+      ]
+    },
+    {
+      "type": "skills",
+      "description": "CBT and life skills (problem-solving, communication, assertiveness, relaxation, social skills).",
+      "source": [
+        0,
+        4
+      ]
+    },
+    {
+      "type": "problem_solving_skills",
+      "description": "Defining problems, generating solutions, evaluating and implementing outcomes.",
+      "source": [
+        2
+      ]
+    },
+    {
+      "type": "Skill",
+      "description": "CBT techniques (cognitive restructuring, activity scheduling, assertiveness, relaxation, mood tracking).",
+      "source": [
+        4
+      ]
+    },
+    {
+      "type": "CBT tools/techniques",
+      "description": "Specific CBT interventions (Socratic questioning, guided discovery, thought record, behavioral experiments, role play, imagery).",
+      "source": [
+        0
+      ]
+    },
+    {
+      "type": "intervention",
+      "description": "CBT interventions, behavioral activation, exposure, cognitive restructuring, skills training, medication education.",
+      "source": [
+        6
+      ]
+    },
+    {
+      "type": "therapy notes",
+      "description": "Session summaries, coping cards, beliefs, adaptive responses (written or audio).",
+      "source": [
+        0
+      ]
+    },
+    {
+      "type": "conceptualization diagram",
+      "description": "Visual/formal mapping of links between thoughts, beliefs, emotions, and behaviors.",
+      "source": [
+        0
+      ]
+    },
+    {
+      "type": "problem list",
+      "description": "Current and ongoing issues prioritized for discussion/intervention.",
+      "source": [
+        0
+      ]
+    },
+    {
+      "type": "agenda",
+      "description": "Session agenda, collaboratively set, linking session topics to therapy goals.",
+      "source": [
+        0,
+        2
+      ]
+    },
+    {
+      "type": "homework assignments",
+      "description": "Tasks assigned to practice skills and strategies between sessions.",
+      "source": [
+        0,
+        2
+      ]
+    },
+    {
+      "type": "homework",
+      "description": "Assigned practice tasks (behavioral activation, exposure, monitoring, skill training).",
+      "source": [
+        6
+      ]
+    },
+    {
+      "type": "progress/Progress & Setbacks",
+      "description": "Monitoring of change, improvement, setbacks, relapse prevention, and practice.",
+      "source": [
+        1,
+        3,
+        4,
+        6
+      ]
+    },
+    {
+      "type": "progress",
+      "description": "Documentation and demonstration of symptom changes, improvement, impairments, homework compliance.",
+      "source": [
+        6
+      ]
+    },
+    {
+      "type": "progress tracking",
+      "description": "Logging and rating of mood, behaviors, thoughts, and goal attainment over time.",
+      "source": [
+        4
+      ]
+    },
+    {
+      "type": "well_being_log",
+      "description": "Diary/log for monitoring positive states and factors interrupting well-being.",
+      "source": [
+        2
+      ]
+    },
+    {
+      "type": "motivation",
+      "description": "Level and sources of drive for change and goal pursuit.",
+      "source": [
+        1,
+        3
+      ]
+    },
+    {
+      "type": "motivation_recordkeeping",
+      "description": "Patient’s motivation and barriers for maintaining ongoing records.",
+      "source": [
+        3
+      ]
+    },
+    {
+      "type": "therapy_goals",
+      "description": "Defined, specific, observable CBT or personal development goals.",
+      "source": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        6
+      ]
+    },
+    {
+      "type": "goal",
+      "description": "Specific, measurable, observable objectives for mood, behavior, or recovery.",
+      "source": [
+        0,
+        1,
+        4,
+        6
+      ]
+    },
+    {
+      "type": "long_term_goal_setting",
+      "description": "Identification and breakdown of long-term recovery goals.",
+      "source": [
+        3
+      ]
+    },
+    {
+      "type": "treatment_goal",
+      "description": "Goals focused on symptom reduction and improved functioning.",
+      "source": [
+        6
+      ]
+    },
+    {
+      "type": "action plan",
+      "description": "Written plan with goals, steps, obstacles, and strategies to address problems or implement new behaviors.",
+      "source": [
+        4
+      ]
+    },
+    {
+      "type": "practice_plan",
+      "description": "Structured plan for ongoing CBT practice.",
+      "source": [
+        3
+      ]
+    },
+    {
+      "type": "progress_record",
+      "description": "Weekly record plotting number of panic attacks and average weekly anxiety.",
+      "source": [
+        3
+      ]
+    },
+    {
+      "type": "mood_record",
+      "description": "Daily rating of anxiety, depression, and panic worry (0-10 scale).",
+      "source": [
+        3
+      ]
+    },
+    {
+      "type": "panic_attack_record",
+      "description": "Structured documentation of panic attacks, triggers, symptoms, emotional intensity.",
+      "source": [
+        3
+      ]
+    },
+    {
+      "type": "recordkeeping",
+      "description": "Recording of panic, anxiety, symptoms, thoughts, triggers, and behaviors.",
+      "source": [
+        3
+      ]
+    },
+    {
+      "type": "subjective_vs_objective_recording",
+      "description": "Distinction between emotional/subjective ratings and factual/objective symptom recording.",
+      "source": [
+        3
+      ]
+    },
+    {
+      "type": "patterns_triggers",
+      "description": "Cycles, triggers, and fluctuations in anxiety, panic, thoughts, and behaviors.",
+      "source": [
+        3
+      ]
+    },
+    {
+      "type": "panic_attack",
+      "description": "Episodes of acute panic experienced by the patient.",
+      "source": [
+        3
+      ]
+    },
+    {
+      "type": "subjective_beliefs_about_panic",
+      "description": "Mistaken or subjective beliefs about the harmfulness of panic symptoms.",
+      "source": [
+        3
+      ]
+    },
+    {
+      "type": "biological_education",
+      "description": "Education on biological mechanisms and information about panic symptom harmlessness.",
+      "source": [
+        3
+      ]
+    },
+    {
+      "type": "agoraphobia_cycle",
+      "description": "Pattern of anxiety, avoidance, anticipation, and reinforcement in 'unsafe' situations.",
+      "source": [
+        3
+      ]
+    },
+    {
+      "type": "exposure_hierarchy",
+      "description": "Graded list or ranking of feared or avoided situations for exposure practice.",
+      "source": [
+        2,
+        3,
+        4,
+        6
+      ]
+    },
+    {
+      "type": "exposure_practice",
+      "description": "Repeated exposure facing feared situations or symptoms.",
+      "source": [
+        3
+      ]
+    },
+    {
+      "type": "symptom_induction",
+      "description": "Direct exposure to feared physical symptoms via exercises.",
+      "source": [
+        3
+      ]
+    },
+    {
+      "type": "breathing_skills",
+      "description": "Slow, diaphragmatic breathing for anxiety regulation.",
+      "source": [
+        3
+      ]
+    },
+    {
+      "type": "thinking_skills",
+      "description": "Skills in cognitive restructuring, evidence review, coping thought generation.",
+      "source": [
+        3,
+        4
+      ]
+    },
+    {
+      "type": "helper_involvement",
+      "description": "Participation of partner, family, or friends in supporting recovery and exposures.",
+      "source": [
+        3
+      ]
+    },
+    {
+      "type": "helper_reinforcement_patterns",
+      "description": "Behaviors by helpers that may reinforce anxiety/avoidance or recovery behaviors.",
+      "source": [
+        3
+      ]
+    },
+    {
+      "type": "Forgiveness Exercise",
+      "description": "Process of forgiving self or others, such as letter-writing and self-compassion work.",
+      "source": [
+        4
+      ]
+    },
+    {
+      "type": "Gratitude Practice",
+      "description": "Recording or expressing things the patient is grateful for to boost mood/core beliefs.",
+      "source": [
+        4
+      ]
+    },
+    {
+      "type": "CBT Worksheet",
+      "description": "Structured forms (Thought Record, Mood Ratings, Fear Ladder) used during therapy.",
+      "source": [
+        4
+      ]
+    },
+    {
+      "type": "Support",
+      "description": "Relationships, strengths, and therapist collaboration aiding recovery.",
+      "source": [
+        4
+      ]
+    },
+    {
+      "type": "psychoeducation",
+      "description": "Education to enhance understanding of CBT principles and techniques.",
+      "source": [
+        2,
+        3
+      ]
+    },
+    {
+      "type": "pharmacotherapy_management",
+      "description": "Integration of medication management with CBT (adherence, psychoeducation, monitoring).",
+      "source": [
+        2,
+        3
+      ]
+    },
+    {
+      "type": "medication_management",
+      "description": "Patient’s use, tapering, or withdrawal from medications.",
+      "source": [
+        3
+      ]
+    },
+    {
+      "type": "physical_health",
+      "description": "Impact of physical illness, disability, sleep, acquired brain injury.",
+      "source": [
+        5
+      ]
+    },
+    {
+      "type": "Responsibility",
+      "description": "Personal responsibility for events, outcomes, and change.",
+      "source": [
+        1
+      ]
+    },
+    {
+      "type": "Self-Esteem & Self-Acceptance",
+      "description": "Appraisal of self-worth, patterns of self-criticism, acceptance vs. self-rating.",
+      "source": [
+        1,
+        5
+      ]
+    },
+    {
+      "type": "self-esteem",
+      "description": "Global or situation-specific self-evaluations, perfectionism, self-worth, self-criticism.",
+      "source": [
+        5
+      ]
+    },
+    {
+      "type": "interpersonal",
+      "description": "Social relationships, communication, trust, assertiveness, social anxiety.",
+      "source": [
+        5
+      ]
+    },
+    {
+      "type": "Relationships & Social Connection",
+      "description": "Quality of interactions with others, intimacy, withdrawal, approval seeking.",
+      "source": [
+        1
+      ]
+    },
+    {
+      "type": "Values & Meaningful Activities",
+      "description": "Personal values, meaningful pursuits, alignment with priorities and chosen lifestyle.",
+      "source": [
+        1
+      ]
+    },
+    {
+      "type": "sociocultural_context",
+      "description": "Sociocultural, socioeconomic, developmental, medical, and contextual influences.",
+      "source": [
+        0,
+        2
+      ]
+    },
+    {
+      "type": "cultural/developmental factors",
+      "description": "Patient's background, developmental stage, preferences affecting CBT approach.",
+      "source": [
+        0
+      ]
+    },
+    {
+      "type": "therapeutic alliance",
+      "description": "Quality of trust, collaboration, rapport, teamwork, empathy, boundaries in therapy.",
+      "source": [
+        0,
+        2,
+        5
+      ]
+    },
+    {
+      "type": "therapeutic_process",
+      "description": "Collaborative planning, motivation, reflection, dynamics, alliance, goal setting.",
+      "source": [
+        5
+      ]
+    },
+    {
+      "type": "Therapy Engagement",
+      "description": "Involvement in CBT (homework, sessions, collaboration, self-help, willingness for help).",
+      "source": [
+        1
+      ]
+    },
+    {
+      "type": "feedback",
+      "description": "Ongoing feedback between patient and therapist on progress, understanding, and alliance.",
+      "source": [
+        0,
+        2
+      ]
+    },
+    {
+      "type": "problem_solving_skills",
+      "description": "Problem definition, solution generation, implementation, evaluation.",
+      "source": [
+        2
+      ]
+    },
+    {
+      "type": "Progress & Setbacks",
+      "description": "Tracking of therapy change, setbacks, relapse prevention, and continued practice.",
+      "source": [
+        1,
+        3
+      ]
+    },
+    {
+      "type": "maintenance",
+      "description": "Ongoing self-monitoring and skill maintenance after initial CBT gains.",
+      "source": [
+        3
+      ]
+    },
+    {
+      "type": "setbacks_management",
+      "description": "Strategies for managing setbacks and recurrence.",
+      "source": [
+        3
+      ]
+    },
+    {
+      "type": "relapse prevention",
+      "description": "Strategies and plans for maintaining gains and handling setbacks post-therapy.",
+      "source": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        6
+      ]
+    },
+    {
+      "type": "relapse_prevention",
+      "description": "Education and planning to sustain progress and prevent symptom return.",
+      "source": [
+        1,
+        2,
+        3,
+        4,
+        6
+      ]
+    },
+    {
+      "type": "treatment_plan",
+      "description": "Structure of therapy including goals, interventions, session frequency, and rationale.",
+      "source": [
+        6
+      ]
+    },
+    {
+      "type": "Evidence",
+      "description": "Objective facts supporting or contradicting thoughts/beliefs; used in cognitive restructuring.",
+      "source": [
+        4
+      ]
+    },
+    {
+      "type": "Alternative/Balanced Thought",
+      "description": "Adaptive thinking developed by weighing evidence against negative thoughts.",
+      "source": [
+        4
+      ]
+    },
+    {
+      "type": "Behavioral Experiment",
+      "description": "Structured tests of assumptions or beliefs to facilitate cognitive and behavioral change.",
+      "source": [
+        0,
+        4,
+        5
+      ]
+    },
+    {
+      "type": "behavioral_experiment",
+      "description": "Setup, execution, and reflection on behavioral tests for beliefs/hypotheses.",
+      "source": [
+        0,
+        2,
+        4,
+        5
+      ]
+    }
+  ]
+}

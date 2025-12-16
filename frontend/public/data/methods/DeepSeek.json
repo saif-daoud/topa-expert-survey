@@ -1,0 +1,322 @@
+{
+  "action_space": [
+    {
+      "name": "RapportBuilding",
+      "goal": "Establish trust and therapeutic alliance",
+      "description": "Create a safe, non-judgmental environment where the client feels comfortable sharing personal information",
+      "micro_actions": [
+        {
+          "name": "WarmGreeting",
+          "description": "Begin session with friendly, welcoming tone and personal acknowledgment"
+        },
+        {
+          "name": "NormalizingStatement",
+          "description": "Validate client's experiences by indicating they are common and understandable"
+        },
+        {
+          "name": "EmpathicReflection",
+          "description": "Mirror client's emotions to show understanding and validation"
+        },
+        {
+          "name": "PersonalAcknowledgement",
+          "description": "Remember and reference previous session content or personal details"
+        }
+      ]
+    },
+    {
+      "name": "AgendaSetting",
+      "goal": "Establish clear focus and direction for the session",
+      "description": "Collaboratively determine what issues to address during the current session",
+      "micro_actions": [
+        {
+          "name": "SessionBridge",
+          "description": "Connect current session to previous session content"
+        },
+        {
+          "name": "OpenEndedInquiry",
+          "description": "Ask what client would like to focus on today"
+        },
+        {
+          "name": "PriorityClarification",
+          "description": "Help client identify most pressing concerns"
+        },
+        {
+          "name": "GoalAlignment",
+          "description": "Connect session focus to broader treatment goals"
+        }
+      ]
+    },
+    {
+      "name": "Assessment",
+      "goal": "Gather comprehensive understanding of current concerns",
+      "description": "Explore the nature, context, and impact of the client's presenting issues",
+      "micro_actions": [
+        {
+          "name": "SituationProbing",
+          "description": "Ask about specific situations where the issue occurs"
+        },
+        {
+          "name": "EmotionExploration",
+          "description": "Inquire about emotional responses and intensity"
+        },
+        {
+          "name": "ThoughtIdentification",
+          "description": "Help client identify automatic thoughts and beliefs"
+        },
+        {
+          "name": "BehavioralAnalysis",
+          "description": "Explore actions and reactions in relevant situations"
+        },
+        {
+          "name": "ImpactAssessment",
+          "description": "Ask about consequences on daily functioning and relationships"
+        }
+      ]
+    },
+    {
+      "name": "CognitiveRestructuring",
+      "goal": "Help client identify and modify unhelpful thinking patterns",
+      "description": "Challenge cognitive distortions and develop more balanced perspectives",
+      "micro_actions": [
+        {
+          "name": "ThoughtRecordIntroduction",
+          "description": "Explain the process of tracking thoughts and emotions"
+        },
+        {
+          "name": "EvidenceExamination",
+          "description": "Explore evidence for and against automatic thoughts"
+        },
+        {
+          "name": "AlternativePerspective",
+          "description": "Generate alternative, more balanced interpretations"
+        },
+        {
+          "name": "SocraticQuestioning",
+          "description": "Use guided discovery to examine thought validity"
+        },
+        {
+          "name": "CognitiveReframing",
+          "description": "Help client restructure thoughts in more adaptive ways"
+        }
+      ]
+    },
+    {
+      "name": "SkillBuilding",
+      "goal": "Develop practical coping strategies and behavioral skills",
+      "description": "Teach and practice specific techniques to manage emotions and improve functioning",
+      "micro_actions": [
+        {
+          "name": "Psychoeducation",
+          "description": "Provide information about relevant psychological concepts"
+        },
+        {
+          "name": "TechniqueDemonstration",
+          "description": "Show how to perform specific coping strategies"
+        },
+        {
+          "name": "GuidedPractice",
+          "description": "Walk client through skill application in session"
+        },
+        {
+          "name": "ProblemSolving",
+          "description": "Collaboratively generate solutions to specific challenges"
+        },
+        {
+          "name": "HomeworkAssignment",
+          "description": "Assign between-session practice of new skills"
+        }
+      ]
+    },
+    {
+      "name": "EmotionalProcessing",
+      "goal": "Facilitate adaptive emotional expression and regulation",
+      "description": "Help client safely experience, express, and understand emotions",
+      "micro_actions": [
+        {
+          "name": "EmotionLabeling",
+          "description": "Help client identify and name specific emotions"
+        },
+        {
+          "name": "BodyAwareness",
+          "description": "Guide attention to physical sensations associated with emotions"
+        },
+        {
+          "name": "Validation",
+          "description": "Acknowledge and accept emotional experiences without judgment"
+        },
+        {
+          "name": "EmotionTolerance",
+          "description": "Support client in staying with difficult emotions"
+        },
+        {
+          "name": "RegulationStrategy",
+          "description": "Introduce techniques for managing emotional intensity"
+        }
+      ]
+    },
+    {
+      "name": "ProgressReview",
+      "goal": "Evaluate treatment progress and adjust approach as needed",
+      "description": "Assess what's working, identify barriers, and modify treatment plan",
+      "micro_actions": [
+        {
+          "name": "ChangeRecognition",
+          "description": "Highlight improvements and progress made"
+        },
+        {
+          "name": "BarrierIdentification",
+          "description": "Explore obstacles to implementing strategies"
+        },
+        {
+          "name": "GoalReassessment",
+          "description": "Review and adjust treatment goals as needed"
+        },
+        {
+          "name": "StrategyEvaluation",
+          "description": "Discuss effectiveness of current approaches"
+        },
+        {
+          "name": "PlanAdjustment",
+          "description": "Modify treatment plan based on progress and feedback"
+        }
+      ]
+    },
+    {
+      "name": "SessionClosure",
+      "goal": "Ensure smooth transition out of therapeutic space",
+      "description": "Summarize session content, reinforce learning, and prepare for between-session work",
+      "micro_actions": [
+        {
+          "name": "KeyTakeaways",
+          "description": "Summarize main insights and learning points"
+        },
+        {
+          "name": "HomeworkReview",
+          "description": "Clarify between-session assignments and expectations"
+        },
+        {
+          "name": "CopingAnticipation",
+          "description": "Discuss potential challenges and coping strategies"
+        },
+        {
+          "name": "NextSessionPreview",
+          "description": "Briefly outline focus for following session"
+        },
+        {
+          "name": "SupportiveClosing",
+          "description": "End with encouraging, validating statements"
+        }
+      ]
+    }
+  ],
+  "Conversation_states": [
+    {
+      "Variable Name": "Therapeutic Alliance",
+      "Description": "The quality of the collaborative relationship and bond between therapist and client. Strong alliance is crucial for treatment adherence and effectiveness.",
+      "Values": "0 (Poor alliance, distrust, disengagement) to 1 (Strong, trusting, collaborative partnership)"
+    },
+    {
+      "Variable Name": "Client Engagement",
+      "Description": "The client's level of active participation, involvement, and openness in the session. Low engagement may indicate resistance or lack of readiness.",
+      "Values": "0 (Passive, withdrawn, monosyllabic) to 1 (Highly active, participatory, self-disclosing)"
+    },
+    {
+      "Variable Name": "Emotional Arousal",
+      "Description": "The intensity of the client's expressed emotion (e.g., sadness, anxiety, anger). Needs to be managed to be productive without becoming overwhelming.",
+      "Values": "0 (Flat affect, numbed, dissociated) to 1 (Highly dysregulated, overwhelmed, distraught)"
+    },
+    {
+      "Variable Name": "Cognitive Insight",
+      "Description": "The client's ability to recognize and understand the connections between thoughts, feelings, and behaviors. Fundamental for cognitive restructuring.",
+      "Values": "0 (No insight, externalizing blame) to 1 (Clear insight, can independently identify cognitive distortions)"
+    },
+    {
+      "Variable Name": "Problem Clarity",
+      "Description": "The specificity and concrete understanding of the problem(s) being discussed. Vague problems are harder to target therapeutically.",
+      "Values": "0 (Vague, diffuse, 'everything is wrong') to 1 (Specific, well-defined, concrete examples)"
+    },
+    {
+      "Variable Name": "Motivation for Change",
+      "Description": "The client's readiness and willingness to engage in change efforts, aligned with the Stages of Change model.",
+      "Values": "0 (Precontemplation, resistant to change) to 1 (Action/Maintenance, taking active steps)"
+    },
+    {
+      "Variable Name": "Hopefulness",
+      "Description": "The client's degree of optimism about the possibility of improvement. Hopelessness is a risk factor and a target for intervention.",
+      "Values": "0 (Hopeless, pessimistic, defeatist) to 1 (Hopeful, optimistic, sees a path forward)"
+    },
+    {
+      "Variable Name": "Session Focus",
+      "Description": "The degree to which the conversation remains focused on therapeutically relevant topics versus tangential or avoidant material.",
+      "Values": "0 (Unfocused, highly tangential, avoidant) to 1 (Highly focused, on-topic, productive)"
+    },
+    {
+      "Variable Name": "Skill Acquisition & Application",
+      "Description": "The client's understanding and ability to apply CBT techniques (e.g., thought records, behavioral activation) both in-session and between sessions.",
+      "Values": "0 (No understanding or application) to 1 (Mastery, independently and effectively applies skills)"
+    },
+    {
+      "Variable Name": "Safety Risk",
+      "Description": "The assessed level of immediate risk of harm to self or others. This is a critical variable that overrides all other therapeutic tasks if elevated.",
+      "Values": "0 (No indicated risk) to 1 (Imminent, high-risk, requires crisis intervention)"
+    }
+  ],
+  "knowledge_graph": [
+    {
+      "type": "Patient",
+      "description": "The central entity representing the individual receiving therapy, including core demographic and treatment information"
+    },
+    {
+      "type": "PresentingProblem",
+      "description": "The primary issues or symptoms that initially brought the patient to therapy, with severity and duration"
+    },
+    {
+      "type": "TreatmentGoal",
+      "description": "Specific, measurable objectives established collaboratively for therapy outcomes"
+    },
+    {
+      "type": "Session",
+      "description": "Individual therapy meetings with date, focus, interventions used, and progress notes"
+    },
+    {
+      "type": "CoreBelief",
+      "description": "Fundamental, deeply held assumptions about self, others, and the world that shape thinking patterns"
+    },
+    {
+      "type": "AutomaticThought",
+      "description": "Immediate, often unconscious thoughts that arise in specific situations and trigger emotional responses"
+    },
+    {
+      "type": "EmotionalPattern",
+      "description": "Recurring emotional experiences, their triggers, intensity, frequency, and duration"
+    },
+    {
+      "type": "BehavioralPattern",
+      "description": "Habitual actions, avoidance behaviors, coping strategies, and daily functioning patterns"
+    },
+    {
+      "type": "LifeEvent",
+      "description": "Significant past or current events that impact the patient's psychological well-being"
+    },
+    {
+      "type": "Relationship",
+      "description": "Important interpersonal connections including family, friends, romantic partners, and work relationships"
+    },
+    {
+      "type": "CopingSkill",
+      "description": "Techniques and strategies the patient uses or is learning to manage distress and improve functioning"
+    },
+    {
+      "type": "ProgressMetric",
+      "description": "Measurable indicators of improvement such as symptom scales, functional assessments, and subjective ratings"
+    },
+    {
+      "type": "RiskFactor",
+      "description": "Elements that increase vulnerability to psychological distress or impede treatment progress"
+    },
+    {
+      "type": "ProtectiveFactor",
+      "description": "Strengths, resources, and supports that enhance resilience and facilitate recovery"
+    }
+  ]
+}

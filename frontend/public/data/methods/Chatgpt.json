@@ -1,0 +1,257 @@
+{
+  "action_space": [
+    {
+      "name": "Establish Rapport",
+      "goal": "Build trust and safety between therapist and client to create a supportive environment.",
+      "description": "Focus on forming a strong therapeutic alliance by demonstrating empathy, warmth, and acceptance.",
+      "micro_actions": [
+        {
+          "name": "Warm Greeting",
+          "description": "Begin the session with a welcoming tone and express appreciation for the client’s presence."
+        },
+        {
+          "name": "Active Listening",
+          "description": "Listen attentively without interruption, using verbal and nonverbal cues to show engagement."
+        },
+        {
+          "name": "Empathic Reflection",
+          "description": "Paraphrase and reflect back the client’s feelings to validate their emotional experience."
+        }
+      ]
+    },
+    {
+      "name": "Clarify Concerns",
+      "goal": "Help the client clearly articulate and prioritize the issues they want to address.",
+      "description": "Guide the client in exploring their main concerns and defining specific areas for intervention.",
+      "micro_actions": [
+        {
+          "name": "Open-Ended Questioning",
+          "description": "Ask broad, non-leading questions to invite the client to share more about their concerns."
+        },
+        {
+          "name": "Summarize Key Issues",
+          "description": "Provide a concise summary of the client’s concerns to confirm understanding."
+        },
+        {
+          "name": "Set Agenda",
+          "description": "Collaboratively decide which topics will be the focus of the session."
+        }
+      ]
+    },
+    {
+      "name": "Psychoeducation",
+      "goal": "Increase the client’s understanding of their difficulties and provide relevant knowledge.",
+      "description": "Explain psychological concepts or coping mechanisms to enhance the client’s insight and self-management.",
+      "micro_actions": [
+        {
+          "name": "Explain Concept",
+          "description": "Present a psychological concept (e.g., cognitive distortions) in simple, relatable language."
+        },
+        {
+          "name": "Provide Examples",
+          "description": "Offer real-life or hypothetical examples to illustrate how the concept applies to the client."
+        },
+        {
+          "name": "Check Understanding",
+          "description": "Ask the client to explain the concept back or provide feedback to ensure clarity."
+        }
+      ]
+    },
+    {
+      "name": "Cognitive Restructuring",
+      "goal": "Help the client identify and modify unhelpful thoughts and beliefs.",
+      "description": "Collaboratively work with the client to challenge distorted thinking and develop healthier perspectives.",
+      "micro_actions": [
+        {
+          "name": "Identify Negative Thought",
+          "description": "Ask the client to share a recent distressing thought or belief."
+        },
+        {
+          "name": "Examine Evidence",
+          "description": "Guide the client to evaluate evidence supporting and contradicting the thought."
+        },
+        {
+          "name": "Generate Alternative Thought",
+          "description": "Collaboratively create a more balanced or adaptive interpretation."
+        }
+      ]
+    },
+    {
+      "name": "Behavioral Activation",
+      "goal": "Increase engagement in positive activities to improve mood and functioning.",
+      "description": "Encourage the client to plan and carry out rewarding or meaningful activities.",
+      "micro_actions": [
+        {
+          "name": "Activity Scheduling",
+          "description": "Work with the client to schedule specific enjoyable or productive activities."
+        },
+        {
+          "name": "Reinforce Progress",
+          "description": "Provide positive feedback for attempts to engage in planned activities."
+        },
+        {
+          "name": "Problem-Solve Barriers",
+          "description": "Collaboratively identify and address obstacles to activity completion."
+        }
+      ]
+    },
+    {
+      "name": "Skill Building",
+      "goal": "Equip the client with new coping and interpersonal skills to manage challenges.",
+      "description": "Teach and rehearse practical skills that support emotional regulation, communication, and problem-solving.",
+      "micro_actions": [
+        {
+          "name": "Teach Skill Step-by-Step",
+          "description": "Break down the new skill into small, clear steps and explain each one."
+        },
+        {
+          "name": "Model Skill",
+          "description": "Demonstrate the skill in action to provide a concrete example."
+        },
+        {
+          "name": "Role Play Practice",
+          "description": "Engage the client in a simulated scenario to practice using the skill."
+        }
+      ]
+    },
+    {
+      "name": "Review and Consolidate Progress",
+      "goal": "Reinforce therapeutic gains and prepare for maintenance outside of sessions.",
+      "description": "Summarize progress, highlight strengths, and develop a plan for continued improvement.",
+      "micro_actions": [
+        {
+          "name": "Summarize Achievements",
+          "description": "Review key progress made during the session or across sessions."
+        },
+        {
+          "name": "Highlight Strengths",
+          "description": "Identify and affirm the client’s personal resources and successes."
+        },
+        {
+          "name": "Plan Next Steps",
+          "description": "Collaboratively set goals or actions for the client to work on before the next session."
+        }
+      ]
+    }
+  ],
+  "Conversation_states": [
+    {
+      "Variable Name": "EngagementLevel",
+      "Description": "Degree of the client’s active participation and attention; helps guide pacing and choice of interventions.",
+      "Values": "0 (disengaged) → 1 (highly engaged)"
+    },
+    {
+      "Variable Name": "EmotionalArousal",
+      "Description": "Intensity of the client’s emotional state (anxiety, anger, sadness); crucial for deciding when to regulate or deepen exploration.",
+      "Values": "0 (calm/neutral) → 1 (extremely aroused)"
+    },
+    {
+      "Variable Name": "CognitiveDistortionActivation",
+      "Description": "Extent to which distorted thinking patterns are currently active; indicates opportunities for cognitive restructuring.",
+      "Values": "0 (no distortion evident) → 1 (strong distortions present)"
+    },
+    {
+      "Variable Name": "InsightProgress",
+      "Description": "How much the client is gaining new understanding about thoughts, feelings, and behaviors; guides therapist to consolidate or deepen insight.",
+      "Values": "0 (no insight) → 1 (significant insight)"
+    },
+    {
+      "Variable Name": "TherapeuticAlliance",
+      "Description": "Strength of rapport, trust, and collaboration between therapist and client; vital for effective interventions.",
+      "Values": "0 (weak alliance) → 1 (very strong alliance)"
+    },
+    {
+      "Variable Name": "GoalClarity",
+      "Description": "Shared clarity on therapy goals or session objectives; helps decide whether to revisit agenda or move forward.",
+      "Values": "0 (no clear goals) → 1 (highly clear and agreed goals)"
+    },
+    {
+      "Variable Name": "BehavioralActivation",
+      "Description": "Client’s readiness and commitment to act on coping strategies or homework; indicates when to assign tasks.",
+      "Values": "0 (not ready) → 1 (highly ready and motivated)"
+    },
+    {
+      "Variable Name": "DistressTolerance",
+      "Description": "Client’s capacity to stay with difficult emotions without avoidance; informs pacing of exposure or challenging thoughts.",
+      "Values": "0 (low tolerance) → 1 (high tolerance)"
+    },
+    {
+      "Variable Name": "SessionFocusAdherence",
+      "Description": "Degree to which the conversation stays aligned with agreed agenda vs. drifting to unrelated topics.",
+      "Values": "0 (completely off-track) → 1 (fully on-track)"
+    },
+    {
+      "Variable Name": "SkillAcquisition",
+      "Description": "How well the client is learning and practicing CBT skills during the session.",
+      "Values": "0 (no skills learned) → 1 (skills mastered)"
+    },
+    {
+      "Variable Name": "Hopefulness",
+      "Description": "Client’s sense of optimism and perceived efficacy of therapy; influences motivation and alliance.",
+      "Values": "0 (hopeless) → 1 (very hopeful)"
+    },
+    {
+      "Variable Name": "EmotionRegulationCapacity",
+      "Description": "Ability of the client to regulate emotions during the session; important for selecting interventions.",
+      "Values": "0 (cannot self-regulate) → 1 (effectively self-regulating)"
+    }
+  ],
+  "knowledge_graph": [
+    {
+      "type": "Patient",
+      "description": "The central node representing the individual receiving therapy."
+    },
+    {
+      "type": "Demographics",
+      "description": "Basic patient information such as age, gender, occupation, cultural background."
+    },
+    {
+      "type": "Session",
+      "description": "A single therapy encounter, including date, duration, and notes."
+    },
+    {
+      "type": "PresentingProblem",
+      "description": "The main issue or concern that brought the patient to therapy."
+    },
+    {
+      "type": "Symptoms",
+      "description": "Specific emotional, cognitive, or physical symptoms experienced by the patient."
+    },
+    {
+      "type": "Diagnosis",
+      "description": "Formal clinical diagnosis or provisional assessment."
+    },
+    {
+      "type": "Goals",
+      "description": "Therapeutic goals collaboratively defined between patient and therapist."
+    },
+    {
+      "type": "Progress",
+      "description": "Tracking of the patient’s improvement or setbacks across sessions."
+    },
+    {
+      "type": "TherapeuticIntervention",
+      "description": "Specific techniques or strategies applied during therapy (e.g., cognitive restructuring, exposure, relaxation training)."
+    },
+    {
+      "type": "CopingSkills",
+      "description": "Practical strategies learned and practiced to handle distress or difficult situations."
+    },
+    {
+      "type": "LifeEvents",
+      "description": "Significant external events in the patient’s life (e.g., job change, relationship issues, trauma)."
+    },
+    {
+      "type": "Medication",
+      "description": "Prescribed medications and their effects on symptoms or functioning."
+    },
+    {
+      "type": "SupportNetwork",
+      "description": "Relationships and social supports available to the patient (family, friends, peers)."
+    },
+    {
+      "type": "TherapeuticAlliance",
+      "description": "Quality of the relationship and trust between therapist and patient."
+    }
+  ]
+}
