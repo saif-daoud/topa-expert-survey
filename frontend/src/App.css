@@ -399,3 +399,9 @@
   color: var(--muted);
   line-height: 1.45;
 }
+
+.calloutInline {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

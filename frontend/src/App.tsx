@@ -598,9 +598,8 @@ export default function App() {
 
         {activeComponent === "action_space" && (
           <div className="callout">
-            <div className="calloutTitle">Tip</div>
             <div className="calloutBody">
-              In <b>Action Space</b>, click a <b>macro action</b> to expand and view its <b>micro actions</b>.
+              <b>Tip:</b> In <b>Action Space</b>, click a <b>macro action</b> to expand and view its <b>micro actions</b>.
             </div>
           </div>
         )}
@@ -636,16 +635,10 @@ export default function App() {
               <button className="btn btnPrimary" onClick={() => vote("right")} disabled={submitting}>
                 Prefer RIGHT
               </button>
-              <div className="note">
-                Tip: In <b>Action Space</b>, click a macro action to expand its micro actions.
-              </div>
             </div>
           </>
         )}
 
-        <div className="footerNote">
-          Your session is anonymous. A unique participant id is generated server-side and is not shown in the interface.
-        </div>
       </div>
     </div>
   );
