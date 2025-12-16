@@ -96,6 +96,65 @@ function prettify(s: string) {
     .replace(/^./, (c) => c.toUpperCase());
 }
 
+function normKey(s: string) {
+  return (s || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+}
+function stripPlural(s: string) {
+  return s.endsWith("s") ? s.slice(0, -1) : s;
+}
+
+function bestMatchingKey(obj: any, desired: string): string | null {
+  if (!obj || typeof obj !== "object") return null;
+
+  const target = normKey(desired);
+  const targetS = stripPlural(target);
+
+  let best: { key: string; score: number } | null = null;
+
+  for (const k of Object.keys(obj)) {
+    const nk = normKey(k);
+    const nkS = stripPlural(nk);
+
+    let score = 0;
+    if (nk === target) score = 100;
+    else if (nkS === targetS) score = 95; // handles conversation_state vs Conversation_states
+    else if (nk.includes(target) || target.includes(nk)) score = 70;
+    else if (nkS.includes(targetS) || targetS.includes(nkS)) score = 60;
+
+    if (score > 0 && (!best || score > best.score)) best = { key: k, score };
+  }
+
+  return best?.key ?? null;
+}
+
+function getComponentValue(methodData: any, component: string) {
+  const k = bestMatchingKey(methodData, component);
+  return k ? methodData[k] : null;
+}
+
+function getDescription(descs: Record<string, string>, component: string) {
+  if (!descs) return "";
+  if (descs[component]) return descs[component];
+  const k = bestMatchingKey(descs, component);
+  return k ? descs[k] : "";
+}
+
+function escapeHtml(s: string) {
+  return s
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+// minimal markdown: **bold** + newlines
+function renderMiniMarkdown(md: string) {
+  const safe = escapeHtml(md || "");
+  const withBold = safe.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+  return withBold.replace(/\n/g, "<br/>");
+}
+
 function isRecord(x: any): x is Record<string, any> {
   return x && typeof x === "object" && !Array.isArray(x);
 }
@@ -340,11 +399,11 @@ export default function App() {
   }, [manifest]);
 
   const methodIds = useMemo(() => {
-    if (!manifest || !activeComponent) return [];
-    return manifest.methods
-      .map((x) => x.id)
-      .filter((id) => dataByMethod[id] && activeComponent in dataByMethod[id]);
-  }, [manifest, dataByMethod, activeComponent]);
+  if (!manifest || !activeComponent) return [];
+  return manifest.methods
+    .map((x) => x.id)
+    .filter((id) => dataByMethod[id] && bestMatchingKey(dataByMethod[id], activeComponent));
+}, [manifest, dataByMethod, activeComponent]);
 
   const pair = useMemo(() => nextPair(participantId, activeComponent, methodIds, history), [
     participantId,
@@ -355,8 +414,8 @@ export default function App() {
 
   const leftId = pair?.[0] || "";
   const rightId = pair?.[1] || "";
-  const leftObj = leftId ? dataByMethod[leftId]?.[activeComponent] : null;
-  const rightObj = rightId ? dataByMethod[rightId]?.[activeComponent] : null;
+  const leftObj = leftId ? getComponentValue(dataByMethod[leftId], activeComponent) : null;
+  const rightObj = rightId ? getComponentValue(dataByMethod[rightId], activeComponent) : null;
 
   const progress = useMemo(() => {
     const rows = history.filter((r) => r.participant_id === participantId && r.component === activeComponent);
@@ -458,7 +517,13 @@ export default function App() {
               <p className="note">When ready, enter the access code to begin.</p>
             </div>
 
-            <div className="formRow">
+            <form
+              className="formRow"
+              onSubmit={(e) => {
+                e.preventDefault();
+                if (code && !submitting) startSurvey();
+              }}
+            >
               <input
                 className="input"
                 value={code}
@@ -466,10 +531,10 @@ export default function App() {
                 placeholder="Access code"
                 autoComplete="one-time-code"
               />
-              <button className="btn btnPrimary" onClick={startSurvey} disabled={!code || submitting}>
+              <button className="btn btnPrimary" type="submit" disabled={!code || submitting}>
                 {submitting ? "Starting…" : "Start"}
               </button>
-            </div>
+            </form>
 
             {status && <div className="status">{status}</div>}
           </div>
@@ -478,8 +543,9 @@ export default function App() {
     );
   }
 
-  const complete = pair === null;
-  const compDesc = descriptions?.[activeComponent] || "";
+  const hasEnoughMethods = methodIds.length >= 2;
+  const complete = hasEnoughMethods ? pair === null : false;
+  const compDesc = getDescription(descriptions, activeComponent);
 
   return (
     <div className="app">
@@ -520,9 +586,35 @@ export default function App() {
 
           <div className="toolbarBlock grow">
             <div className="label">Description</div>
-            <div className="descBox">{compDesc || <span className="note">No description found for this component.</span>}</div>
+            <div
+              className="descBox"
+              dangerouslySetInnerHTML={{
+                __html: compDesc
+                  ? renderMiniMarkdown(compDesc)
+                  : "<span class='note'>No description found for this component.</span>",
+              }}
+            />
           </div>
         </div>
+
+        {!hasEnoughMethods && (
+          <div className="card">
+            <div className="titleSm">⚠️ Component not available</div>
+            <div className="text">
+              This component doesn’t exist in at least two method outputs (or the keys don’t match).
+              Check your JSON keys vs manifest, or rely on the automatic matching logic we added.
+            </div>
+          </div>
+        )}
+
+        {activeComponent === "action_space" && (
+          <div className="callout">
+            <div className="calloutTitle">Tip</div>
+            <div className="calloutBody">
+              In <b>Action Space</b>, click a <b>macro action</b> to expand and view its <b>micro actions</b>.
+            </div>
+          </div>
+        )}
 
         {complete ? (
           <div className="card">
