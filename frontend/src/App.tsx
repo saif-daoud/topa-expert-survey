@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import "./App.css";
 
 type Manifest = {
   components: string[];
