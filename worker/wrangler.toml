@@ -2,7 +2,7 @@ name = "topa-firestore-worker"
 main = "src/index.ts"
 compatibility_date = "2025-12-15"
 [vars]
-ALLOWED_ORIGINS = "https://saif-daoud.github.io/topa-expert-survey/,http://localhost:5173,http://127.0.0.1:5173,http://localhost:4173,http://127.0.0.1:4173"
+ALLOWED_ORIGINS = "https://saif-daoud.github.io,http://localhost:5173,http://127.0.0.1:5173,http://localhost:4173,http://127.0.0.1:4173"
 [[d1_databases]]
 binding = "DB"
 database_name = "topa_expert_survey_db"
