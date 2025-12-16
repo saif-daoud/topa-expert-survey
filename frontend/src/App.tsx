@@ -1,6 +1,4 @@
 import { useEffect, useMemo, useState } from "react";
-import JsonView from "@uiw/react-json-view";
-import "./App.css";
 
 type Manifest = {
   components: string[];
@@ -326,8 +324,6 @@ function OptionCard({
   component: string;
   value: any;
 }) {
-  const [showRaw, setShowRaw] = useState(false);
-
   return (
     <div className="card optionCard">
       <div className="optionHeader">
@@ -335,23 +331,15 @@ function OptionCard({
           <div className="optionTitle">Option {methodId}</div>
           <div className="optionSub">{methodName}</div>
         </div>
-        <button className="btn btnGhost" onClick={() => setShowRaw((s) => !s)}>
-          {showRaw ? "Hide raw JSON" : "Show raw JSON"}
-        </button>
       </div>
 
       <div className="optionBody">
-        {showRaw ? (
-          <div className="rawBox">
-            <JsonView value={value ?? {}} collapsed={2} />
-          </div>
-        ) : (
-          <ComponentViewer component={component} value={value} />
-        )}
+        <ComponentViewer component={component} value={value} />
       </div>
     </div>
   );
 }
+
 
 export default function App() {
   const [manifest, setManifest] = useState<Manifest | null>(null);
