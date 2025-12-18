@@ -1,7 +1,6 @@
 {
   "components": ["action_space", "conversation_state", "knowledge_graph", "cautions", "user_profile"],
   "methods": [
-    { "id": "A", "name": "Method A", "file": "methods/ChatGPT.json" },
     { "id": "B", "name": "Method B", "file": "methods/DeepSeek.json" },
     { "id": "C", "name": "Method C", "file": "methods/Chap_Seq.json" },
     { "id": "D", "name": "Method D", "file": "methods/LC_Full.json" },
