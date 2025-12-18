@@ -209,7 +209,19 @@ function ActionSpaceView({ data }: { data: any }) {
           <details className="accordion" key={idx}>
             <summary className="accordionSummary">
               <div className="accTitle">{clipText(name, 160)}</div>
-              {goal ? <div className="accMeta">{clipText(goal, 200)}</div> : <div className="accMeta">Click to expand micro actions</div>}
+
+              {goal ? (
+                <div className="accMeta">
+                  {clipText(
+                    typeof goal === "string"
+                      ? goal
+                      : (goal?.objective ?? JSON.stringify(goal)),
+                    200
+                  )}
+                </div>
+              ) : (
+                <div className="accMeta">Click to expand micro actions</div>
+              )}
             </summary>
 
             <div className="accordionBody">
@@ -218,7 +230,11 @@ function ActionSpaceView({ data }: { data: any }) {
                   {goal && (
                     <div>
                       <div className="label">Goal</div>
-                      <div className="text">{clipText(goal, 600)}</div>
+                      {typeof goal === "string" ? (
+                        <div className="text">{clipText(goal, 600)}</div>
+                      ) : (
+                        <pre className="pre">{JSON.stringify(goal, null, 2)}</pre>
+                      )}
                     </div>
                   )}
                   {desc && (
