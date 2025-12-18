@@ -1,0 +1,544 @@
+{
+  "action_space": [
+    {
+      "name": "Therapeutic Skills Development and Self-Application",
+      "description": "Therapist systematically practices, monitors, and self-applies core CBT techniques—including self-monitoring, thought records, conceptualization diagrams, core belief work, and other interventions—to refine skills, increase empathy for patient obstacles, and identify areas for improvement before and during clinical practice.",
+      "goal": {
+        "objective": "Enhance therapist's competence, confidence, and accurate teaching of CBT by experiencing common obstacles and refining interventions through self-application and supervision.",
+        "success_levels": {
+          "ideal": "Therapist has direct self-experience with all major CBT tools, anticipates patient difficulties, and customizes guidance skillfully in session.",
+          "acceptable": "Therapist self-applies most core methods, notices key learning points, and addresses the majority of patient struggles effectively.",
+          "unsuccessful": "Therapist skips self-practice, remains unaware of technique pitfalls, and cannot effectively coach or problem-solve with patients."
+        },
+        "reward_hint": "Therapist skill development through personal use increases credibility, teaching accuracy, and empathy, supporting robust patient outcomes."
+      },
+      "states": [
+        "Therapist is newly practicing or seeking to improve in CBT.",
+        "When preparing to implement a new technique/intervention with a patient.",
+        "When experiencing difficulty applying CBT methods with patients.",
+        "When needing to anticipate or empathize with patient barriers to homework and skill acquisition."
+      ],
+      "confidence_score": 1.0,
+      "micro_actions": [
+        {
+          "name": "Therapist Self-Monitoring of Mood and Automatic Thoughts",
+          "description": "Regularly track and record one’s own emotional state and automatic thoughts, particularly when facing clinical difficulties or introducing new skills to patients.",
+          "states": [
+            "Whenever the therapist notices personal disengagement, anxiety, or self-doubt.",
+            "During supervision or skill development.",
+            "Before teaching the technique to patients."
+          ],
+          "confidence_score": 1.0
+        },
+        {
+          "name": "Complete Thought Records or Core Belief Worksheets Personally",
+          "description": "Fill in cognitive records (e.g., Thought Record, Core Belief Worksheet, Conceptualization Diagram) about the therapist’s own thoughts and beliefs, especially related to therapy practice, to identify obstacles and improve empathy with patients.",
+          "states": [
+            "Prior to teaching these tools to patients.",
+            "When therapist encounters resistance or avoidance with these tools in patients."
+          ],
+          "confidence_score": 1.0
+        },
+        {
+          "name": "Anticipate and Reflect on Patient Obstacles",
+          "description": "Ask oneself what would make the intervention difficult for the therapist and proactively consider supports, adapted presentation, or troubleshooting for the patient.",
+          "states": [
+            "When assigning homework or a new skill.",
+            "On noticing patient reluctance or poor follow-through."
+          ],
+          "confidence_score": 1.0
+        },
+        {
+          "name": "Peer/Supervisor Review of Recorded Sessions",
+          "description": "Engage in review (audio/video or transcript) with a supervisor or peer for feedback on adherence and skill, using standardized rating scales (e.g., Cognitive Therapy Rating Scale).",
+          "states": [
+            "After obtaining patient consent for session recording.",
+            "Periodically throughout training or professional development."
+          ],
+          "confidence_score": 1.0
+        },
+        {
+          "name": "Utilize Rating Scales for Session and Skill Evaluation",
+          "description": "Apply and review CBT-specific rating tools (e.g., Cognitive Therapy Rating Scale) to assess session quality, fidelity to technique, and to identify areas for improvement.",
+          "states": [
+            "After session recordings.",
+            "During supervision or self-assessment."
+          ],
+          "confidence_score": 0.95
+        },
+        {
+          "name": "Engage in Continuing Education and Training",
+          "description": "Participate in trainings, conferences, or supervision relevant to CBT; review books, manuals, and resources regularly to update practice.",
+          "states": [
+            "Regularly as part of professional development.",
+            "When encountering new types of patient presentations."
+          ],
+          "confidence_score": 0.95
+        }
+      ]
+    },
+    {
+      "name": "Assessment, Formulation, and Structured Case Documentation",
+      "description": "Comprehensively assess, formulate, and document the patient case—including history, complaints, formulation, plan, and outcomes—according to standardized CBT principles, enabling targeted intervention and progress tracking.",
+      "goal": {
+        "objective": "Establish a clear, standardized case formulation and plan to guide therapy and provide a baseline for supervision and outcome review.",
+        "success_levels": {
+          "ideal": "All key domains (history, symptoms, formulation, strengths, treatment plan, progress) are documented and updated, supporting individualized, evidence-based care.",
+          "acceptable": "Most essential domains are covered, formulation is sufficient for competent practice but may lack some detail.",
+          "unsuccessful": "Key domains are missing, documentation insufficient, impeding targeted treatment and supervision."
+        },
+        "reward_hint": "Structured case writing and formulation prevent drift, support clear goal-setting, and enable effective supervision and outcome evaluation."
+      },
+      "states": [
+        "During intake or when beginning work with a new patient.",
+        "When a comprehensive overview is required (e.g., supervision, report-writing, or treatment transitions).",
+        "Periodically or after substantial clinical changes."
+      ],
+      "confidence_score": 1.0,
+      "micro_actions": [
+        {
+          "name": "Standardized Case Write-Up",
+          "description": "Document the patient’s history, problems, cognitive-behavioral formulation, and treatment plan using the standardized case format for record-keeping and supervision.",
+          "states": [
+            "At the start of therapy.",
+            "At major treatment milestones.",
+            "When seeking supervision or presenting the case."
+          ],
+          "confidence_score": 1.0
+        }
+      ]
+    }
+  ],
+  "conversation_states": [
+    {
+      "Variable Name": "Therapist Skill Competency Level",
+      "Description": "Current level of demonstrated and self-rated skill proficiency in core cognitive behavioral therapy techniques, as monitored by self-reflection or formal rating scales.",
+      "Categorical values": [
+        "Novice",
+        "Proficient",
+        "Advanced",
+        "Expert"
+      ],
+      "Numerical values": "0 to 1"
+    },
+    {
+      "Variable Name": "Therapist Self-Efficacy",
+      "Description": "Therapist’s confidence in applying and teaching core CBT interventions (e.g., self-monitoring, thought records, belief change), which predicts performance and patient engagement.",
+      "Categorical values": [
+        "Low",
+        "Moderate",
+        "High"
+      ],
+      "Numerical values": "0 to 1"
+    },
+    {
+      "Variable Name": "Documentation Thoroughness",
+      "Description": "Completeness and clarity of session and case documentation, including use of structured case write-up, session ratings, and summaries.",
+      "Categorical values": [
+        "Minimal",
+        "Partial",
+        "Comprehensive"
+      ],
+      "Numerical values": "0 to 1"
+    },
+    {
+      "Variable Name": "Supervision/Training Engagement",
+      "Description": "Frequency and quality of the therapist’s participation in supervision, peer review, or professional training activities to support practice improvement.",
+      "Categorical values": [
+        "None",
+        "Occasional",
+        "Active"
+      ],
+      "Numerical values": "0 to 1"
+    }
+  ],
+  "knowledge_graph": {
+    "nodes": [
+      {
+        "type": "Patient",
+        "description": "The individual receiving cognitive behavior therapy."
+      },
+      {
+        "type": "Therapist",
+        "description": "The clinician providing cognitive behavior therapy, whose skills, reflections, and supervision affect outcomes."
+      },
+      {
+        "type": "Therapist Skill Level",
+        "description": "Degree of actual and self-perceived competence in core CBT techniques, as developed and measured through practice and feedback."
+      },
+      {
+        "type": "Therapist Self-Application",
+        "description": "Therapist’s practice and experience of using CBT methods on themselves to learn and anticipate patient barriers."
+      },
+      {
+        "type": "Supervision/Training",
+        "description": "Ongoing activities including supervision, peer review, formal training, and continuing education."
+      },
+      {
+        "type": "Case Formulation and Write-Up",
+        "description": "Systematic, written documentation of assessment, formulation, goals, and plan, used for supervision and progress tracking."
+      },
+      {
+        "type": "Session Rating/Scales",
+        "description": "Standardized tools (e.g., Cognitive Therapy Rating Scale) for rating therapist session structure, adherence, and skill."
+      },
+      {
+        "type": "Treatment Plan",
+        "description": "A dynamic, collaborative outline specifying broad and session-specific goals, interventions, and problem prioritization tailored to the patient."
+      },
+      {
+        "type": "Diagnosis",
+        "description": "The set of defined symptoms and disorders guiding CBT adaptation and intervention selection."
+      },
+      {
+        "type": "Therapeutic Goals",
+        "description": "Overall and session-by-session outcome objectives established by patient and therapist."
+      },
+      {
+        "type": "Session Agenda",
+        "description": "A collaboratively set list of topics and problems prioritized for discussion and intervention each session."
+      },
+      {
+        "type": "Problem Specification",
+        "description": "Detailed breakdown and analysis of problematic situations, automatic thoughts, emotions, behaviors, and beliefs."
+      },
+      {
+        "type": "Adapted CBT Protocol",
+        "description": "Modifications to standard CBT methods to accommodate specific diagnoses, comorbidities, developmental, or cultural factors."
+      },
+      {
+        "type": "Therapy Process Problem",
+        "description": "Any difficulty or stuck point—diagnosis, alliance, structure, socialization, automatic thoughts, or environment—that impedes progress and requires collaborative identification and remediation."
+      },
+      {
+        "type": "Therapeutic Alliance",
+        "description": "Quality of the collaborative working relationship, including trust, empathy, agreement on goals, and mutual effort."
+      },
+      {
+        "type": "Therapist Factors",
+        "description": "Therapist's own automatic thoughts, reactions, technical skill, and use of supervision impacting treatment process."
+      }
+    ],
+    "edges": [
+      {
+        "source": "Therapist",
+        "target": "Therapist Skill Level",
+        "relation": "demonstrates and develops"
+      },
+      {
+        "source": "Therapist",
+        "target": "Therapist Self-Application",
+        "relation": "engages in"
+      },
+      {
+        "source": "Therapist",
+        "target": "Supervision/Training",
+        "relation": "participates in"
+      },
+      {
+        "source": "Therapist Skill Level",
+        "target": "Treatment Plan",
+        "relation": "influences quality of"
+      },
+      {
+        "source": "Therapist",
+        "target": "Case Formulation and Write-Up",
+        "relation": "completes and updates"
+      },
+      {
+        "source": "Therapist Skill Level",
+        "target": "Session Rating/Scales",
+        "relation": "is measured by"
+      },
+      {
+        "source": "Session Rating/Scales",
+        "target": "Supervision/Training",
+        "relation": "guides need for"
+      },
+      {
+        "source": "Case Formulation and Write-Up",
+        "target": "Supervision/Training",
+        "relation": "is reviewed in"
+      },
+      {
+        "source": "Patient",
+        "target": "Treatment Plan",
+        "relation": "collaboratively develops and follows"
+      },
+      {
+        "source": "Treatment Plan",
+        "target": "Diagnosis",
+        "relation": "is based on"
+      },
+      {
+        "source": "Treatment Plan",
+        "target": "Therapeutic Goals",
+        "relation": "is structured around"
+      },
+      {
+        "source": "Treatment Plan",
+        "target": "Session Agenda",
+        "relation": "is operationalized through"
+      },
+      {
+        "source": "Session Agenda",
+        "target": "Problem Specification",
+        "relation": "is informed by"
+      },
+      {
+        "source": "Diagnosis",
+        "target": "Adapted CBT Protocol",
+        "relation": "guides necessity for"
+      },
+      {
+        "source": "Problem Specification",
+        "target": "Adapted CBT Protocol",
+        "relation": "suggests further need for"
+      },
+      {
+        "source": "Patient",
+        "target": "Therapy Process Problem",
+        "relation": "may experience"
+      },
+      {
+        "source": "Therapy Process Problem",
+        "target": "Therapeutic Alliance",
+        "relation": "can negatively impact"
+      },
+      {
+        "source": "Therapy Process Problem",
+        "target": "Therapist Factors",
+        "relation": "may be contributed to by"
+      },
+      {
+        "source": "Therapist Factors",
+        "target": "Therapy Process Problem",
+        "relation": "can cause or perpetuate"
+      },
+      {
+        "source": "Therapist Factors",
+        "target": "Therapeutic Alliance",
+        "relation": "can strengthen or weaken"
+      },
+      {
+        "source": "Therapy Process Problem",
+        "target": "Treatment Plan",
+        "relation": "may impede execution of"
+      },
+      {
+        "source": "Therapy Process Problem",
+        "target": "Adapted CBT Protocol",
+        "relation": "may require"
+      }
+    ]
+  },
+  "cautions": [
+    {
+      "negative_action": "Teaching CBT Skills Without Self-Application",
+      "description": "Attempting to instruct, model, or problem-solve CBT methods with patients without first personally experiencing and troubleshooting the technique yourself.",
+      "risk": "Reduces teaching credibility and accuracy, leads to oversight of common obstacles, and impedes patient buy-in and adherence.",
+      "confidence_score": 1.0
+    },
+    {
+      "negative_action": "Skipping Comprehensive Case Formulation or Documentation",
+      "description": "Failing to complete a thorough written case history, formulation, and ongoing documentation for each patient.",
+      "risk": "Leads to unfocused therapy, poor supervision utility, missed problems, and suboptimal outcomes.",
+      "confidence_score": 1.0
+    },
+    {
+      "negative_action": "Practicing in Isolation Without Ongoing Supervision or Feedback",
+      "description": "Avoiding peer/supervisor review, not recording sessions, or neglecting to use session/skill rating scales.",
+      "risk": "Stagnant skill development, increased risk of blind spots or drift from standard practice, and reduced effectiveness.",
+      "confidence_score": 1.0
+    },
+    {
+      "negative_action": "Neglecting to Tailor Techniques/Assignments for Patient Readiness and Case Complexity",
+      "description": "Selecting challenging patients or complex cases for initial CBT without sufficient experience, or failing to adapt standard methods to fit patient characteristics.",
+      "risk": "Increases likelihood of therapy failures, discourages both patient and therapist, and undermines fidelity to model.",
+      "confidence_score": 1.0
+    },
+    {
+      "negative_action": "Reverting to Prior Non-CBT Modalities Without Patient Knowledge or Agreement",
+      "description": "Unilaterally changing therapeutic approach due to therapist comfort, without rationalizing or discussing with the patient.",
+      "risk": "Breaks collaborative empiricism, confuses patient, and hinders CBT progress.",
+      "confidence_score": 1.0
+    }
+  ],
+  "user_profile": [
+    {
+      "Dimension Name": "Baseline Cognitive Function and Neurocognitive Vulnerability",
+      "Description": "Captures the patient's enduring cognitive capacities—including attention, memory, executive function, visuospatial skills, language, and social cognition—as well as stable risk factors for acute and chronic neurocognitive decline. Encompasses developmental history, educational attainment, lifelong cognitive strengths/weaknesses, family history of dementia, and predisposition to delirium, major/mild neurocognitive disorder, or traumatic/acquired deficits.",
+      "categorical values": [
+        "Intact",
+        "Mild Deficit",
+        "Major Deficit",
+        "Fluctuating",
+        "Progressive Decline",
+        "Static Deficit",
+        "Developmental Vulnerability",
+        "Family Dementia Risk",
+        "Post-TBI",
+        "Post-Stroke",
+        "Substance-Related Decline",
+        "Acquired Disorder"
+      ],
+      "Numerical values": "General level of cognitive impairment/risk (0 = intact, 1 = profound chronic impairment and high vulnerability for delirium or dementia)."
+    },
+    {
+      "Dimension Name": "Mood, Motivation, and Neurocognitive-Related Affect",
+      "Description": "Stable pattern of mood symptoms and motivational disorders shaped by neurocognitive status (apathy, depression, irritability), including baseline affect, susceptibility to depressive pseudodementia, anhedonia, blunted emotional expression, and emotional insight into cognitive difficulties. Includes neurocognitive disorder-related mood syndromes (apathy, emotional constriction), clinical depression, chronic mood vulnerability relevant to CBT engagement, and distress relating to paraphilic urges or dysfunctional sexual interests.",
+      "categorical values": [
+        "Normal Affect",
+        "Depressive Syndrome",
+        "Anxiety Spectrum",
+        "Apathetic",
+        "Anhedonic",
+        "Mood-Related Cognitive Deficit",
+        "Reactive Dysphoria",
+        "Blunted Affect",
+        "Insightful",
+        "Denial",
+        "Depressive Pseudodementia",
+        "Paraphilia-Related Distress"
+      ],
+      "Numerical values": "Degree to which mood/motivation deficits or distress related to sexual or other urges impact cognitive and functional status (0 = euthymic, 1 = severe interference and functional impairment)."
+    },
+    {
+      "Dimension Name": "Attention, Awareness, and Delirium Susceptibility",
+      "Description": "Reflects stable risk for acute fluctuations in awareness and attention (delirium) based on age, medical comorbidities, medication sensitivity, prior episodes, cognitive baseline, and susceptibility to postoperative, substance-related, or infection-triggered delirium. Includes patient history of hypoactive/hyperactive delirium (agitated vs. withdrawn), awareness of surroundings, and presence of contributing medical/physiological factors, plus consideration of substance use disorders and related attentional impairment.",
+      "categorical values": [
+        "Intact Attention",
+        "Attention Fluctuates",
+        "Hyperactive Delirium-Prone",
+        "Hypoactive Delirium-Prone",
+        "Medical Risk Factors",
+        "Substance Withdrawal Risk",
+        "Postoperative Risk",
+        "Infection-Prone",
+        "Medication Sensitive"
+      ],
+      "Numerical values": "Risk/severity of acute attention/awareness disturbance (0 = none, 1 = extreme vulnerability and history of severe delirium)."
+    },
+    {
+      "Dimension Name": "Executive Dysfunction and Real-Life Impairment",
+      "Description": "Stable tendency toward impaired planning, organization, decision-making, inhibition, and cognitive flexibility due to neurocognitive, vascular, mood, or substance use disorders. Includes lifelong, acquired, or paraphilia-related deficits in executive tasks (verbal fluency, clock drawing, response inhibition) impacting occupational, financial, legal, and social functioning. Substance abuse and impulsive sexual behaviors relevant to executive function.",
+      "categorical values": [
+        "Intact Executive Function",
+        "Mild Dysfunction",
+        "Major Dysfunction",
+        "Apathy",
+        "Psychomotor Slowing",
+        "Vascular Syndrome",
+        "Depression-Related",
+        "TBI-Related",
+        "Progressive Decline",
+        "Paraphilia-Related Impulsivity",
+        "Substance-Related Dysfunction"
+      ],
+      "Numerical values": "Degree of executive impairment affecting daily and social functioning (0 = intact, 1 = severe, multi-domain impairment including legal or interpersonal consequences)."
+    },
+    {
+      "Dimension Name": "Personality Traits and Personality Disorder Spectrum",
+      "Description": "Enduring, pervasive patterns of perceiving, relating to, and thinking about oneself and others; includes fundamental trait domains (negative affectivity, detachment, antagonism, disinhibition vs. conscientiousness, psychoticism), classic DSM-5 personality disorders (paranoid, schizoid, schizotypal, antisocial, borderline, histrionic, narcissistic, avoidant, dependent, obsessive-compulsive), and dimensional trait severity. Shapes CBT alliance, response style, and interpersonal dynamics. Updated to more explicitly include personality traits linked to paraphilic disorders (antagonism, lack of empathy, impulsivity, obsessive-compulsive traits as seen in sexual rituals) and expanded consideration of sexual orientation-based internal conflict.",
+      "categorical values": [
+        "No Personality Disorder",
+        "Paranoid",
+        "Schizoid",
+        "Schizotypal",
+        "Antisocial",
+        "Borderline",
+        "Histrionic",
+        "Narcissistic",
+        "Avoidant",
+        "Dependent",
+        "Obsessive-Compulsive",
+        "Mixed/Other Specified",
+        "Dimensional Traits: Negative Affectivity",
+        "Detachment",
+        "Antagonism",
+        "Disinhibition",
+        "Psychoticism",
+        "Perfectionism",
+        "Rigid",
+        "Emotional Instability",
+        "Attention-Seeking",
+        "Social Withdrawal",
+        "Submissiveness",
+        "Suspiciousness",
+        "Grandiosity",
+        "Hypersexuality",
+        "Sexual Orientation Conflict"
+      ],
+      "Numerical values": "Severity/presence of personality pathology (including sexual, interpersonal, and impulse-control domains) impacting relationships, emotion regulation, and therapy engagement (0 = none, 1 = severe, multi-domain dysfunction)."
+    },
+    {
+      "Dimension Name": "Social Cognition, Interpersonal Style, and Behavioral Adaptation",
+      "Description": "Captures stable style of social relatedness, empathy, attachment, interpersonal trust/mistrust, and adaptation to group settings. Includes patterns like social withdrawal, emotional detachment, mistrust, manipulation, excessive dependency, dominance/control, perfectionism, attention seeking, avoidance of intimacy, and alliance-building or disruptive tendencies in therapy. Integrated features from case studies: consensual/nonconsensual sexual behavior, distress in relationships due to paraphilia disclosure, legal involvement, and tendency for victimization or perpetration.",
+      "categorical values": [
+        "Empathic",
+        "Withdrawn",
+        "Suspicious",
+        "Manipulative",
+        "Dependent",
+        "Controlling",
+        "Perfectionistic",
+        "Impulsive",
+        "Dramatic",
+        "Avoidant",
+        "Dominant",
+        "Submissive",
+        "Shallow",
+        "Rigid",
+        "Flexible",
+        "Alliance-Oriented",
+        "Alliance-Disruptive",
+        "Paraphilia-Related Conflict",
+        "Consent-Focused",
+        "Victimizing",
+        "Victimized",
+        "Legal Involvement"
+      ],
+      "Numerical values": "Degree of interpersonal/social dysfunction, legal and ethical issues, or adaptation in day-to-day functioning and CBT (0 = optimal, 1 = extreme dysfunction or maladaptive/antisocial pattern)."
+    },
+    {
+      "Dimension Name": "Medical, Vascular, and Neurological Risk Profile",
+      "Description": "Stable risk factors for cognitive decline and neurocognitive comorbidity, including cardiovascular disease, diabetes, hypertension, hyperlipidemia, history of head injury, cerebrovascular risk, genetic disorders (e.g., Huntington’s), Parkinsonian features, sleep disorder, and sensitivity to medication (e.g., neuroleptics/anticholinergics). Shapes presentation, course, and prognosis in CBT context. Expanded consideration of substance use disorders (alcohol, cocaine), childhood medical/surgical history (e.g., scoliosis) relevant to psychological adaptation.",
+      "categorical values": [
+        "No Medical Risk",
+        "Vascular Risk",
+        "Metabolic Risk",
+        "Family Dementia",
+        "Parkinsonian",
+        "Lewy Body Risk",
+        "Sleep Disorder",
+        "TBI History",
+        "Medication Sensitivity",
+        "Huntington’s Risk",
+        "Stroke/Ischemia",
+        "Substance Use Disorder",
+        "Childhood Medical/Surgical History"
+      ],
+      "Numerical values": "Aggregate medical/neuro risk for cognitive/functional decline (0 = healthy, 1 = high, multi-factorial vulnerability, including substance abuse history)."
+    },
+    {
+      "Dimension Name": "Insight, Judgment, and Capacity for CBT Engagement",
+      "Description": "Reflects baseline and personality-based (not only neurocognitive) ability to perceive difficulties, understand psychosocial/behavioral issues, participate meaningfully in therapy, make decisions, set/achieve goals; includes awareness of maladaptive personality traits, ability to accept feedback, degree of denial vs. acceptance, and capacity for collaborative alliance. Shapes CBT outcome and therapeutic contact. Updated to include denial/minimization of paraphilic or sexual urges, coercive/antisocial behavior, and impact of legal system involvement, as well as internal conflict around sexual identity, readiness to change paraphilic or substance-related patterns, and victim/perpetrator insight.",
+      "categorical values": [
+        "Intact Insight/Judgment",
+        "Partial Insight",
+        "Denial/Minimization",
+        "Psychotic Distortion",
+        "Narcissistic Insensitivity",
+        "Motivated for Therapy",
+        "Resistant",
+        "Alliance-Oriented",
+        "Alliance-Disruptive",
+        "Paraphilia-Related Denial",
+        "Legal System Conflict",
+        "Internal Sexual Identity Ambivalence",
+        "Victim/Perpetrator Insight"
+      ],
+      "Numerical values": "Level of insight/judgment and effective capacity for CBT participation (0 = fully capable, 1 = profoundly impaired due to denial, personality pathology, or legal/ethical barriers)."
+    }
+  ]
+}

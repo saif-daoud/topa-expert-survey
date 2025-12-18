@@ -1,0 +1,1373 @@
+{
+  "action_space": [
+    {
+      "name": "Assessment and Collaborative Formulation",
+      "description": "The therapist systematically gathers information to understand the patient's symptoms, problems, and underlying cognitive-behavioral processes, and collaborates with the patient to develop an individualized formulation guiding treatment.",
+      "goal": {
+        "objective": "To achieve a shared understanding of the patient's difficulties and develop a guiding framework for intervention.",
+        "success_levels": {
+          "ideal": "Therapist and patient collaboratively produce a comprehensive formulation that accurately connects cognitions, emotions, behaviors, and life context, guiding focused intervention.",
+          "acceptable": "A working formulation is established, covering key symptoms and basic cognitive-behavioral links, but may require further refinement.",
+          "unsuccessful": "No shared understanding is reached; the patient remains unclear about their difficulties or sees the formulation as irrelevant or confusing."
+        },
+        "reward_hint": "Patient expresses understanding of the formulation; session discussions reference it as a roadmap for intervention."
+      },
+      "states": [
+        "Initial therapy sessions where background, symptoms, or difficulties are being explored.",
+        "When the patient's difficulties are unclear, complex, or treatment response is poor.",
+        "At transition points, relapses, or when new issues emerge and a revised formulation is necessary."
+      ],
+      "confidence_score": 1.0,
+      "micro_actions": [
+        {
+          "name": "Elicit Patient Narrative and Symptom Description",
+          "description": "Ask open-ended questions to prompt the patient to describe recent experiences, symptoms, and their emotional/behavioral impact in detail.",
+          "states": [
+            "Early sessions when establishing reasons for seeking therapy.",
+            "When symptoms or presenting problems need clarification."
+          ],
+          "confidence_score": 1.0
+        },
+        {
+          "name": "Administer Standardized Assessment Tools",
+          "description": "Introduce and facilitate completion of validated questionnaires and symptom/rating scales to gather explicit data on mood, anxiety, and cognitive patterns.",
+          "states": [
+            "Initial assessment phase.",
+            "When tracking symptom changes over time."
+          ],
+          "confidence_score": 1.0
+        },
+        {
+          "name": "Collaboratively Map CBT Model",
+          "description": "Use guided questioning and reflection to connect specific situations, thoughts, emotions, and behaviors, often using visual aids/worksheets, and invite patient input on their formulation.",
+          "states": [
+            "After basic information is gathered.",
+            "When proposing a CBT-based explanation of difficulties."
+          ],
+          "confidence_score": 0.98
+        },
+        {
+          "name": "Elicit and Clarify Dysfunctional Cognitions and Core Beliefs",
+          "description": "Ask targeted questions (e.g., downward arrow technique) to uncover assumptions, rules, and core beliefs that may underlie presenting problems.",
+          "states": [
+            "When unclear or persistent symptoms suggest deeper issues.",
+            "During formulation refinement."
+          ],
+          "confidence_score": 1.0
+        },
+        {
+          "name": "Validate Patient Perspective and Invite Feedback",
+          "description": "Summarize understanding, reflect back the patient's concerns, and explicitly ask for correction or confirmation to ensure accuracy and engagement.",
+          "states": [
+            "Any time formulation or assessment is presented.",
+            "Whenever feedback can enrich shared understanding."
+          ],
+          "confidence_score": 1.0
+        },
+        {
+          "name": "Review, Revise, and Summarize Formulation",
+          "description": "Verbally and/or visually summarize the working hypothesis/formulation in the patient's language, check for understanding, and collaboratively agree on its accuracy or needed changes.",
+          "states": [
+            "End of assessment or when shifting to intervention planning.",
+            "At key therapy transition points."
+          ],
+          "confidence_score": 0.97
+        }
+      ]
+    },
+    {
+      "name": "Therapeutic Alliance and Engagement Building",
+      "description": "The therapist prioritizes developing a collaborative, empathic, and trusting therapeutic relationship to maximize patient motivation, engagement, and openness.",
+      "goal": {
+        "objective": "To foster an effective working alliance characterized by trust, collaboration, and patient engagement in the therapeutic process.",
+        "success_levels": {
+          "ideal": "The patient is actively engaged, feels understood and supported, and collaborates on treatment goals and strategies.",
+          "acceptable": "The patient is generally cooperative and attends sessions but may require ongoing encouragement to participate fully.",
+          "unsuccessful": "Therapeutic rapport is poor, patient is disengaged, distrustful, or resistant to treatment."
+        },
+        "reward_hint": "Patient displays openness, asks questions, and collaborates willingly on interventions and homework."
+      },
+      "states": [
+        "Early stages of therapy with any patient.",
+        "When there is noticeable hesitance, skepticism, or disengagement.",
+        "After therapeutic ruptures, conflicts, or trust difficulties.",
+        "With patients where previous therapies have failed due to alliance issues."
+      ],
+      "confidence_score": 1.0,
+      "micro_actions": [
+        {
+          "name": "Express Empathy and Validation",
+          "description": "Use affirming, warm, and nonjudgmental language to acknowledge the patient's emotional experience and struggles.",
+          "states": [
+            "Initial contact and throughout rapport building.",
+            "When the patient expresses distress or shame."
+          ],
+          "confidence_score": 1.0
+        },
+        {
+          "name": "Collaborative Agenda and Goal Setting",
+          "description": "Ask for patient input on session structure and treatment targets, negotiate priorities, and confirm shared plans.",
+          "states": [
+            "Session openings and when new issues arise.",
+            "Any time patient buy-in may be low."
+          ],
+          "confidence_score": 0.99
+        },
+        {
+          "name": "Invite and Address Patient Feedback",
+          "description": "Elicit reactions to therapist interventions, check for misunderstanding or discomfort, and openly discuss concerns or ruptures.",
+          "states": [
+            "After new interventions; when resistance, withdrawal, or dissatisfaction appear."
+          ],
+          "confidence_score": 1.0
+        },
+        {
+          "name": "Normalize Difficulties and Struggles",
+          "description": "Use explicit statements to convey that setbacks, strong emotions, and therapy challenges are common and expected.",
+          "states": [
+            "When the patient feels guilt, shame, or frustration.",
+            "During setbacks or low motivation."
+          ],
+          "confidence_score": 0.98
+        },
+        {
+          "name": "Review and Reinforce Progress and Effort",
+          "description": "Acknowledge any effort, positive change, or engagement, even if minimal; offer praise and reinforcement.",
+          "states": [
+            "After the patient attempts homework, skills, or difficult disclosures.",
+            "Session closure or review points."
+          ],
+          "confidence_score": 0.97
+        },
+        {
+          "name": "Address Ruptures or Misunderstandings Immediately",
+          "description": "Recognize and bring up tension, conflict, or withdrawal, inviting repair and exploring causes in a non-defensive manner.",
+          "states": [
+            "When alliance appears compromised.",
+            "Following critical incidents or missed sessions."
+          ],
+          "confidence_score": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Psychoeducation and Socialization to CBT",
+      "description": "Therapist provides education about the CBT model, symptom mechanisms, and the rationale for therapy to empower the patient and align expectations.",
+      "goal": {
+        "objective": "To increase patient understanding of their problems and the structure and rationale of CBT interventions.",
+        "success_levels": {
+          "ideal": "Patient can accurately describe the CBT model, identifies how thoughts/behaviors impact emotions, and is motivated to participate.",
+          "acceptable": "Patient shows basic understanding and buy-in, with some gaps or doubts.",
+          "unsuccessful": "Patient is confused, misunderstands the model, or resists interventions."
+        },
+        "reward_hint": "Patient is able to explain CBT principles and relate them to their experiences during session."
+      },
+      "states": [
+        "At the outset of therapy before engaging in techniques.",
+        "Recurrent confusion about therapy rationale or interventions.",
+        "When introducing new models (e.g., exposure, thought records, behavioral experiments)."
+      ],
+      "confidence_score": 0.99,
+      "micro_actions": [
+        {
+          "name": "Explain CBT Framework with Patient-Relevant Examples",
+          "description": "Use concrete situations from the patient's life to illustrate the CBT model’s components (thoughts, emotions, behaviors, physical sensations).",
+          "states": [
+            "Initial psychoeducation sessions.",
+            "When introducing new intervention techniques."
+          ],
+          "confidence_score": 1.0
+        },
+        {
+          "name": "Provide Rationale for CBT Interventions",
+          "description": "Offer brief, clear explanations for each proposed technique (e.g., 'We use thought records to uncover patterns in your thinking that affect how you feel').",
+          "states": [
+            "Before using any new CBT tool or method.",
+            "If the patient resists homework or new skills."
+          ],
+          "confidence_score": 0.98
+        },
+        {
+          "name": "Use Educational Materials and Visual Aids",
+          "description": "Give handouts, diagrams, or demonstrations to clarify CBT concepts and encourage active patient engagement in learning.",
+          "states": [
+            "When verbal explanations are insufficient or patient has learning/style needs.",
+            "At any point information retention is a concern."
+          ],
+          "confidence_score": 0.95
+        },
+        {
+          "name": "Check Patient Understanding",
+          "description": "Use teach-back, open questions, or short quizzes to assess the patient's grasp of CBT principles and correct misconceptions.",
+          "states": [
+            "After psychoeducation delivery.",
+            "When the patient seems confused or skeptical."
+          ],
+          "confidence_score": 0.99
+        },
+        {
+          "name": "Normalize Symptom Mechanisms",
+          "description": "Use explicit statements that reframe symptoms as understandable reactions, reducing stigma and promoting engagement.",
+          "states": [
+            "When patient expresses shame, misunderstanding, or stigma.",
+            "Early in therapy or during crises."
+          ],
+          "confidence_score": 0.97
+        }
+      ]
+    },
+    {
+      "name": "Goal and Agenda Setting",
+      "description": "Therapist and patient collaborate to set specific, achievable treatment goals and jointly structure each session with an actionable agenda.",
+      "goal": {
+        "objective": "To focus therapy on clear, mutually agreed targets, ensuring efficient and purposeful sessions.",
+        "success_levels": {
+          "ideal": "Therapist and patient identify meaningful, specific goals and regularly set and complete clear agendas for each session.",
+          "acceptable": "General goals and session structures are agreed-upon and mostly followed.",
+          "unsuccessful": "Sessions are unfocused, with no clear goals or agendas, leading to meandering or unproductive therapy."
+        },
+        "reward_hint": "Session begins with explicit goal/agenda setting; end-of-session review confirms agenda progress."
+      },
+      "states": [
+        "Start of treatment to anchor therapy direction.",
+        "Start of each session to clarify focus.",
+        "When therapy becomes unfocused, or when new issues arise.",
+        "When motivation wanes or progress stalls."
+      ],
+      "confidence_score": 1.0,
+      "micro_actions": [
+        {
+          "name": "Invite Patient Input on Session Agenda",
+          "description": "Ask the patient to specify priority issues or goals for the session, noting their suggestions explicitly.",
+          "states": [
+            "Session opening.",
+            "Whenever session priorities are unclear."
+          ],
+          "confidence_score": 1.0
+        },
+        {
+          "name": "Clarify and Operationalize Goals",
+          "description": "Prompt the patient to state goals in concrete, observable, and measurable terms (e.g., 'What would success look like this week?').",
+          "states": [
+            "Initial session or at start of new module/intervention.",
+            "When setting long-term and session-level targets."
+          ],
+          "confidence_score": 0.99
+        },
+        {
+          "name": "Summarize and Confirm Agenda/Goals",
+          "description": "Restate agreed-upon goals/agenda and confirm with patient understanding and buy-in.",
+          "states": [
+            "Post agenda/goals negotiation.",
+            "Before proceeding with new content."
+          ],
+          "confidence_score": 1.0
+        },
+        {
+          "name": "Review Agenda Progress Mid- and End-Session",
+          "description": "Periodically check progress toward the agenda/goals and invite patient reflection or adjustments as needed.",
+          "states": [
+            "Midway and end of session.",
+            "When sessions veer off course."
+          ],
+          "confidence_score": 0.97
+        },
+        {
+          "name": "Address Obstacles to Goal Setting",
+          "description": "Probe for barriers (internal or external) interfering with goal identification/achievement and collaboratively problem-solve solutions.",
+          "states": [
+            "When patient struggles to generate goals or agenda items.",
+            "When progress stalls or avoidance arises."
+          ],
+          "confidence_score": 0.97
+        }
+      ]
+    },
+    {
+      "name": "Cognitive Intervention (Thought Identification and Restructuring)",
+      "description": "Therapist guides the patient to identify, evaluate, and restructure automatic thoughts, maladaptive beliefs, and core schemas using Socratic questioning, cognitive restructuring, and related strategies.",
+      "goal": {
+        "objective": "To help the patient recognize and modify dysfunctional cognitions that drive distress and maladaptive behavior.",
+        "success_levels": {
+          "ideal": "Patient reliably identifies automatic thoughts, successfully challenges distortions, and adopts more adaptive perspectives.",
+          "acceptable": "Patient makes progress recognizing and questioning unhelpful thoughts, with occasional support needed.",
+          "unsuccessful": "Little or no change in thinking patterns; patient clings to maladaptive cognitions or cannot apply restructuring techniques."
+        },
+        "reward_hint": "Patient generates alternative, more balanced thoughts during or between sessions."
+      },
+      "states": [
+        "Presentation/logging of strong emotions, symptoms, or dysfunctional behavior.",
+        "Patient reports 'stuck' thinking or overt cognitive distortions.",
+        "In exposure to situations that evoke core beliefs or negative thoughts.",
+        "Whenever practical, to reinforce cognitive model skills."
+      ],
+      "confidence_score": 1.0,
+      "micro_actions": [
+        {
+          "name": "Elicit and Label Automatic Thoughts",
+          "description": "Ask targeted, situation-specific questions (e.g., 'What went through your mind when that happened?'), prompting the patient to articulate and record thoughts verbatim.",
+          "states": [
+            "When discussing emotional reactions or behavioral events.",
+            "Throughout cognitive restructuring modules."
+          ],
+          "confidence_score": 1.0
+        },
+        {
+          "name": "Identify and Categorize Cognitive Distortions",
+          "description": "Guide the patient to spot and label thinking errors (e.g., catastrophizing, black-and-white thinking), using worksheets or direct Socratic questioning.",
+          "states": [
+            "When dysfunctional thoughts emerge.",
+            "During review of thought records."
+          ],
+          "confidence_score": 1.0
+        },
+        {
+          "name": "Challenge Unhelpful Thoughts via Socratic Questioning",
+          "description": "Ask open, gently probing questions about the evidence for and against beliefs (e.g., 'What is the evidence for this thought? Against it?'), using patient examples.",
+          "states": [
+            "Any time maladaptive cognitions are identified.",
+            "During cognitive interventions."
+          ],
+          "confidence_score": 1.0
+        },
+        {
+          "name": "Collaboratively Generate Alternative Thoughts",
+          "description": "Assist the patient in brainstorming and articulating more balanced/realistic perspectives, often writing or revising these together.",
+          "states": [
+            "After challenging distortions.",
+            "When preparing coping cards or new responses."
+          ],
+          "confidence_score": 1.0
+        },
+        {
+          "name": "Facilitate Rating of Thought Belief Strength",
+          "description": "Ask the patient to rate conviction in old and new thoughts/beliefs (0-100%), tracking changes over time.",
+          "states": [
+            "After cognitive exercises.",
+            "When monitoring progress in changing beliefs."
+          ],
+          "confidence_score": 0.98
+        },
+        {
+          "name": "Probe for Core Beliefs and Schemas",
+          "description": "Use downward arrow technique or recursive questioning to uncover more fundamental beliefs governing thoughts and behaviors.",
+          "states": [
+            "When persistent patterns or emotional 'hot spots' remain.",
+            "During advanced restructuring phases."
+          ],
+          "confidence_score": 0.98
+        }
+      ]
+    },
+    {
+      "name": "Behavioral Experimentation and Exposure",
+      "description": "Therapist collaboratively designs and implements behavioral experiments or exposure tasks with the patient to test beliefs, reduce avoidance, and promote adaptive learning.",
+      "goal": {
+        "objective": "To gather experiential evidence that challenges unhelpful beliefs and reduces avoidance behaviors.",
+        "success_levels": {
+          "ideal": "Patient completes planned experiments or exposures, reflects on results, and modifies beliefs/behaviors adaptively.",
+          "acceptable": "Patient attempts behavioral tasks with partial completion or limited insight gained.",
+          "unsuccessful": "Experiments/exposures are avoided, incomplete, or ineffective in addressing target beliefs or behaviors."
+        },
+        "reward_hint": "Patient completes experiment/exposure and discusses learning or belief change in subsequent session."
+      },
+      "states": [
+        "When safety behaviors, avoidance, or strongly held beliefs are identified.",
+        "After cognitive interventions highlight beliefs suitable for empirical testing.",
+        "In treatment of anxiety, OCD, depression, PTSD, phobia, eating and related disorders.",
+        "When cognitive work stalls or insight does not generalize to behavior."
+      ],
+      "confidence_score": 1.0,
+      "micro_actions": [
+        {
+          "name": "Collaboratively Design Behavioral Experiments or Exposure Tasks",
+          "description": "Jointly set up concrete, context-sensitive experiments targeting specific beliefs/behaviors (e.g., activity scheduling, ritual delay, exposure hierarchy step).",
+          "states": [
+            "After identification of target beliefs or behaviors.",
+            "At planning phase for behavioral change."
+          ],
+          "confidence_score": 1.0
+        },
+        {
+          "name": "Elicit Explicit Pre-experiment Predictions and Ratings",
+          "description": "Prompt the patient to make and record detailed predictions about what will occur, including belief strength or anxiety levels before the experiment.",
+          "states": [
+            "Immediately before experiment/exposure.",
+            "When using worksheets or diaries."
+          ],
+          "confidence_score": 1.0
+        },
+        {
+          "name": "Detect and Challenge Safety Behaviors",
+          "description": "Ask about and collaboratively plan to observe, drop, or test coping/safety behaviors that may prevent genuine learning during the experiment.",
+          "states": [
+            "Planning phase and during experiment.",
+            "Review of past unsuccessful experiments."
+          ],
+          "confidence_score": 1.0
+        },
+        {
+          "name": "Coach and Encourage During Experiment/Exposure",
+          "description": "Provide real-time support, verbal encouragement, or troubleshooting to help the patient engage adaptively (e.g., bring attention back when avoidance arises).",
+          "states": [
+            "During experiments or exposure exercises.",
+            "At moments of patient distress/discomfort."
+          ],
+          "confidence_score": 1.0
+        },
+        {
+          "name": "Prompt Systematic Recording of Observations",
+          "description": "Ask the patient to document experiences, emotional responses, and outcomes during and after the experiment for review.",
+          "states": [
+            "Throughout the experiment/exposure.",
+            "Immediately after experiment completion."
+          ],
+          "confidence_score": 1.0
+        },
+        {
+          "name": "Facilitate Structured Reflection and Debrief",
+          "description": "Guide patient in reflecting on experiment outcomes vs. predictions, discussing implications for beliefs and possible generalization.",
+          "states": [
+            "Post-experiment.",
+            "When drawing lessons or modifying future plans."
+          ],
+          "confidence_score": 1.0
+        },
+        {
+          "name": "Iteratively Adapt Experiments Based on Results",
+          "description": "Encourage review of outcomes and adjustment of subsequent experiments to address obstacles or refine learning.",
+          "states": [
+            "After experiment cycles or setbacks.",
+            "As tolerance for exposure increases."
+          ],
+          "confidence_score": 0.98
+        }
+      ]
+    },
+    {
+      "name": "Skills Training and Coping Strategy Development",
+      "description": "Therapist teaches, models, and practices specific coping skills with the patient (e.g., problem solving, relaxation, emotion regulation, assertiveness, communication) to address deficits and support adaptive functioning.",
+      "goal": {
+        "objective": "To build and reinforce practical coping abilities supporting cognitive and behavioral change.",
+        "success_levels": {
+          "ideal": "Patient demonstrates acquisition and appropriate use of taught skills in-session and in daily life.",
+          "acceptable": "Patient is learning and attempts skills with varied success; ongoing support is needed.",
+          "unsuccessful": "Skills are not acquired or practiced, and coping deficits persist."
+        },
+        "reward_hint": "Patient uses skills outside of therapy and reports improved coping with targeted issues."
+      },
+      "states": [
+        "Patient exhibits maladaptive coping, skill deficits, or functional impairment.",
+        "Emotional or behavioral goals require practical intervention (e.g., assertiveness for social anxiety, relaxation for physiological arousal).",
+        "Relapse prevention phases needing reinforcement of self-efficacy and self-management."
+      ],
+      "confidence_score": 0.97,
+      "micro_actions": [
+        {
+          "name": "Teach, Model, and Demonstrate Coping Skills",
+          "description": "Provide step-by-step instruction, modeling (e.g., role-play, demonstration), and rationale for each skill (e.g., relaxation, assertiveness, problem-solving).",
+          "states": [
+            "When introducing new skills.",
+            "During practice and troubleshooting defective coping."
+          ],
+          "confidence_score": 0.99
+        },
+        {
+          "name": "Guide Collaborative Skill Practice and Rehearsal",
+          "description": "Lead exercises, role-plays, or in-session rehearsals; support patient participation and give immediate corrective feedback.",
+          "states": [
+            "In-session and during homework assignment phases.",
+            "When skill acquisition requires active demonstration."
+          ],
+          "confidence_score": 1.0
+        },
+        {
+          "name": "Facilitate Use of Worksheets, Diaries, or Logs to Track Skill Usage",
+          "description": "Prompt completion of worksheets tracking mastery, emotion ratings, and events related to skill use; review with patient for feedback.",
+          "states": [
+            "During skill-building and monitoring phases.",
+            "For progress tracking."
+          ],
+          "confidence_score": 0.98
+        },
+        {
+          "name": "Provide Feedback, Reinforcement, and Problem-Solving",
+          "description": "Praise successful use of skills, troubleshoot difficulties or barriers, and encourage persistence in applying skills outside therapy.",
+          "states": [
+            "After skill use (in or between sessions).",
+            "When patient faces setbacks."
+          ],
+          "confidence_score": 1.0
+        },
+        {
+          "name": "Encourage Generalization and Application of Skills",
+          "description": "Prompt reflection on where, when, and how newly acquired skills can be transferred to real-life challenges.",
+          "states": [
+            "During or after skills training.",
+            "Throughout relapse prevention planning."
+          ],
+          "confidence_score": 0.97
+        }
+      ]
+    },
+    {
+      "name": "Homework Assignment and Review",
+      "description": "Therapist assigns, reviews, and collaboratively troubleshoots homework tasks (thought records, experiments, activity scheduling, skills practice) to generalize learning and promote between-session progress.",
+      "goal": {
+        "objective": "To reinforce and extend therapeutic learning outside of sessions and to identify and address barriers to change.",
+        "success_levels": {
+          "ideal": "Patient completes homework, gains new insights or makes changes, and homework is reviewed constructively in-session.",
+          "acceptable": "Patient completes most homework with some challenges; review is used to problem-solve obstacles.",
+          "unsuccessful": "Homework is not assigned, completed, or reviewed; learning does not generalize, and engagement is limited."
+        },
+        "reward_hint": "Timely homework completion; discussion of homework is regular and leads to new therapeutic targets."
+      },
+      "states": [
+        "Following sopistication of a skill or intervention requiring consolidation.",
+        "At session end as a bridge to next session.",
+        "When between-session learning or practice will enhance therapy gains.",
+        "When lack of progress signals the need to address barriers to homework."
+      ],
+      "confidence_score": 1.0,
+      "micro_actions": [
+        {
+          "name": "Assign Clear, Concrete Homework with Rationale",
+          "description": "Explain the purpose, steps, and expected outcomes for homework tasks; record them explicitly in writing.",
+          "states": [
+            "End of session and after intervention introduction.",
+            "When new skills/exercises need extra practice."
+          ],
+          "confidence_score": 1.0
+        },
+        {
+          "name": "Collaborative Customization and Troubleshooting of Homework",
+          "description": "Invite patient feedback, address anticipated and actual barriers, break down assignments to smaller steps as needed.",
+          "states": [
+            "At assignment of homework.",
+            "When homework adherence has failed."
+          ],
+          "confidence_score": 1.0
+        },
+        {
+          "name": "Review Homework Progress and Experiences",
+          "description": "Ask open questions about homework completion, challenges, insights, and review content in-session for reflection or problem solving.",
+          "states": [
+            "Start or end of session, post-assignment.",
+            "When progress needs to be monitored."
+          ],
+          "confidence_score": 1.0
+        },
+        {
+          "name": "Adjust and Reassign Homework Based on Experience",
+          "description": "Modify tasks or provide alternatives when original homework is not feasible, ensuring a 'win' and continued engagement.",
+          "states": [
+            "After reviewing incomplete or overly difficult homework.",
+            "After major life changes affecting previous plans."
+          ],
+          "confidence_score": 0.99
+        },
+        {
+          "name": "Encourage Use of Reminders, Checklists, and External Aids",
+          "description": "Suggest practical supports (e.g., phone alerts, visual notes, worksheet binders) to promote adherence and recall between sessions.",
+          "states": [
+            "For patients struggling with organization or memory.",
+            "When homework is frequently forgotten or skipped."
+          ],
+          "confidence_score": 0.97
+        },
+        {
+          "name": "Praise Effort and Reflect on Learning from Homework",
+          "description": "Offer recognition for attempts and engagement, encourage reflection on what was learned regardless of outcome.",
+          "states": [
+            "After homework review.",
+            "During periods of partial completion or setbacks."
+          ],
+          "confidence_score": 0.99
+        }
+      ]
+    },
+    {
+      "name": "Reflection, Consolidation, and Progress Monitoring",
+      "description": "Therapist facilitates structured reflection on interventions, explores implications for beliefs and behavior, and monitors progress toward treatment goals.",
+      "goal": {
+        "objective": "To enable the patient to extract learning, consolidate changes, and maintain awareness of progress and setbacks.",
+        "success_levels": {
+          "ideal": "Patient articulates insights from interventions, recognizes areas of growth or continuing challenge, and tracks progress.",
+          "acceptable": "Reflection and monitoring occur but are more therapist-led or superficial.",
+          "unsuccessful": "Patient does not reflect on sessions or recognize changes, leading to stagnation or premature dropout."
+        },
+        "reward_hint": "Patient reports specific learning, identifies successful changes, and adapts goals as progress is reviewed."
+      },
+      "states": [
+        "After completion of major interventions or at natural breaks (e.g., post-experiment).",
+        "When evaluating overall therapy progress (midpoint, discharge planning).",
+        "After setbacks, plateaus, or relapse."
+      ],
+      "confidence_score": 1.0,
+      "micro_actions": [
+        {
+          "name": "Prompt Structured Reflection on Intervention Outcomes",
+          "description": "Ask targeted questions (e.g., 'What did you learn from this experience?', 'How did the result compare to your prediction?') to facilitate reflection on specific exercises or experiments.",
+          "states": [
+            "Immediately after behavioral/cognitive interventions.",
+            "At review points in therapy."
+          ],
+          "confidence_score": 1.0
+        },
+        {
+          "name": "Facilitate Progress Tracking with Ratings and Logs",
+          "description": "Support patient in regularly rating beliefs, symptoms, mood, and activity, and recording changes in worksheets or diaries.",
+          "states": [
+            "During routine monitoring.",
+            "After interventions or at planned review points."
+          ],
+          "confidence_score": 1.0
+        },
+        {
+          "name": "Summarize and Consolidate Gains",
+          "description": "Verbally and/or in writing, highlight achievements, changes, or key insights, and invite patient to acknowledge progress.",
+          "states": [
+            "Session closures, progress review, or before transitions.",
+            "When positive changes are evident."
+          ],
+          "confidence_score": 0.99
+        },
+        {
+          "name": "Identify Remaining Challenges and Setbacks",
+          "description": "Invite discussion of ongoing difficulties, failures, or relapses, normalize these experiences, and collaboratively set new targets.",
+          "states": [
+            "After setbacks, plateaus, or incomplete progress.",
+            "During relapse prevention or transition planning."
+          ],
+          "confidence_score": 1.0
+        },
+        {
+          "name": "Revise Formulation or Goals Based on Reflection",
+          "description": "Update working hypotheses, goals, or therapy plans in collaboration with the patient based on new insight or progress.",
+          "states": [
+            "After reflection reveals change in focus needs.",
+            "When planning next phase of therapy."
+          ],
+          "confidence_score": 0.98
+        }
+      ]
+    },
+    {
+      "name": "Termination, Relapse Prevention, and Follow-up Planning",
+      "description": "Therapist prepares the patient for the end of therapy by planning for maintenance of gains, relapse prevention, and promoting patient autonomy.",
+      "goal": {
+        "objective": "To sustain treatment outcomes, minimize risk of relapse, and encourage continued self-management beyond therapy.",
+        "success_levels": {
+          "ideal": "Patient independently uses CBT techniques, has a relapse prevention plan, and responds adaptively to setbacks.",
+          "acceptable": "Patient recognizes warning signs and seeks help or returns to CBT tools as needed.",
+          "unsuccessful": "Patient is unprepared for therapy ending, quickly relapses, or does not use learned skills."
+        },
+        "reward_hint": "Patient articulates a clear plan for self-management; booster sessions or follow-up shows maintained gains."
+      },
+      "states": [
+        "When therapy goals are substantially achieved.",
+        "Toward planned discharge or transition to maintenance/booster phase.",
+        "When discussing anticipated high-risk situations or setbacks."
+      ],
+      "confidence_score": 1.0,
+      "micro_actions": [
+        {
+          "name": "Review and Celebrate Therapy Gains and Skill Acquisition",
+          "description": "Summarize key achievements, highlight learned skills, and invite patient reflection on progress and changes.",
+          "states": [
+            "Near discharge or therapy completion.",
+            "During booster/final sessions."
+          ],
+          "confidence_score": 1.0
+        },
+        {
+          "name": "Facilitate Relapse Prevention Planning",
+          "description": "Collaboratively brainstorm and document early warning signs, high-risk situations, and specific action plans for maintaining progress.",
+          "states": [
+            "Final phase of active therapy.",
+            "When preparing for return to usual life after therapy."
+          ],
+          "confidence_score": 1.0
+        },
+        {
+          "name": "Teach and Reinforce Self-Monitoring Skills",
+          "description": "Prompt regular rating of mood, beliefs, and coping efforts; support use of logs, reminders, and relapse management worksheets.",
+          "states": [
+            "In maintenance phase.",
+            "When self-management needs strengthening."
+          ],
+          "confidence_score": 1.0
+        },
+        {
+          "name": "Plan for Continued Practice and Booster Sessions",
+          "description": "Schedule, discuss need for, and encourage use of booster sessions or check-ins as part of follow-up planning.",
+          "states": [
+            "Final sessions or relapse prevention planning.",
+            "When patient expresses concern about future setbacks."
+          ],
+          "confidence_score": 0.98
+        },
+        {
+          "name": "Encourage Patient Autonomy and Ownership",
+          "description": "Explicitly ask patient to articulate their own strategies for coping and maintaining gains, reinforce autonomous use of CBT tools.",
+          "states": [
+            "Immediately prior to termination.",
+            "When evaluating readiness for independent self-management."
+          ],
+          "confidence_score": 1.0
+        }
+      ]
+    }
+  ],
+  "conversation_states": [
+    {
+      "Variable Name": "Belief Conviction",
+      "Description": "The patient's current level of belief in target, alternative, and core cognitions. This matters because the level of conviction informs the need for cognitive restructuring, experiment targeting, and progress tracking.",
+      "Categorical values": [
+        "target cognition",
+        "alternative cognition",
+        "core belief",
+        "assumption",
+        "automatic thought"
+      ],
+      "Numerical values": "regression from 0 to 1 scale"
+    },
+    {
+      "Variable Name": "Emotional State Intensity",
+      "Description": "Current intensity and type of emotion (e.g., anxiety, distress, sadness, anger). This matters for understanding the patient’s moment-to-moment experience and tailoring interventions or pacing.",
+      "Categorical values": [
+        "anxiety",
+        "distress",
+        "sadness",
+        "anger",
+        "guilt",
+        "hopelessness",
+        "frustration",
+        "mood swing",
+        "flat affect"
+      ],
+      "Numerical values": "regression from 0 to 1 scale"
+    },
+    {
+      "Variable Name": "Safety Behaviors and Avoidance",
+      "Description": "Presence, type, and frequency of safety behaviors and avoidance strategies. Essential for targeting exposures, behavioral experiments, and evaluating progress.",
+      "Categorical values": [
+        "body checking",
+        "reassurance seeking",
+        "information searching",
+        "rituals",
+        "avoidance",
+        "none"
+      ],
+      "Numerical values": "regression from 0 to 1 scale"
+    },
+    {
+      "Variable Name": "Therapeutic Alliance",
+      "Description": "Strength and quality of collaboration, trust, and engagement between patient and therapist. Crucial for session openness, treatment adherence, and outcome.",
+      "Categorical values": [
+        "low",
+        "moderate",
+        "high",
+        "ruptured",
+        "repaired"
+      ],
+      "Numerical values": "regression from 0 to 1 scale"
+    },
+    {
+      "Variable Name": "Motivation and Readiness for Change",
+      "Description": "Current motivation level and willingness to engage with cognitive or behavioral change, experiments, and homework. This informs intervention selection and session pacing.",
+      "Categorical values": [
+        "ambivalent",
+        "willing",
+        "resistant",
+        "highly motivated",
+        "not motivated"
+      ],
+      "Numerical values": "regression from 0 to 1 scale"
+    },
+    {
+      "Variable Name": "Cognitive Biases",
+      "Description": "Activation and type of cognitive distortions or processing biases (e.g., catastrophizing, selective attention, discounting positives) present in patient thinking.",
+      "Categorical values": [
+        "catastrophizing",
+        "overgeneralization",
+        "personalization",
+        "emotional reasoning",
+        "selective attention",
+        "none"
+      ],
+      "Numerical values": "regression from 0 to 1 scale"
+    },
+    {
+      "Variable Name": "Self-Awareness and Insight",
+      "Description": "Level of patient awareness regarding their own thoughts, feelings, physiological reactions, and behavioral tendencies within and outside the session.",
+      "Categorical values": [
+        "low",
+        "moderate",
+        "high"
+      ],
+      "Numerical values": "regression from 0 to 1 scale"
+    },
+    {
+      "Variable Name": "Processing Style",
+      "Description": "Whether patient operates predominantly with analytical (intellectual) or experiential (emotional) conviction, and flexibility vs. rigidity in thinking style.",
+      "Categorical values": [
+        "intellectual",
+        "emotional",
+        "flexible",
+        "rigid"
+      ],
+      "Numerical values": "regression from 0 to 1 scale"
+    },
+    {
+      "Variable Name": "Stage in Experiential Learning Cycle",
+      "Description": "Where the patient is within the cycle: planning, experiencing, observing, or reflecting on behavioral experiments. Influences session structure and intervention timing.",
+      "Categorical values": [
+        "plan",
+        "experience",
+        "observe",
+        "reflect"
+      ],
+      "Numerical values": "regression from 0 to 1 scale"
+    },
+    {
+      "Variable Name": "Engagement and Adherence",
+      "Description": "Patient's level of engagement with session activities and adherence to homework, exposure tasks, and behavioral experiments.",
+      "Categorical values": [
+        "none",
+        "partial",
+        "full",
+        "inconsistent"
+      ],
+      "Numerical values": "regression from 0 to 1 scale"
+    },
+    {
+      "Variable Name": "Physiological Sensations",
+      "Description": "Intensity and type of physiological symptoms (e.g., palpitations, sweating, dizziness) associated with emotional states; relevant for panic, anxiety, and somatic concerns.",
+      "Categorical values": [
+        "present",
+        "absent",
+        "mild",
+        "moderate",
+        "severe"
+      ],
+      "Numerical values": "regression from 0 to 1 scale"
+    },
+    {
+      "Variable Name": "Generalization of New Learning",
+      "Description": "The extent to which new insights, behaviors, or belief changes are applied beyond the therapy context to real-world situations.",
+      "Categorical values": [
+        "none",
+        "some",
+        "consistent",
+        "generalized"
+      ],
+      "Numerical values": "regression from 0 to 1 scale"
+    },
+    {
+      "Variable Name": "Comorbid Symptoms",
+      "Description": "The presence and impact of comorbid symptoms (depression, social anxiety, chronic pain, substance abuse) and their effect on session goals or CBT intervention.",
+      "Categorical values": [
+        "none",
+        "depression",
+        "social anxiety",
+        "pain",
+        "multiple"
+      ],
+      "Numerical values": "regression from 0 to 1 scale"
+    },
+    {
+      "Variable Name": "Environmental and Social Support Factors",
+      "Description": "Level and quality of support or reinforcement from social/environmental sources (e.g., family, friends, workplace), and their effect on therapy progress.",
+      "Categorical values": [
+        "supportive",
+        "neutral",
+        "unsupportive",
+        "hostile"
+      ],
+      "Numerical values": "regression from 0 to 1 scale"
+    },
+    {
+      "Variable Name": "Barriers and Obstacles",
+      "Description": "Any practical, psychological, or situational barriers preventing progress, engagement, or completion of homework and tasks (e.g., motivation, cognitive deficits, avoidance, logistical issues).",
+      "Categorical values": [
+        "none",
+        "practical",
+        "psychological",
+        "situational",
+        "multiple"
+      ],
+      "Numerical values": "regression from 0 to 1 scale"
+    },
+    {
+      "Variable Name": "Appraisal of Self and World",
+      "Description": "Current patient appraisal of self-worth, safety, autonomy, competence, and perception of the external world, indicating which cognitive triad domain is most activated.",
+      "Categorical values": [
+        "self",
+        "world",
+        "future",
+        "mixed"
+      ],
+      "Numerical values": "regression from 0 to 1 scale"
+    },
+    {
+      "Variable Name": "Change in Mood/Emotional State",
+      "Description": "Observed or reported shifts in mood or emotion within the session, particularly in response to experiments, interventions, or insight development.",
+      "Categorical values": [
+        "improved",
+        "worsened",
+        "stable",
+        "fluctuating"
+      ],
+      "Numerical values": "regression from 0 to 1 scale"
+    },
+    {
+      "Variable Name": "Readiness for Further Experimentation",
+      "Description": "Patient’s openness and confidence to try new behavioral experiments or exposures after discussing results or encountering setbacks.",
+      "Categorical values": [
+        "ready",
+        "hesitant",
+        "resistant",
+        "eager"
+      ],
+      "Numerical values": "regression from 0 to 1 scale"
+    },
+    {
+      "Variable Name": "Belief Updating and Behavioral Flexibility",
+      "Description": "The degree to which the patient is able to reconsider beliefs, assimilate new evidence, and shift behavior as a result of therapeutic experience.",
+      "Categorical values": [
+        "none",
+        "some",
+        "full",
+        "rigid"
+      ],
+      "Numerical values": "regression from 0 to 1 scale"
+    }
+  ],
+  "knowledge_graph": {
+    "nodes": [
+      {
+        "type": "Patient",
+        "description": "The individual undergoing cognitive behavioral therapy; all tracked long-term dimensions are grouped under this root node."
+      },
+      {
+        "type": "Presenting Problems & Diagnoses",
+        "description": "History of presenting problems, diagnostic profile, comorbid conditions, symptom onset and course."
+      },
+      {
+        "type": "History & Life Events",
+        "description": "Significant life events, developmental antecedents, trauma, formative experiences, family/social/cultural influences."
+      },
+      {
+        "type": "Case Formulation & Cognitive Conceptualization",
+        "description": "Therapist’s working model; cognitive formulations, individualized models, and evolution of case conceptualization over time."
+      },
+      {
+        "type": "Core Beliefs, Schemas, Assumptions",
+        "description": "Enduring core beliefs, schemas (about self/other/world), conditional/intermediate assumptions, rules for living."
+      },
+      {
+        "type": "Automatic Thoughts & Cognitive Patterns",
+        "description": "Record of key automatic thoughts, recurring cognitive distortions, patterns of thinking, typical content and triggers."
+      },
+      {
+        "type": "Cognitive Biases & Attributional Styles",
+        "description": "Typical biases (catastrophic thinking, personalization, etc.), attributional style, persistent cognitive errors, and their evolution."
+      },
+      {
+        "type": "Emotional Responses",
+        "description": "Patterns of emotional reactions (types, intensity, triggers), emotional vocabulary, chronic emotional difficulties, and mood tracking."
+      },
+      {
+        "type": "Behavioral Patterns & Experiments",
+        "description": "Behavioral activation/avoidance patterns, completed behavioral experiments, outcomes, safety behaviors, rituals."
+      },
+      {
+        "type": "Safety Behaviors & Coping Strategies",
+        "description": "Types and history of safety behaviors, avoidance strategies, rescue behaviors, coping efforts (both adaptive and maladaptive)."
+      },
+      {
+        "type": "Physiological & Functional Responses",
+        "description": "Patterns in physiological arousal (e.g., panic symptoms), sleep, health behaviors, functioning (social, occupational, academic)."
+      },
+      {
+        "type": "Therapeutic Interventions & Skills Acquisition",
+        "description": "Interventions used, homework adherence and outcomes, skill development (thought records, CBT tools), and mastery/self-efficacy ratings."
+      },
+      {
+        "type": "Progress & Outcome Tracking",
+        "description": "Progress on goals, symptom/challenge trajectories, relapse prevention status, learning generalization, and setbacks/relapses."
+      },
+      {
+        "type": "Homework & Activity Records",
+        "description": "History of assigned homework, activities scheduled/completed, associated barriers, and grading of mastery/pleasure."
+      },
+      {
+        "type": "Interpersonal Patterns & Support System",
+        "description": "Social network, relationship history/dynamics, support resources, interpersonal beliefs and behavior, alliance with therapist."
+      },
+      {
+        "type": "Medication & Biological Factors",
+        "description": "Medication history, biological/medical risk factors, side effect/adherence history."
+      },
+      {
+        "type": "Metacognitive Beliefs",
+        "description": "Metacognitive and process-level beliefs, confidence/conviction strength, responses to uncertainty and thought-related beliefs."
+      },
+      {
+        "type": "High-Risk Behaviors & Relapse Factors",
+        "description": "History of self-injury, suicidality, addiction, relapse warning signs, crisis management and protective/risk factors."
+      },
+      {
+        "type": "Cultural, Social, and Environmental Factors",
+        "description": "Cultural background, social roles, environmental or contextual influences on cognition/behavior and therapy engagement."
+      },
+      {
+        "type": "Therapeutic Relationship & Process Variables",
+        "description": "Quality of alliance, collaboration, rupture/repair history, boundary management, therapist-patient process notes."
+      },
+      {
+        "type": "Values, Goals, and Motivational Factors",
+        "description": "Personal values, goal history, action plans, motivation and readiness to change, achievements, and barriers."
+      },
+      {
+        "type": "Learning & Insight Trajectory",
+        "description": "Patient’s understanding of the CBT model, learning curve, generalization of skills, insight into their own difficulties, response to psychoeducation."
+      }
+    ],
+    "edges": [
+      {
+        "source": "Patient",
+        "target": "Presenting Problems & Diagnoses",
+        "relation": "has"
+      },
+      {
+        "source": "Patient",
+        "target": "History & Life Events",
+        "relation": "has"
+      },
+      {
+        "source": "Patient",
+        "target": "Case Formulation & Cognitive Conceptualization",
+        "relation": "has"
+      },
+      {
+        "source": "Patient",
+        "target": "Core Beliefs, Schemas, Assumptions",
+        "relation": "has"
+      },
+      {
+        "source": "Patient",
+        "target": "Automatic Thoughts & Cognitive Patterns",
+        "relation": "has"
+      },
+      {
+        "source": "Patient",
+        "target": "Cognitive Biases & Attributional Styles",
+        "relation": "has"
+      },
+      {
+        "source": "Patient",
+        "target": "Emotional Responses",
+        "relation": "has"
+      },
+      {
+        "source": "Patient",
+        "target": "Behavioral Patterns & Experiments",
+        "relation": "has"
+      },
+      {
+        "source": "Patient",
+        "target": "Safety Behaviors & Coping Strategies",
+        "relation": "has"
+      },
+      {
+        "source": "Patient",
+        "target": "Physiological & Functional Responses",
+        "relation": "has"
+      },
+      {
+        "source": "Patient",
+        "target": "Therapeutic Interventions & Skills Acquisition",
+        "relation": "has"
+      },
+      {
+        "source": "Patient",
+        "target": "Progress & Outcome Tracking",
+        "relation": "has"
+      },
+      {
+        "source": "Patient",
+        "target": "Homework & Activity Records",
+        "relation": "has"
+      },
+      {
+        "source": "Patient",
+        "target": "Interpersonal Patterns & Support System",
+        "relation": "has"
+      },
+      {
+        "source": "Patient",
+        "target": "Medication & Biological Factors",
+        "relation": "has"
+      },
+      {
+        "source": "Patient",
+        "target": "Metacognitive Beliefs",
+        "relation": "has"
+      },
+      {
+        "source": "Patient",
+        "target": "High-Risk Behaviors & Relapse Factors",
+        "relation": "has"
+      },
+      {
+        "source": "Patient",
+        "target": "Cultural, Social, and Environmental Factors",
+        "relation": "has"
+      },
+      {
+        "source": "Patient",
+        "target": "Therapeutic Relationship & Process Variables",
+        "relation": "has"
+      },
+      {
+        "source": "Patient",
+        "target": "Values, Goals, and Motivational Factors",
+        "relation": "has"
+      },
+      {
+        "source": "Patient",
+        "target": "Learning & Insight Trajectory",
+        "relation": "has"
+      },
+      {
+        "source": "Case Formulation & Cognitive Conceptualization",
+        "target": "Core Beliefs, Schemas, Assumptions",
+        "relation": "formulates/updates"
+      },
+      {
+        "source": "Core Beliefs, Schemas, Assumptions",
+        "target": "Automatic Thoughts & Cognitive Patterns",
+        "relation": "underlie"
+      },
+      {
+        "source": "Automatic Thoughts & Cognitive Patterns",
+        "target": "Cognitive Biases & Attributional Styles",
+        "relation": "contain/examples"
+      },
+      {
+        "source": "Automatic Thoughts & Cognitive Patterns",
+        "target": "Emotional Responses",
+        "relation": "influence"
+      },
+      {
+        "source": "Automatic Thoughts & Cognitive Patterns",
+        "target": "Behavioral Patterns & Experiments",
+        "relation": "trigger"
+      },
+      {
+        "source": "Emotional Responses",
+        "target": "Behavioral Patterns & Experiments",
+        "relation": "lead to"
+      },
+      {
+        "source": "Behavioral Patterns & Experiments",
+        "target": "Safety Behaviors & Coping Strategies",
+        "relation": "are composed of"
+      },
+      {
+        "source": "Behavioral Patterns & Experiments",
+        "target": "Progress & Outcome Tracking",
+        "relation": "inform"
+      },
+      {
+        "source": "Homework & Activity Records",
+        "target": "Progress & Outcome Tracking",
+        "relation": "feed into"
+      },
+      {
+        "source": "Therapeutic Interventions & Skills Acquisition",
+        "target": "Progress & Outcome Tracking",
+        "relation": "impact"
+      },
+      {
+        "source": "Interpersonal Patterns & Support System",
+        "target": "Emotional Responses",
+        "relation": "affect"
+      },
+      {
+        "source": "Medication & Biological Factors",
+        "target": "Physiological & Functional Responses",
+        "relation": "influence"
+      },
+      {
+        "source": "High-Risk Behaviors & Relapse Factors",
+        "target": "Progress & Outcome Tracking",
+        "relation": "threaten"
+      },
+      {
+        "source": "Values, Goals, and Motivational Factors",
+        "target": "Progress & Outcome Tracking",
+        "relation": "guide"
+      },
+      {
+        "source": "Learning & Insight Trajectory",
+        "target": "Therapeutic Interventions & Skills Acquisition",
+        "relation": "facilitate"
+      }
+    ]
+  },
+  "cautions": [
+    {
+      "negative_action": "Rigidly follow protocols without adaptation",
+      "description": "Therapist strictly implements CBT procedures without adapting to patient context.",
+      "risk": "May result in ineffective treatment, loss of rapport, and failure to address patient needs.",
+      "confidence_score": 0.95
+    },
+    {
+      "negative_action": "Neglect the therapeutic alliance",
+      "description": "Therapist ignores collaborative, empathic relationship with patient.",
+      "risk": "Breakdown of trust, reduced engagement, and poor therapy outcomes.",
+      "confidence_score": 0.97
+    },
+    {
+      "negative_action": "Reinforce safety behaviors",
+      "description": "Therapist allows or encourages safety behaviors during behavioral experiments or exposures.",
+      "risk": "Undermines cognitive change and maintains anxiety or avoidance patterns.",
+      "confidence_score": 0.99
+    },
+    {
+      "negative_action": "Force or rush patients into overwhelming experiments",
+      "description": "Therapist pushes patients into experiments that they do not understand, accept, or wish to perform.",
+      "risk": "Increases distress, reduces engagement, and risks patient demoralization.",
+      "confidence_score": 0.98
+    },
+    {
+      "negative_action": "Breach confidentiality or professional boundaries",
+      "description": "Therapist shares private information or acts outside accepted professional roles.",
+      "risk": "Damages trust, risks legal/ethical consequences, and harms the therapeutic relationship.",
+      "confidence_score": 0.95
+    },
+    {
+      "negative_action": "Ignore physical health risks",
+      "description": "Therapist fails to account for medical safety or doesn't obtain medical clearance when relevant.",
+      "risk": "Potential for harm or exacerbation of medical conditions.",
+      "confidence_score": 0.96
+    },
+    {
+      "negative_action": "Dismiss experiment setbacks as failures",
+      "description": "Therapist treats failed behavioral experiments as signs of treatment failure rather than opportunities for learning.",
+      "risk": "Demoralization and decreased patient motivation.",
+      "confidence_score": 0.94
+    },
+    {
+      "negative_action": "Push exposure beyond patient readiness",
+      "description": "Therapist forces patients into exposures they are not prepared for.",
+      "risk": "Can increase avoidance, distress, or dropout.",
+      "confidence_score": 0.97
+    },
+    {
+      "negative_action": "Argue about physical vs. psychological symptoms",
+      "description": "Therapist debates the nature of symptoms prematurely.",
+      "risk": "Can damage rapport and increase resistance.",
+      "confidence_score": 0.93
+    },
+    {
+      "negative_action": "Prematurely challenge core beliefs",
+      "description": "Therapist questions or confronts deeply held beliefs without patient readiness or alliance.",
+      "risk": "Threatens the therapeutic relationship and reduces treatment credibility.",
+      "confidence_score": 0.96
+    },
+    {
+      "negative_action": "Overgeneralize or use ambiguous experimental designs",
+      "description": "Therapist uses poorly controlled or overly broad experiments.",
+      "risk": "Confounds learning and risks invalid conclusions.",
+      "confidence_score": 0.92
+    },
+    {
+      "negative_action": "Neglect cultural or social context",
+      "description": "Therapist ignores the patient's background when interpreting or designing interventions.",
+      "risk": "Risks misinterpretation and ineffective or offensive intervention.",
+      "confidence_score": 0.9
+    },
+    {
+      "negative_action": "Coerce or surprise patients with traumatic exposures",
+      "description": "Therapist gives either excessive warning or no warning before exposing patients to distressing situations.",
+      "risk": "Can traumatize or alienate the patient, or reduce treatment engagement.",
+      "confidence_score": 0.92
+    },
+    {
+      "negative_action": "Ignore comorbid conditions",
+      "description": "Therapist does not assess or adjust for substance use, depression, or physical illness.",
+      "risk": "May result in inappropriate or unsafe interventions.",
+      "confidence_score": 0.91
+    },
+    {
+      "negative_action": "Assign vague or overwhelming homework",
+      "description": "Therapist gives tasks without specificity, rehearsal, or attention to barriers.",
+      "risk": "Limits learning, increases risk of non-compliance and discouragement.",
+      "confidence_score": 0.94
+    },
+    {
+      "negative_action": "Neglect suicide risk assessment",
+      "description": "Therapist fails to monitor or prioritize suicidal thoughts or hopelessness.",
+      "risk": "Endangers patient safety.",
+      "confidence_score": 0.99
+    },
+    {
+      "negative_action": "Ignore patient autonomy in treatment planning",
+      "description": "Therapist does not elicit patient input or control.",
+      "risk": "Reduces engagement, efficacy, and empowerment.",
+      "confidence_score": 0.95
+    },
+    {
+      "negative_action": "Invalidating patient distress or experience",
+      "description": "Therapist dismisses, minimizes, or ignores emotional pain, resistance, or reluctance.",
+      "risk": "Risks disengagement, loss of trust, and perpetuates symptoms.",
+      "confidence_score": 0.98
+    },
+    {
+      "negative_action": "Push for rapid change without preparation",
+      "description": "Therapist attempts to accelerate progress prematurely, ignoring readiness and obstacles.",
+      "risk": "Risks overwhelming or demoralizing the patient.",
+      "confidence_score": 0.96
+    },
+    {
+      "negative_action": "Overload or under-challenge behavioral experiments",
+      "description": "Therapist plans experiments that are either too difficult or too trivial.",
+      "risk": "Can obstruct progress and demotivate or overwhelm the patient.",
+      "confidence_score": 0.93
+    },
+    {
+      "negative_action": "Reinforce reassurance seeking or avoidance",
+      "description": "Therapist encourages behaviors that maintain anxiety or compulsions.",
+      "risk": "Prevents progress and perpetuates problem behaviors.",
+      "confidence_score": 0.97
+    },
+    {
+      "negative_action": "Use didactic or non-collaborative communication",
+      "description": "Therapist lectures or dictates rather than working collaboratively.",
+      "risk": "Damages alliance and undermines engagement.",
+      "confidence_score": 0.95
+    },
+    {
+      "negative_action": "Ignore homework review or planning",
+      "description": "Therapist fails to discuss, adapt, or support homework tasks.",
+      "risk": "Limits learning and skill acquisition.",
+      "confidence_score": 0.93
+    },
+    {
+      "negative_action": "Prescribe or recommend medication outside expertise",
+      "description": "Therapist advises on medication without relevant qualifications.",
+      "risk": "Risks patient safety and is potentially unethical or illegal.",
+      "confidence_score": 0.98
+    },
+    {
+      "negative_action": "Proceed despite contraindications (e.g., acute mania, psychosis)",
+      "description": "Therapist conducts cognitive therapy when patient is clinically unstable, or with inappropriate method selection.",
+      "risk": "May worsen symptoms, exacerbate risk, or delay appropriate intervention.",
+      "confidence_score": 0.97
+    }
+  ]
+}

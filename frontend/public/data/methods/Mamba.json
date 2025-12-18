@@ -1,0 +1,391 @@
+{
+  "action_space": [
+    {
+      "name": "Teaching Tools for Relapse Prevention",
+      "description": "Introduce and practice tools that patients can use to manage setbacks and maintain progress.",
+      "goal": {
+        "objective": "Introduce and practice tools that patients can use to manage setbacks and maintain progress.",
+        "success_levels": {
+          "ideal": "Patients can independently use tools to manage setbacks and maintain progress.",
+          "acceptable": "Patients can independently use tools to manage setbacks and maintain progress.",
+          "unsuccessful": "Patients cannot use tools to manage setbacks and maintain progress."
+        },
+        "reward_hint": "Patients can independently use tools to manage setbacks and maintain progress."
+      },
+      "states": [
+        "Patients are learning new coping strategies.",
+        "Patients are preparing for termination.",
+        "Patients are experiencing mild setbacks."
+      ],
+      "confidence_score": 0.9,
+      "micro_actions": [
+        {
+          "name": "Teaching Thought Records",
+          "description": "Teach patients to record and evaluate automatic thoughts.",
+          "goal": {
+            "objective": "Teach patients to record and evaluate automatic thoughts.",
+            "success_levels": {
+              "ideal": "Patients can record and evaluate automatic thoughts effectively.",
+              "acceptable": "Patients can record and evaluate automatic thoughts effectively.",
+              "unsuccessful": "Patients cannot record and evaluate automatic thoughts effectively."
+            },
+            "reward_hint": "Patients can record and evaluate automatic thoughts effectively."
+          },
+          "states": [
+            "Patients are expressing automatic thoughts.",
+            "Patients are preparing for termination.",
+            "Patients are reflecting on progress."
+          ],
+          "confidence_score": 0.9
+        },
+        {
+          "name": "Teaching Activity Scheduling",
+          "description": "Teach patients to schedule and engage in meaningful activities.",
+          "goal": {
+            "objective": "Teach patients to schedule and engage in meaningful activities.",
+            "success_levels": {
+              "ideal": "Patients can schedule and engage in meaningful activities effectively.",
+              "acceptable": "Patients can schedule and engage in meaningful activities effectively.",
+              "unsuccessful": "Patients cannot schedule and engage in meaningful activities effectively."
+            },
+            "reward_hint": "Patients can schedule and engage in meaningful activities effectively."
+          },
+          "states": [
+            "Patients are preparing for termination.",
+            "Patients are reflecting on progress.",
+            "Patients are experiencing low activity levels."
+          ],
+          "confidence_score": 0.9
+        },
+        {
+          "name": "Teaching Problem-Solving",
+          "description": "Teach patients how to identify, analyze, and solve problems effectively.",
+          "goal": {
+            "objective": "Teach patients how to identify, analyze, and solve problems effectively.",
+            "success_levels": {
+              "ideal": "Patients can identify, analyze, and solve problems effectively.",
+              "acceptable": "Patients can identify, analyze, and solve problems effectively.",
+              "unsuccessful": "Patients cannot identify, analyze, and solve problems effectively."
+            },
+            "reward_hint": "Patients can identify, analyze, and solve problems effectively."
+          },
+          "states": [
+            "Patients are facing solvable problems.",
+            "Patients are preparing for termination.",
+            "Patients are reflecting on progress."
+          ],
+          "confidence_score": 0.9
+        },
+        {
+          "name": "Teaching Credit Lists",
+          "description": "Teach patients to list and reflect on their achievements.",
+          "goal": {
+            "objective": "Teach patients to list and reflect on their achievements.",
+            "success_levels": {
+              "ideal": "Patients can list and reflect on their achievements effectively.",
+              "acceptable": "Patients can list and reflect on their achievements effectively.",
+              "unsuccessful": "Patients cannot list and reflect on their achievements effectively."
+            },
+            "reward_hint": "Patients can list and reflect on their achievements effectively."
+          },
+          "states": [
+            "Patients are reflecting on progress.",
+            "Patients are preparing for termination.",
+            "Patients are experiencing low self-esteem."
+          ],
+          "confidence_score": 0.9
+        },
+        {
+          "name": "Teaching Relaxation Exercises",
+          "description": "Teach patients relaxation techniques to manage stress and anxiety.",
+          "goal": {
+            "objective": "Teach patients relaxation techniques to manage stress and anxiety.",
+            "success_levels": {
+              "ideal": "Patients can manage stress and anxiety effectively using relaxation techniques.",
+              "acceptable": "Patients can manage stress and anxiety effectively using relaxation techniques.",
+              "unsuccessful": "Patients cannot manage stress and anxiety effectively using relaxation techniques."
+            },
+            "reward_hint": "Patients can manage stress and anxiety effectively using relaxation techniques."
+          },
+          "states": [
+            "Patients are preparing for termination.",
+            "Patients are reflecting on progress.",
+            "Patients are experiencing high stress levels."
+          ],
+          "confidence_score": 0.9
+        }
+      ]
+    },
+    {
+      "name": "Encouraging Self-Therapy",
+      "description": "Promote the use of self-therapy sessions to maintain progress and prevent relapse.",
+      "goal": {
+        "objective": "Promote the use of self-therapy sessions to maintain progress and prevent relapse.",
+        "success_levels": {
+          "ideal": "Patients can maintain progress and prevent relapse through self-therapy.",
+          "acceptable": "Patients can maintain progress and prevent relapse through self-therapy.",
+          "unsuccessful": "Patients cannot maintain progress and prevent relapse through self-therapy."
+        },
+        "reward_hint": "Patients can maintain progress and prevent relapse through self-therapy."
+      },
+      "states": [
+        "Patients are tapering therapy sessions.",
+        "Patients are preparing for termination.",
+        "Patients are expressing concerns about maintaining progress."
+      ],
+      "confidence_score": 0.9
+    },
+    {
+      "name": "Responding to Concerns About Termination",
+      "description": "Address patients' fears and concerns about ending therapy and becoming independent.",
+      "goal": {
+        "objective": "Address patients' fears and concerns about ending therapy and becoming independent.",
+        "success_levels": {
+          "ideal": "Patients feel confident and prepared to end therapy and become independent.",
+          "acceptable": "Patients feel confident and prepared to end therapy and become independent.",
+          "unsuccessful": "Patients feel unprepared or fearful about ending therapy."
+        },
+        "reward_hint": "Patients feel confident and prepared to end therapy and become independent."
+      },
+      "states": [
+        "Patients are expressing fears about termination.",
+        "Patients are preparing for the end of therapy.",
+        "Patients are transitioning to self-therapy."
+      ],
+      "confidence_score": 0.9
+    },
+    {
+      "name": "Reviewing Progress and Tools",
+      "description": "Help patients review and organize the skills and tools they have learned during therapy.",
+      "goal": {
+        "objective": "Help patients review and organize the skills and tools they have learned during therapy.",
+        "success_levels": {
+          "ideal": "Patients can review and organize skills and tools effectively.",
+          "acceptable": "Patients can review and organize skills and tools effectively.",
+          "unsuccessful": "Patients cannot review and organize skills and tools effectively."
+        },
+        "reward_hint": "Patients can review and organize skills and tools effectively."
+      },
+      "states": [
+        "Patients are nearing termination.",
+        "Patients are reflecting on their progress.",
+        "Patients are preparing for booster sessions."
+      ],
+      "confidence_score": 0.9
+    },
+    {
+      "name": "Preparing for Setbacks",
+      "description": "Help patients anticipate and plan for potential setbacks after therapy.",
+      "goal": {
+        "objective": "Help patients anticipate and plan for potential setbacks after therapy.",
+        "success_levels": {
+          "ideal": "Patients can anticipate and plan for potential setbacks effectively.",
+          "acceptable": "Patients can anticipate and plan for potential setbacks effectively.",
+          "unsuccessful": "Patients cannot anticipate or plan for potential setbacks effectively."
+        },
+        "reward_hint": "Patients can anticipate and plan for potential setbacks effectively."
+      },
+      "states": [
+        "Patients are nearing termination.",
+        "Patients are experiencing mild setbacks.",
+        "Patients are preparing for booster sessions."
+      ],
+      "confidence_score": 0.9
+    },
+    {
+      "name": "Encouraging Booster Sessions",
+      "description": "Promote the use of booster sessions to reinforce skills and address new challenges.",
+      "goal": {
+        "objective": "Promote the use of booster sessions to reinforce skills and address new challenges.",
+        "success_levels": {
+          "ideal": "Patients can reinforce skills and address new challenges through booster sessions.",
+          "acceptable": "Patients can reinforce skills and address new challenges through booster sessions.",
+          "unsuccessful": "Patients cannot reinforce skills and address new challenges through booster sessions."
+        },
+        "reward_hint": "Patients can reinforce skills and address new challenges through booster sessions."
+      },
+      "states": [
+        "Patients are preparing for termination.",
+        "Patients are transitioning to self-therapy.",
+        "Patients are experiencing mild setbacks."
+      ],
+      "confidence_score": 0.9
+    }
+  ],
+  "conversation_states": [
+    {
+      "Variable Name": "Relapse Prevention Tools",
+      "Description": "Techniques and strategies patients can use to prevent relapse and manage setbacks.",
+      "Categorical values": [
+        "Thought Records",
+        "Activity Scheduling",
+        "Relaxation Exercises",
+        "Problem-Solving",
+        "Credit Lists"
+      ],
+      "Numerical values": "0.0 (Not Used) to 1.0 (Fully Integrated)"
+    }
+  ],
+  "knowledge_graph": {
+    "nodes": [
+      {
+        "type": "Relapse Prevention Tools",
+        "description": "Techniques and strategies patients can use to prevent relapse and manage setbacks."
+      },
+      {
+        "type": "Setback Management",
+        "description": "Strategies for anticipating and managing setbacks after therapy."
+      },
+      {
+        "type": "Self-Therapy",
+        "description": "The process of patients continuing therapy independently."
+      }
+    ],
+    "edges": [
+      {
+        "source": "Relapse Prevention Tools",
+        "target": "Setback Management",
+        "relation": "Supports"
+      },
+      {
+        "source": "Relapse Prevention Tools",
+        "target": "Self-Therapy",
+        "relation": "Supports"
+      },
+      {
+        "source": "Setback Management",
+        "target": "Self-Therapy",
+        "relation": "Supports"
+      },
+      {
+        "source": "Self-Therapy",
+        "target": "Relapse Prevention Tools",
+        "relation": "Supports"
+      }
+    ]
+  },
+  "cautions": [
+    {
+      "negative_action": "Over-Emphasizing Therapist Dependence",
+      "description": "Encouraging patients to rely too heavily on the therapist for problem-solving.",
+      "risk": "Patients may struggle to manage setbacks independently after therapy.",
+      "confidence_score": 0.8
+    }
+  ],
+  "user_profile": [
+    {
+      "Dimension Name": "Cultural Sensitivity",
+      "Description": "Clinicians are encouraged to maintain a broad sensitivity to culture, including recognizing that not all patients believe in a Western medical model of disease. Tactful interviewing can often lead to a more precise diagnosis and a more culturally sensitive treatment plan.",
+      "categorical values": [
+        "High"
+      ],
+      "Numerical values": "1"
+    },
+    {
+      "Dimension Name": "Diagnostic Precision",
+      "Description": "The DSM-5-TR maintains several changes that were initially made in DSM-5, such as identifying panic attacks as a specifier for all anxiety disorders and creating new chapters for conditions related to OCD and trauma and stress. These changes enhance diagnostic precision.",
+      "categorical values": [
+        "High"
+      ],
+      "Numerical values": "1"
+    },
+    {
+      "Dimension Name": "Treatment Approach",
+      "Description": "The recommended treatment approaches include cognitive-behavioral therapy, medication (e.g., selective serotonin reuptake inhibitors or serotonin-norepinephrine reuptake inhibitors), and exploring psychosocial stressors to understand the onset of symptoms.",
+      "categorical values": [
+        "Combination"
+      ],
+      "Numerical values": "1"
+    },
+    {
+      "Dimension Name": "Patient-Centered Care",
+      "Description": "Treatment plans are tailored to the individual patient's needs, preferences, and cultural context, such as considering cultural explanatory models and the impact of cultural factors on attachment and anxiety.",
+      "categorical values": [
+        "High"
+      ],
+      "Numerical values": "1"
+    },
+    {
+      "Dimension Name": "Contributor Expertise",
+      "Description": "The contributors include experts in psychiatry, psychology, and social work, providing a multidisciplinary approach to understanding and managing anxiety disorders.",
+      "categorical values": [
+        "Psychiatry",
+        "Psychology",
+        "Social Work"
+      ],
+      "Numerical values": "1"
+    },
+    {
+      "Dimension Name": "Trauma and Stressor-Related Disorders",
+      "Description": "The DSM-5-TR includes a new chapter on trauma- and stressor-related disorders, which were previously categorized under other chapters. This reorganization emphasizes the importance of assessing the breadth of reactions to trauma or stressors. For example, PTSD and ASD are now characterized by heterogeneous symptoms, not limited to anxiety, and are no longer required to have symptoms from multiple symptom clusters. Additionally, the chapter introduces prolonged grief disorder as a new diagnosis.",
+      "categorical values": [
+        "High"
+      ],
+      "Numerical values": "1"
+    },
+    {
+      "Dimension Name": "Comorbidities",
+      "Description": "Comorbidities are common among trauma- and stressor-related disorders. For example, PTSD and ASD often present with prominent anxiety, and an alternative conceptualization of both disorders would characterize them on an anxiety spectrum of disorders, alongside, for example, obsessive-compulsive disorder.",
+      "categorical values": [
+        "High"
+      ],
+      "Numerical values": "1"
+    },
+    {
+      "Dimension Name": "Developmental Issues",
+      "Description": "Developmental issues can affect symptomatology. For example, children younger than 6 years can be traumatized by life-threatening events such as the threat of abandonment, and a primary presenting complaint might be nightmares, with or without traumatic content.",
+      "categorical values": [
+        "High"
+      ],
+      "Numerical values": "1"
+    },
+    {
+      "Dimension Name": "Cultural Expression of Symptoms",
+      "Description": "The growing evidence that culture affects clinical expression is explored in DSM-5-TR. For example, non-Western groups appear to respond to PTSD with less avoidance and more somatic symptoms such as dizziness and shortness of breath.",
+      "categorical values": [
+        "High"
+      ],
+      "Numerical values": "1"
+    },
+    {
+      "Dimension Name": "Somatic Symptom and Related Disorders",
+      "Description": "The DSM-5-TR chapter on somatic symptom and related disorders includes diagnoses such as somatic symptom disorder (SSD), illness anxiety disorder (IAD), functional neurological symptom disorder (conversion disorder), psychological factors affecting other medical conditions (PFAOMC), and factitious disorder. These diagnoses emphasize the patient's perspective on somatic experiences, filtered through cultural, health literacy, and previous health care experiences. The chapter de-emphasizes the exploration of medically unexplained symptoms and focuses on the distress and dysfunctional thoughts, feelings, and behaviors related to somatic symptoms.",
+      "categorical values": [
+        "High"
+      ],
+      "Numerical values": "1"
+    },
+    {
+      "Dimension Name": "Comorbidities",
+      "Description": "Comorbidities are common in somatic symptom and related disorders. For example, anxiety and depressive disorders are each identified in about half of the somatic symptom and related disorders. Posttraumatic stress disorder and obsessive-compulsive disorder are also commonly identified in people with SSD.",
+      "categorical values": [
+        "High"
+      ],
+      "Numerical values": "1"
+    },
+    {
+      "Dimension Name": "Developmental Issues",
+      "Description": "Developmental issues can affect symptomatology. For example, children younger than 6 years can be traumatized by life-threatening events such as the threat of abandonment, and a primary presenting complaint might be nightmares, with or without traumatic content.",
+      "categorical values": [
+        "High"
+      ],
+      "Numerical values": "1"
+    },
+    {
+      "Dimension Name": "Cultural Expression of Symptoms",
+      "Description": "The growing evidence that culture affects clinical expression is explored in DSM-5-TR. For example, non-Western groups appear to respond to PTSD with less avoidance and more somatic symptoms such as dizziness and shortness of breath.",
+      "categorical values": [
+        "High"
+      ],
+      "Numerical values": "1"
+    },
+    {
+      "Dimension Name": "Gender Dysphoria",
+      "Description": "Gender dysphoria refers to significant distress or impairment due to a marked incongruence between one's experienced/expressed gender and assigned gender. It is characterized by a persistent desire to be rid of primary and/or secondary sexual characteristics of the assigned gender, a strong desire to have the primary or secondary sexual characteristics of the other gender, and a strong desire to be of the other gender and/or treated as the other gender. The diagnosis requires that these symptoms persist for at least six months and cause clinically significant distress or impairment in important areas of functioning.",
+      "categorical values": [
+        "Posttransition"
+      ],
+      "Numerical values": "1"
+    }
+  ]
+}

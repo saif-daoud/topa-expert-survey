@@ -10,6 +10,25 @@ type Descriptions = Record<string, string>;
 
 const API_BASE = import.meta.env.VITE_API_BASE as string;
 
+const APP_DESC = `
+<div class="tight-text" style="font-size: 1.7rem;">
+
+<strong>Welcome, and thank you for contributing your expertise to this study.</strong><br><br>
+We are developing an AI system designed to <strong>simulate a mental health provider delivering Cognitive Behavioral Therapy (CBT).</strong><br>
+To do this responsibly, we automatically extract key components of CBT interventions from clinical textbooks. Your role is to help us evaluate the quality of these extracted components.<br><br>
+In this study, you will review three types of outputs the system generates:<br>
+    <strong>1. Macro Actions –</strong> high-level therapeutic moves (e.g., cognitive restructuring, problem-solving, agenda setting).<br>
+    <strong>2. Conversation State –</strong> the system’s moment-to-moment understanding of the client’s thoughts, feelings, behaviors, and therapeutic progress.<br>
+    <strong>3. Knowledge Graph –</strong> structured clinical concepts and their relationships, used to guide the AI’s reasoning and intervention planning.<br><br>
+For each of these components, you will see <strong>side-by-side results produced by different extraction methods.</strong><br>
+Your task is to <strong>choose the option that best reflects accurate, clinically meaningful CBT practice.</strong> There are no right or wrong answers — we are seeking your clinical judgment.<br><br>
+Your evaluations will help us refine an AI agent that behaves in a way that is safer, more consistent, and more aligned with real CBT interventions.<br><br>
+When you’re ready, click <strong>Start</strong> to begin.
+
+</div>
+`;
+
+
 function nowUtc() {
   return new Date().toISOString();
 }
@@ -495,16 +514,10 @@ export default function App() {
         <div className="container narrow">
           <div className="card">
             <div className="title">TOPA Expert Survey</div>
-            <div className="intro">
-              <p>
-                <b>Welcome, and thank you for contributing your expertise.</b>
-              </p>
-              <p>
-                You will review CBT-related outputs (Action Space, Conversation State, Knowledge Graph) extracted from clinical
-                resources by different methods, and select the better option.
-              </p>
-              <p className="note">When ready, enter the access code to begin.</p>
-            </div>
+            <div
+              className="intro"
+              dangerouslySetInnerHTML={{ __html: APP_DESC }}
+            />
 
             <form
               className="formRow"
