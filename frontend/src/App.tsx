@@ -11,7 +11,7 @@ type Descriptions = Record<string, string>;
 const API_BASE = import.meta.env.VITE_API_BASE as string;
 
 const APP_DESC = `
-<div class="tight-text" style="font-size: 1.7rem;">
+<div className="intro">
 
 <strong>Welcome, and thank you for contributing your expertise to this study.</strong><br><br>
 We are developing an AI system designed to <strong>simulate a mental health provider delivering Cognitive Behavioral Therapy (CBT).</strong><br>
