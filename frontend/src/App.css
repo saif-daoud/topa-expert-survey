@@ -19,13 +19,13 @@
 }
 
 .container {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 18px 16px 40px;
 }
 
 .container.narrow {
-  max-width: 720px;
+  max-width: 1000px;
 }
 
 .topbar {
