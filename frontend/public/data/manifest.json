@@ -6,7 +6,7 @@
     { "id": "D", "name": "Method D", "file": "methods/LC_Full.json" },
     { "id": "E", "name": "Method E", "file": "methods/Chunk_RAG.json" },
     { "id": "F", "name": "Method F", "file": "methods/Rules.json" },
-    { "id": "G", "name": "Method G", "file": "methods/TOPA-Per-Book.jso n" },
+    { "id": "G", "name": "Method G", "file": "methods/TOPA-Per-Book.json" },
     { "id": "H", "name": "Method H", "file": "methods/TOPAOurExtractor_LateFusion.json" },
     { "id": "I", "name": "Method I", "file": "methods/TOPAOurExtractor_EarlyFusion.json" },
     { "id": "J", "name": "Method J", "file": "methods/Mamba.json" },
